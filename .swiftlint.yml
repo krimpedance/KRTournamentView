@@ -1,0 +1,11 @@
+disabled_rules:
+  - line_length
+  - file_length
+included:
+  - KRTournamentView
+  - KRTournamentViewTests
+excluded:
+  - Pods
+type_body_length:
+  - 400 # warning
+  - 500 # error
