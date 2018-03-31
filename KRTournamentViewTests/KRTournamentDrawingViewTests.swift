@@ -20,7 +20,7 @@ class KRTournamentDrawingViewTests: QuickSpec {
 
     let matches = [KRTournamentViewMatch](
         [(2, .home), (4, .home), (5, .away), (6, .away)].map {
-            KRTournamentViewMatch(matchPath: MatchPath(numberOfLayers: 3, index: $0.0)!, preferredSide: $0.1)
+            KRTournamentViewMatch(matchPath: MatchPath(numberOfLayers: 3, index: $0)!, preferredSide: $1)
         }
     )
 
@@ -105,7 +105,7 @@ class KRTournamentDrawingViewTests: QuickSpec {
 
         it("is removed from superview when it changes to new matches") {
             self.drawingView.matches = [(2, .home), (4, .home), (5, .away), (6, .away)].map {
-                KRTournamentViewMatch(matchPath: MatchPath(numberOfLayers: 3, index: $0.0)!, preferredSide: $0.1)
+                KRTournamentViewMatch(matchPath: MatchPath(numberOfLayers: 3, index: $0)!, preferredSide: $1)
             }
             self.matches.forEach { expect($0.superview).to(beNil()) }
         }

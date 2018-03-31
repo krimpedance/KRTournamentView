@@ -104,10 +104,10 @@ extension KRTournamentViewStyle {
         case .bottom?:
             return [.left, .right, .top] + directions.map { .leftRight(direction: $0) } + directions.map { .topBottom(direction: $0) }
         case .leftRight(let direction)?:
-            let styles: [KRTournamentViewStyle] = directions.flatMap { ($0 == direction) ? nil : .leftRight(direction: $0) }
+            let styles: [KRTournamentViewStyle] = directions.compactMap { ($0 == direction) ? nil : .leftRight(direction: $0) }
             return [.left, .right, .top, .bottom] + styles + directions.map { .topBottom(direction: $0) }
         case .topBottom(let direction)?:
-            let styles: [KRTournamentViewStyle] = directions.flatMap { ($0 == direction) ? nil : .topBottom(direction: $0) }
+            let styles: [KRTournamentViewStyle] = directions.compactMap { ($0 == direction) ? nil : .topBottom(direction: $0) }
             return [.left, .right, .top, .bottom] + directions.map { .leftRight(direction: $0) } + styles
         case .none:
             return [.left, .right, .top, .bottom] + directions.map { .leftRight(direction: $0) } + directions.map { .topBottom(direction: $0) }

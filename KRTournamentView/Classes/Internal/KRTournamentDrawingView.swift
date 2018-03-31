@@ -72,24 +72,24 @@ private extension KRTournamentDrawingView {
         case .left,
              .leftRight where half == .first:
             let num = dataStore.style.isHalf ? teamNum : homeTeamNum
-            let y = (num == 1) ? bounds.height / 2 : drawMargin + (stepSize.height * drawOffset)
-            point = CGPoint(x: 0, y: y)
+            let yPoint = (num == 1) ? bounds.height / 2 : drawMargin + (stepSize.height * drawOffset)
+            point = CGPoint(x: 0, y: yPoint)
 
         case .right, .leftRight:
             let num = dataStore.style.isHalf ? teamNum : awayTeamNum
-            let y = (num == 1) ? bounds.height / 2 : drawMargin + (stepSize.height * (drawOffset - subOffset))
-            point = CGPoint(x: bounds.width, y: y)
+            let yPoint = (num == 1) ? bounds.height / 2 : drawMargin + (stepSize.height * (drawOffset - subOffset))
+            point = CGPoint(x: bounds.width, y: yPoint)
 
         case .top,
              .topBottom where half == .first:
             let num = dataStore.style.isHalf ? teamNum : homeTeamNum
-            let x = (num == 1) ? bounds.width / 2 : drawMargin + (stepSize.width * drawOffset)
-            point = CGPoint(x: x, y: 0)
+            let xPoint = (num == 1) ? bounds.width / 2 : drawMargin + (stepSize.width * drawOffset)
+            point = CGPoint(x: xPoint, y: 0)
 
         case .bottom, .topBottom:
             let num = dataStore.style.isHalf ? teamNum : awayTeamNum
-            let x = (num == 1) ? bounds.width / 2 : drawMargin + (stepSize.width * (drawOffset - subOffset))
-            point = CGPoint(x: x, y: bounds.height)
+            let xPoint = (num == 1) ? bounds.width / 2 : drawMargin + (stepSize.width * (drawOffset - subOffset))
+            point = CGPoint(x: xPoint, y: bounds.height)
         }
 
         return DrawInfo(cross: point, home: point, away: point, isFinished: false)
@@ -193,15 +193,15 @@ private extension KRTournamentDrawingView {
     }
 
     func drawNoMatchLine(layer: Int, number: Int, homeDrawInfo: DrawInfo?, awayDrawInfo: DrawInfo?) -> DrawInfo {
-        var (l, n) = (layer, number)
+        var (mutableLayer, mutableNumber) = (layer, number)
         var refMatch: KRTournamentViewMatch?
-        while l <= dataStore.numberOfLayers && refMatch == nil {
-            (l, n) = (l+1, n/2)
-            refMatch = getMatch(layer: l, number: n)
+        while mutableLayer <= dataStore.numberOfLayers && refMatch == nil {
+            (mutableLayer, mutableNumber) = (mutableLayer+1, mutableNumber/2)
+            refMatch = getMatch(layer: mutableLayer, number: mutableNumber)
         }
 
-        let teamNum = Int(pow(2, CGFloat(l)))
-        let offset = n * teamNum
+        let teamNum = Int(pow(2, CGFloat(mutableLayer)))
+        let offset = mutableNumber * teamNum
         let side: MatchPreferredSide = (number * 2 < teamNum / 2 + offset) ? .home : .away
         let drawInfo = homeDrawInfo ?? awayDrawInfo!
         let isFinished = (layer == 1) ? (refMatch != nil && refMatch!.preferredSide == side) : drawInfo.isFinished

@@ -237,6 +237,10 @@ var fixOrientation: Bool = false
 
 
 ## Release Note
+
++ 1.0.1 :
+  - Compatible with Swift 4.1.
+
 + 1.0.0 :
   - First release 🎉
 

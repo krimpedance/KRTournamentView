@@ -67,8 +67,8 @@ extension MainVC {
 
 extension MainVC {
     @IBAction func entriesCountBtnTapped(_ sender: Any) {
-        let vc = storyboard!.instantiateViewController(withIdentifier: "SelectEntriesVC")
-        present(vc, animated: false, completion: nil)
+        let selectEntriesVC = storyboard!.instantiateViewController(withIdentifier: "SelectEntriesVC")
+        present(selectEntriesVC, animated: false, completion: nil)
     }
 
     @IBAction func styleBtnTapped(_ sender: Any) {
@@ -76,15 +76,15 @@ extension MainVC {
     }
 
     @IBAction func lineColorBtnTapped(_ sender: Any) {
-        let vc = storyboard!.instantiateViewController(withIdentifier: "ColorListVC") as! ColorListVC
-        vc.type = .base
-        present(vc, animated: false, completion: nil)
+        let colorListVC = storyboard!.instantiateViewController(withIdentifier: "ColorListVC") as! ColorListVC
+        colorListVC.type = .base
+        present(colorListVC, animated: false, completion: nil)
     }
 
     @IBAction func preferredLineColorBtnTapped(_ sender: Any) {
-        let vc = storyboard!.instantiateViewController(withIdentifier: "ColorListVC") as! ColorListVC
-        vc.type = .preferred
-        present(vc, animated: false, completion: nil)
+        let colorListVC = storyboard!.instantiateViewController(withIdentifier: "ColorListVC") as! ColorListVC
+        colorListVC.type = .preferred
+        present(colorListVC, animated: false, completion: nil)
     }
 
     @IBAction func fixOrientationBtnTapped(_ sender: Any) {

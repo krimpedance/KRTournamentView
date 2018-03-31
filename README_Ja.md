@@ -236,6 +236,10 @@ var fixOrientation: Bool = false
 
 
 ## リリースノート
+
++ 1.0.1 :
+  - Swift 4.1 に対応.
+
 + 1.0.0 :
   - 最初のリリース 🎉
 

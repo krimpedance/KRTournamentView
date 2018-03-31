@@ -91,7 +91,7 @@ extension KRTournamentView {
     func reloadEntries() {
         let maxEntryNumber = Int(pow(2, Double(numberOfLayers)))
         var excludes = [Int]()
-        let entries = (0..<maxEntryNumber).flatMap { index -> KRTournamentViewEntry? in
+        let entries = (0..<maxEntryNumber).compactMap { index -> KRTournamentViewEntry? in
             let entry = (dataSource ?? self).tournamentView(self, entryAt: index)
             if entry == nil { excludes.append(index) }
             entry?.index = index
