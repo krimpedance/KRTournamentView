@@ -229,7 +229,7 @@ However, the order of entries may change.
 var fixOrientation: Bool = false
 ```
 
-|`.portrait`(初期)|`.landscapeLeft`|`.landscapeRight`|`.portraitUpsideDown`|
+|`.portrait`(initial)|`.landscapeLeft`|`.landscapeRight`|`.portraitUpsideDown`|
 |:--:|:--:|:--:|:--:|
 |`.left`|`.bottom`|`.top`|`.right`|
 |`.top`|`.left`|`.right`|`.bottom`|
