@@ -238,6 +238,9 @@ var fixOrientation: Bool = false
 
 ## Release Note
 
++ 1.0.2 :
+  - Fixed bug of layout.
+
 + 1.0.1 :
   - Compatible with Swift 4.1.
 

@@ -106,6 +106,7 @@ extension SelectEntriesVC {
         actionSheet.addAction(UIAlertAction(title: "2", style: .default) { _ in DataStore.instance.numberOfLayers = 2 })
         actionSheet.addAction(UIAlertAction(title: "3", style: .default) { _ in DataStore.instance.numberOfLayers = 3 })
         actionSheet.addAction(UIAlertAction(title: "4", style: .default) { _ in DataStore.instance.numberOfLayers = 4 })
+        actionSheet.addAction(UIAlertAction(title: "5", style: .default) { _ in DataStore.instance.numberOfLayers = 5 })
         present(actionSheet, animated: true, completion: nil)
     }
 }

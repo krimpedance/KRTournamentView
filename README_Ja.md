@@ -237,6 +237,9 @@ var fixOrientation: Bool = false
 
 ## リリースノート
 
++ 1.0.2 :
+  - レイアウトのバグを修正.
+
 + 1.0.1 :
   - Swift 4.1 に対応.
 

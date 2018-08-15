@@ -266,22 +266,26 @@ private extension KRTournamentDrawingView {
     func drawLowLayerLine(drawInfo: DrawInfo?, crossPoint: CGPoint, match: KRTournamentViewMatch?) {
         guard let match = match, let drawInfo = drawInfo else { return }
 
+        let isInRange = (dataStore.style.isVertical) ?
+            drawInfo.home.y + 10 < crossPoint.y && crossPoint.y < drawInfo.away.y - 10 :
+            drawInfo.home.x + 10 < crossPoint.x && crossPoint.x < drawInfo.away.x - 10
+
         var path = getBezierPath(usingPreferredColor: match.preferredSide == .home)
         if dataStore.style.isVertical {
             path.move(to: CGPoint(x: drawInfo.cross.x, y: drawInfo.home.y))
-            path.addLine(to: CGPoint(x: drawInfo.cross.x, y: crossPoint.y))
+            path.addLine(to: CGPoint(x: drawInfo.cross.x, y: isInRange ? crossPoint.y : drawInfo.cross.y))
         } else {
             path.move(to: CGPoint(x: drawInfo.home.x, y: drawInfo.cross.y))
-            path.addLine(to: CGPoint(x: crossPoint.x, y: drawInfo.cross.y))
+            path.addLine(to: CGPoint(x: isInRange ? crossPoint.x : drawInfo.cross.x, y: drawInfo.cross.y))
         }
 
         path = getBezierPath(usingPreferredColor: match.preferredSide == .away)
         if dataStore.style.isVertical {
             path.move(to: CGPoint(x: drawInfo.cross.x, y: drawInfo.away.y))
-            path.addLine(to: CGPoint(x: drawInfo.cross.x, y: crossPoint.y))
+            path.addLine(to: CGPoint(x: drawInfo.cross.x, y: isInRange ? crossPoint.y : drawInfo.cross.y))
         } else {
             path.move(to: CGPoint(x: drawInfo.away.x, y: drawInfo.cross.y))
-            path.addLine(to: CGPoint(x: crossPoint.x, y: drawInfo.cross.y))
+            path.addLine(to: CGPoint(x: isInRange ? crossPoint.x : drawInfo.cross.x, y: drawInfo.cross.y))
         }
     }
 
@@ -305,7 +309,7 @@ private extension KRTournamentDrawingView {
         }
 
         let additional: CGFloat
-        let path = getBezierPath(usingPreferredColor: drawInfo.isFinished)
+        let path = getBezierPath(usingPreferredColor: using)
         path.move(to: drawInfo.cross)
         if dataStore.style.isVertical {
             additional = (drawInfo.cross.x < crossPoint.x) ? 10 : -10
