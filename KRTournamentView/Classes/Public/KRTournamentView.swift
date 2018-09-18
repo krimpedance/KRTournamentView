@@ -77,7 +77,7 @@ import UIKit
 
         if orientationObserver != nil { return }
 
-        orientationObserver = NotificationCenter.default.addObserver(forName: .UIDeviceOrientationDidChange, object: nil, queue: .main, using: {[weak self] _ in
+        orientationObserver = NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main, using: {[weak self] _ in
             self?.checkRotation()
         })
     }

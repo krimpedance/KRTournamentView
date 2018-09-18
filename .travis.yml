@@ -1,11 +1,11 @@
 language: objective-c
-osx_image: xcode9
-xcode_sdk: iphonesimulator10.3
+osx_image: xcode10
+xcode_sdk: iphonesimulator12
 install:
 - gem install xcpretty
 - carthage bootstrap
 script:
   - set -o pipefail
-  - travis_retry xcodebuild -project KRTournamentView.xcodeproj -scheme KRTournamentView -destination "platform=iOS Simulator,name=iPhone 7" build-for-testing test | xcpretty
+  - travis_retry xcodebuild -project KRTournamentView.xcodeproj -scheme KRTournamentView -destination "platform=iOS Simulator,name=iPhone 8" build-for-testing test | xcpretty
 notifications:
   email: false

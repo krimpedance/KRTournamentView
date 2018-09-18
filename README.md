@@ -23,8 +23,8 @@
 
 ## Requirements
 - iOS 8.0+
-- Xcode 9.0+
-- Swift 4.0+
+- Xcode 10.0+
+- Swift 4.2+
 
 
 ## DEMO
@@ -238,14 +238,11 @@ var fixOrientation: Bool = false
 
 ## Release Note
 
++ 1.1.0 :
+  - Compatible with Swift 4.2.
+
 + 1.0.2 :
   - Fixed bug of layout.
-
-+ 1.0.1 :
-  - Compatible with Swift 4.1.
-
-+ 1.0.0 :
-  - First release 🎉
 
 
 ## Contributing to this project

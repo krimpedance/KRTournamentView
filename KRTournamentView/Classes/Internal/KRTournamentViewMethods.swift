@@ -23,10 +23,10 @@ extension KRTournamentView {
         addSubview(firstEntriesView)
         addSubview(secondEntriesView)
 
-        let sizeAttribute: NSLayoutAttribute = style.isVertical ? .width : .height
-        let firstAttribute: NSLayoutAttribute = style.isVertical ? .left : .top
-        let secondAttribute: NSLayoutAttribute = style.isVertical ? .right : .bottom
-        let commonAttributes: [NSLayoutAttribute] = style.isVertical ? [.top, .bottom] : [.left, .right]
+        let sizeAttribute: NSLayoutConstraint.Attribute = style.isVertical ? .width : .height
+        let firstAttribute: NSLayoutConstraint.Attribute = style.isVertical ? .left : .top
+        let secondAttribute: NSLayoutConstraint.Attribute = style.isVertical ? .right : .bottom
+        let commonAttributes: [NSLayoutConstraint.Attribute] = style.isVertical ? [.top, .bottom] : [.left, .right]
 
         addConstraints(
             NSLayoutConstraint.constraints(from: firstEntriesView, to: self, attributes: commonAttributes + [firstAttribute]) +
