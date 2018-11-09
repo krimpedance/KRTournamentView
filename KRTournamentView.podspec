@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/krimpedance/KRTournamentView"
   s.license      = { :type => "MIT", :file => "LICENSE" }
 
-  s.author       = { "krimpedance" => "krimpedance@gmail.com" }
+  s.author       = { "krimpedance" => "info@krimpedance.com" }
   s.requires_arc = true
 
   s.ios.deployment_target = '8.0'
