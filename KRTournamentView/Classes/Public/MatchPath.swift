@@ -30,12 +30,12 @@ public struct MatchPath {
 
 // MARK: - Actions ---------------
 
-extension MatchPath {
+public extension MatchPath {
     /// Get unique index. Index varies by number of tournament layers.
     ///
     /// - Parameter numberOfLayers: Number of layers.
     /// - Returns: Unique index.
-    public func getIndex(from numberOfLayers: Int) -> Int {
+    func getIndex(from numberOfLayers: Int) -> Int {
         return Int(pow(2, Double(numberOfLayers)) * (1 - 1 / pow(2, Double(layer - 1)))) + number
     }
 }

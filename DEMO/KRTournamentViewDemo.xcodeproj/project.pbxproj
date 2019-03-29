@@ -10,39 +10,15 @@
 		6B50CD202019FD5C005C4179 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B50CD1F2019FD5C005C4179 /* DataStore.swift */; };
 		6B50CD23201A28E8005C4179 /* SelectEntriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B50CD22201A28E8005C4179 /* SelectEntriesVC.swift */; };
 		6B50CD28201A3DA7005C4179 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B50CD27201A3DA7005C4179 /* Launch Screen.storyboard */; };
-		6B6055AB1FDA61700075072B /* KRTournamentView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCC9C991FD57B4200EE7DEC /* KRTournamentView.framework */; };
-		6B6055AC1FDA61700075072B /* KRTournamentView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCC9C991FD57B4200EE7DEC /* KRTournamentView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6BC0BC302019ED750033FEC1 /* StageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC0BC2F2019ED750033FEC1 /* StageView.swift */; };
 		6BC0BC352019F7140033FEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BC0BC332019F7140033FEC1 /* Main.storyboard */; };
 		6BC0BC372019FA4F0033FEC1 /* ColorListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC0BC362019FA4F0033FEC1 /* ColorListVC.swift */; };
+		6BCC654D224DFB9600C3389A /* KRTournamentView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCC654C224DFB9600C3389A /* KRTournamentView.framework */; };
+		6BCC654E224DFB9600C3389A /* KRTournamentView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCC654C224DFB9600C3389A /* KRTournamentView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6BF4AED01FD579E1005EDCE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF4AECF1FD579E1005EDCE0 /* AppDelegate.swift */; };
 		6BF4AED21FD579E1005EDCE0 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF4AED11FD579E1005EDCE0 /* MainVC.swift */; };
 		6BF4AED71FD579E1005EDCE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BF4AED61FD579E1005EDCE0 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		6B6055AD1FDA61700075072B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6BCC9C901FD57B4200EE7DEC /* KRTournamentView.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6BF4AE641FD57413005EDCE0;
-			remoteInfo = "KRTournamentView-iOS";
-		};
-		6BCC9C981FD57B4200EE7DEC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6BCC9C901FD57B4200EE7DEC /* KRTournamentView.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6BF4AE651FD57413005EDCE0;
-			remoteInfo = "KRTournamentView-iOS";
-		};
-		6BCC9CA01FD57B4200EE7DEC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6BCC9C901FD57B4200EE7DEC /* KRTournamentView.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6BF4AE6E1FD57413005EDCE0;
-			remoteInfo = KRTournamentViewTests;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		6B6055AF1FDA61700075072B /* Embed Frameworks */ = {
@@ -51,7 +27,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6B6055AC1FDA61700075072B /* KRTournamentView.framework in Embed Frameworks */,
+				6BCC654E224DFB9600C3389A /* KRTournamentView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,7 +41,7 @@
 		6BC0BC2F2019ED750033FEC1 /* StageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageView.swift; sourceTree = "<group>"; };
 		6BC0BC332019F7140033FEC1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6BC0BC362019FA4F0033FEC1 /* ColorListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListVC.swift; sourceTree = "<group>"; };
-		6BCC9C901FD57B4200EE7DEC /* KRTournamentView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KRTournamentView.xcodeproj; path = ../KRTournamentView.xcodeproj; sourceTree = "<group>"; };
+		6BCC654C224DFB9600C3389A /* KRTournamentView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KRTournamentView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BF4AECC1FD579E1005EDCE0 /* KRTournamentViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KRTournamentViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BF4AECF1FD579E1005EDCE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BF4AED11FD579E1005EDCE0 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -78,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B6055AB1FDA61700075072B /* KRTournamentView.framework in Frameworks */,
+				6BCC654D224DFB9600C3389A /* KRTournamentView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,21 +88,12 @@
 			path = Layouts;
 			sourceTree = "<group>";
 		};
-		6BCC9C911FD57B4200EE7DEC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6BCC9C991FD57B4200EE7DEC /* KRTournamentView.framework */,
-				6BCC9CA11FD57B4200EE7DEC /* KRTournamentViewTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		6BF4AEC31FD579E1005EDCE0 = {
 			isa = PBXGroup;
 			children = (
+				6BCC654C224DFB9600C3389A /* KRTournamentView.framework */,
 				6BF4AECE1FD579E1005EDCE0 /* KRTournamentViewDemo */,
 				6BF4AECD1FD579E1005EDCE0 /* Products */,
-				6BCC9C901FD57B4200EE7DEC /* KRTournamentView.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,7 +135,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				6B6055AE1FDA61700075072B /* PBXTargetDependency */,
 			);
 			name = KRTournamentViewDemo;
 			productName = KRTournamentViewDemo;
@@ -202,35 +168,12 @@
 			mainGroup = 6BF4AEC31FD579E1005EDCE0;
 			productRefGroup = 6BF4AECD1FD579E1005EDCE0 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 6BCC9C911FD57B4200EE7DEC /* Products */;
-					ProjectRef = 6BCC9C901FD57B4200EE7DEC /* KRTournamentView.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				6BF4AECB1FD579E1005EDCE0 /* KRTournamentViewDemo */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		6BCC9C991FD57B4200EE7DEC /* KRTournamentView.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = KRTournamentView.framework;
-			remoteRef = 6BCC9C981FD57B4200EE7DEC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6BCC9CA11FD57B4200EE7DEC /* KRTournamentViewTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = KRTournamentViewTests.xctest;
-			remoteRef = 6BCC9CA01FD57B4200EE7DEC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6BF4AECA1FD579E1005EDCE0 /* Resources */ = {
@@ -276,14 +219,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		6B6055AE1FDA61700075072B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "KRTournamentView-iOS";
-			targetProxy = 6B6055AD1FDA61700075072B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6BF4AEDC1FD579E1005EDCE0 /* Debug */ = {
