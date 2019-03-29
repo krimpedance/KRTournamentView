@@ -70,7 +70,7 @@ extension StageView: KRTournamentViewDataSource {
         switch tournamentView.style {
         case .left, .right, .leftRight:
             entry.textLabel.text = "entry \(index+1)"
-        default:
+        case .top, .bottom, .topBottom:
             entry.textLabel.verticalText = "entry \(index+1)"
         }
         return entry
@@ -78,7 +78,7 @@ extension StageView: KRTournamentViewDataSource {
 
     func tournamentView(_ tournamentView: KRTournamentView, matchAt matchPath: MatchPath) -> KRTournamentViewMatch {
         let match = KRTournamentViewMatch()
-        match.preferredSide = (arc4random() % 2 == 0) ? .home : .away
+        match.preferredSide = (Int.random(in: 0...1) == 0) ? .home : .away
         return match
     }
 }

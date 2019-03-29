@@ -54,7 +54,7 @@ class KRTournamentViewStyleTests: QuickSpec {
         let isVertical: Bool
         switch style {
         case .left, .right, .leftRight: isVertical = true
-        default: isVertical = false
+        case .top, .bottom, .topBottom: isVertical = false
         }
 
         it("has a isVertical property returns \(isVertical)") {

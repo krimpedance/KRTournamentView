@@ -40,14 +40,14 @@ extension KRTournamentViewStyle {
     var isVertical: Bool {
         switch self {
         case .left, .right, .leftRight: return true
-        default: return false
+        case .top, .bottom, .topBottom: return false
         }
     }
 
     var isHalf: Bool {
         switch self {
-        case .left, .right, .top, .bottom: return true
-        default: return false
+        case .left, .right, .top, .bottom:  return true
+        case .leftRight, .topBottom:        return false
         }
     }
 }

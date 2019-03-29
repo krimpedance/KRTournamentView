@@ -128,7 +128,8 @@ extension SelectEntriesVC {
             view.alpha = 0
         case .ended:
             view.alpha = 1
-        default: break
+        default:
+            break
         }
     }
 }

@@ -56,8 +56,8 @@ private extension KRTournamentCalculatable {
         switch dataStore.style {
         case .leftRight, .topBottom:
             let offset = (half == .first) ? 0 : maxEntryNumber / 2
-            return (0..<maxEntryNumber/2).map { $0 + offset }.filter { !dataStore.excludes.contains($0) }.count
-        default:
+            return (0..<maxEntryNumber/2).filter { !dataStore.excludes.contains($0 + offset) }.count
+        case .left, .right, .top, .bottom:
             return maxEntryNumber - dataStore.excludes.count
         }
     }

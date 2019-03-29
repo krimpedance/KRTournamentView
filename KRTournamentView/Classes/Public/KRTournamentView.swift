@@ -91,7 +91,7 @@ import UIKit
 
 public extension KRTournamentView {
     /// Reloads everything from scratch. Redisplays entries and matches.
-    public func reloadData() {
+    func reloadData() {
         numberOfLayers = (dataSource ?? self).numberOfLayers(in: self)
         reloadEntries()
         reloadMatches()

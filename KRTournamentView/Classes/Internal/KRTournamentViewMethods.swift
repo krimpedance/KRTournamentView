@@ -42,7 +42,7 @@ extension KRTournamentView {
         switch style {
         case .left, .top: secondConstant = 0
         case .right, .bottom: firstConstant = 0
-        default: break
+        case .leftRight, .topBottom: break
         }
         firstEntriesView.addConstraint(NSLayoutConstraint(item: firstEntriesView, attribute: sizeAttribute, constant: firstConstant))
         secondEntriesView.addConstraint(NSLayoutConstraint(item: secondEntriesView, attribute: sizeAttribute, constant: secondConstant))

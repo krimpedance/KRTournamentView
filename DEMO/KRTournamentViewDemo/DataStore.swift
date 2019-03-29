@@ -9,7 +9,7 @@ import UIKit
 import KRTournamentView
 
 extension KRTournamentViewStyle {
-    var hashValue: Int {
+    var rawValue: Int {
         switch self {
         case .left: return 0
         case .right: return 1
@@ -31,8 +31,8 @@ extension KRTournamentViewStyle {
         }
     }
 
-    init(hashValue: Int) {
-        switch hashValue {
+    init(rawValue: Int) {
+        switch rawValue {
         case 0: self = .left
         case 1: self = .right
         case 2: self = .top
@@ -60,8 +60,8 @@ class DataStore: NSObject {
     @objc dynamic var fixOrientation: Bool = false
 
     var style: KRTournamentViewStyle {
-        get { return KRTournamentViewStyle(hashValue: styleNumber) }
-        set { styleNumber = newValue.hashValue }
+        get { return KRTournamentViewStyle(rawValue: styleNumber) }
+        set { styleNumber = newValue.rawValue }
     }
 
     var colorList: [UIColor] {
