@@ -14,30 +14,11 @@ public struct MatchPath {
         self.layer = layer
         self.number = number
     }
-
-    public init?(numberOfLayers: Int, index: Int) {
-        guard 0 < numberOfLayers else { return nil }
-        guard 0 <= index, index <= Int(pow(2, Double(numberOfLayers)) - 2) else { return nil }
-        var number = 0
-        var value: Double {
-            return pow(2, Double(numberOfLayers)) / (pow(2, Double(numberOfLayers)) - Double(index - number))
-        }
-        while value.truncatingRemainder(dividingBy: 1) != 0 { number += 1 }
-
-        self.init(layer: Int(log2(value) + 1), number: number)
-    }
 }
 
 // MARK: - Actions ---------------
 
 public extension MatchPath {
-    /// Get unique index. Index varies by number of tournament layers.
-    ///
-    /// - Parameter numberOfLayers: Number of layers.
-    /// - Returns: Unique index.
-    func getIndex(from numberOfLayers: Int) -> Int {
-        return Int(pow(2, Double(numberOfLayers)) * (1 - 1 / pow(2, Double(layer - 1)))) + number
-    }
 }
 
 // MARK: - Equatable ---------------

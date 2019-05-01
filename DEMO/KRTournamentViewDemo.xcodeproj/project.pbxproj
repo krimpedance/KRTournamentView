@@ -13,40 +13,27 @@
 		6BC0BC302019ED750033FEC1 /* StageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC0BC2F2019ED750033FEC1 /* StageView.swift */; };
 		6BC0BC352019F7140033FEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BC0BC332019F7140033FEC1 /* Main.storyboard */; };
 		6BC0BC372019FA4F0033FEC1 /* ColorListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC0BC362019FA4F0033FEC1 /* ColorListVC.swift */; };
-		6BCC654D224DFB9600C3389A /* KRTournamentView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCC654C224DFB9600C3389A /* KRTournamentView.framework */; };
-		6BCC654E224DFB9600C3389A /* KRTournamentView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCC654C224DFB9600C3389A /* KRTournamentView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6BF4AED01FD579E1005EDCE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF4AECF1FD579E1005EDCE0 /* AppDelegate.swift */; };
 		6BF4AED21FD579E1005EDCE0 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF4AED11FD579E1005EDCE0 /* MainVC.swift */; };
 		6BF4AED71FD579E1005EDCE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BF4AED61FD579E1005EDCE0 /* Assets.xcassets */; };
+		916C8D9DB1D4C2B86BF04097 /* Pods_KRTournamentViewDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2EC14EBB87C1C813A0E0ED6 /* Pods_KRTournamentViewDemo.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		6B6055AF1FDA61700075072B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				6BCC654E224DFB9600C3389A /* KRTournamentView.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		1E50F977C05A73112F3733B8 /* Pods-KRTournamentViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KRTournamentViewDemo.debug.xcconfig"; path = "Target Support Files/Pods-KRTournamentViewDemo/Pods-KRTournamentViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		6B50CD1F2019FD5C005C4179 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		6B50CD22201A28E8005C4179 /* SelectEntriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEntriesVC.swift; sourceTree = "<group>"; };
 		6B50CD27201A3DA7005C4179 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		6BC0BC2F2019ED750033FEC1 /* StageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageView.swift; sourceTree = "<group>"; };
 		6BC0BC332019F7140033FEC1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6BC0BC362019FA4F0033FEC1 /* ColorListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListVC.swift; sourceTree = "<group>"; };
-		6BCC654C224DFB9600C3389A /* KRTournamentView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KRTournamentView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BF4AECC1FD579E1005EDCE0 /* KRTournamentViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KRTournamentViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BF4AECF1FD579E1005EDCE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BF4AED11FD579E1005EDCE0 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		6BF4AED61FD579E1005EDCE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BF4AEDB1FD579E1005EDCE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A85706E02E63AD483C5181AF /* Pods-KRTournamentViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KRTournamentViewDemo.release.xcconfig"; path = "Target Support Files/Pods-KRTournamentViewDemo/Pods-KRTournamentViewDemo.release.xcconfig"; sourceTree = "<group>"; };
+		D2EC14EBB87C1C813A0E0ED6 /* Pods_KRTournamentViewDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KRTournamentViewDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,13 +41,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BCC654D224DFB9600C3389A /* KRTournamentView.framework in Frameworks */,
+				916C8D9DB1D4C2B86BF04097 /* Pods_KRTournamentViewDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14C86BA82CF981367FD97366 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1E50F977C05A73112F3733B8 /* Pods-KRTournamentViewDemo.debug.xcconfig */,
+				A85706E02E63AD483C5181AF /* Pods-KRTournamentViewDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		6B50CD24201A3D60005C4179 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,12 +84,21 @@
 			path = Layouts;
 			sourceTree = "<group>";
 		};
+		6BADBA9A22535D1900CBEE76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2EC14EBB87C1C813A0E0ED6 /* Pods_KRTournamentViewDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6BF4AEC31FD579E1005EDCE0 = {
 			isa = PBXGroup;
 			children = (
-				6BCC654C224DFB9600C3389A /* KRTournamentView.framework */,
 				6BF4AECE1FD579E1005EDCE0 /* KRTournamentViewDemo */,
 				6BF4AECD1FD579E1005EDCE0 /* Products */,
+				6BADBA9A22535D1900CBEE76 /* Frameworks */,
+				14C86BA82CF981367FD97366 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,11 +131,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6BF4AEDE1FD579E1005EDCE0 /* Build configuration list for PBXNativeTarget "KRTournamentViewDemo" */;
 			buildPhases = (
+				73E028FB053A7CE71D13095F /* [CP] Check Pods Manifest.lock */,
 				6BF4AEC81FD579E1005EDCE0 /* Sources */,
 				6BF4AEC91FD579E1005EDCE0 /* Frameworks */,
 				6BF4AECA1FD579E1005EDCE0 /* Resources */,
 				6BCC9CA21FD57BB400EE7DEC /* ShellScript */,
-				6B6055AF1FDA61700075072B /* Embed Frameworks */,
+				44B114F3BD30D29F1AD8ABFB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -189,6 +195,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		44B114F3BD30D29F1AD8ABFB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KRTournamentViewDemo/Pods-KRTournamentViewDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/KRTournamentView/KRTournamentView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRTournamentView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KRTournamentViewDemo/Pods-KRTournamentViewDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6BCC9CA21FD57BB400EE7DEC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -200,7 +228,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		73E028FB053A7CE71D13095F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KRTournamentViewDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -337,11 +387,11 @@
 		};
 		6BF4AEDF1FD579E1005EDCE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E50F977C05A73112F3733B8 /* Pods-KRTournamentViewDemo.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = C9S69ME8A5;
 				INFOPLIST_FILE = KRTournamentViewDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -356,11 +406,11 @@
 		};
 		6BF4AEE01FD579E1005EDCE0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A85706E02E63AD483C5181AF /* Pods-KRTournamentViewDemo.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = C9S69ME8A5;
 				INFOPLIST_FILE = KRTournamentViewDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

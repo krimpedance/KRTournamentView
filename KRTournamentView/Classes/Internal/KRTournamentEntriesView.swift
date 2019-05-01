@@ -7,25 +7,35 @@
 
 import UIKit
 
-class KRTournamentEntriesView: UIView, KRTournamentCalculatable {
-    weak var dataStore: KRTournamentViewDataStore!
-
-    var half: DrawHalf = .first
+class KRTournamentEntriesView: UIView {
+    private weak var dataStore: KRTournamentViewDataStore!
+    private var drawHalf: DrawHalf!
+    private var info: TournamentInfo!
 
     var entries = [KRTournamentViewEntry]() {
         willSet { entries.forEach { $0.removeFromSuperview() } }
         didSet { updateLayout() }
     }
 
-    convenience init(half: DrawHalf) {
+    convenience init(dataStore: KRTournamentViewDataStore, drawHalf: DrawHalf) {
         self.init(frame: .zero)
-        self.half = half
+        self.dataStore = dataStore
+        self.drawHalf = drawHalf
         backgroundColor = .clear
         translatesAutoresizingMaskIntoConstraints = false
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
+
+        info = TournamentInfo(
+            structure: dataStore.tournamentStructure,
+            style: dataStore.style,
+            drawHalf: drawHalf,
+            rect: bounds,
+            entrySize: dataStore.entrySize
+        )
+
         updateLayout()
     }
 }
@@ -34,25 +44,27 @@ class KRTournamentEntriesView: UIView, KRTournamentCalculatable {
 
 private extension KRTournamentEntriesView {
     func updateLayout() {
+        if info == nil { return }
+
         entries.enumerated().forEach { index, view in
-            view.frame = getEntryFrame(from: index)
+            view.frame = getEntryFrame(index: index)
             addSubview(view)
         }
     }
 
-    func getEntryFrame(from index: Int) -> CGRect {
+    func getEntryFrame(index: Int) -> CGRect {
         var origin: CGPoint
         if dataStore.style.isVertical {
-            origin = CGPoint(x: 0, y: stepSize.height * CGFloat(index))
+            origin = CGPoint(x: 0, y: info.stepSize.height * CGFloat(index))
             if entries.count == 1 {
-                origin.y = (frame.height - validEntrySize.height) / 2
+                origin.y = (frame.height - info.entrySize.height) / 2
             }
         } else {
-            origin = CGPoint(x: stepSize.width * CGFloat(index), y: 0)
+            origin = CGPoint(x: info.stepSize.width * CGFloat(index), y: 0)
             if entries.count == 1 {
-                origin.x = (frame.width - validEntrySize.width) / 2
+                origin.x = (frame.width - info.entrySize.width) / 2
             }
         }
-        return CGRect(origin: origin, size: validEntrySize)
+        return CGRect(origin: origin, size: info.entrySize)
     }
 }

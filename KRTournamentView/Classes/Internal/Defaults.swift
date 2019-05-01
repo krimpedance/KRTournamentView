@@ -7,9 +7,11 @@
 
 import UIKit
 
+// TODO: 敗退した線のアルファ
+
 struct Default {
     static let style = KRTournamentViewStyle.left
-    static let numberOfLayers = 2
+    static let tournamentStructure = Bracket.Builder.build(numberOfLayers: 2)
     static let lineColor = UIColor.black
     static let preferredLineColor = UIColor.red
     static let lineWidth = CGFloat(1.0)

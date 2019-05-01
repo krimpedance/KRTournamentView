@@ -1,0 +1,16 @@
+PODS:
+  - KRTournamentView (1.1.0)
+
+DEPENDENCIES:
+  - KRTournamentView (from `../KRTournamentView.podspec`)
+
+EXTERNAL SOURCES:
+  KRTournamentView:
+    :path: "../KRTournamentView.podspec"
+
+SPEC CHECKSUMS:
+  KRTournamentView: c025fdc3b129178a3e9aa17cc6d2b001caeacd50
+
+PODFILE CHECKSUM: 6cb3926ce421603c4ace100c627ffbad8632bb10
+
+COCOAPODS: 1.6.0

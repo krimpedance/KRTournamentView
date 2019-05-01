@@ -18,6 +18,9 @@ public enum KRTournamentViewStyle {
 
     case left, right, top, bottom
     case leftRight(direction: FinalDirection), topBottom(direction: FinalDirection)
+
+    public static let leftRight = KRTournamentViewStyle.leftRight(direction: .top)
+    public static let topBottom = KRTournamentViewStyle.topBottom(direction: .right)
 }
 
 // MARK: - Equatable ---------------
@@ -37,6 +40,16 @@ extension KRTournamentViewStyle: Equatable {
 // MARK: - Internal computed property ---------------
 
 extension KRTournamentViewStyle {
+    var direction: FinalDirection {
+        switch self {
+        case .left:     return .right
+        case .right:    return .left
+        case .top:      return .bottom
+        case .bottom:   return .top
+        case .leftRight(let direction), .topBottom(let direction): return direction
+        }
+    }
+
     var isVertical: Bool {
         switch self {
         case .left, .right, .leftRight: return true

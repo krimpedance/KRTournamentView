@@ -137,11 +137,11 @@ extension SelectEntriesVC {
 // MARK: - KRTournament data source -------------------
 
 extension SelectEntriesVC: KRTournamentViewDataSource {
-    func numberOfLayers(in tournamentView: KRTournamentView) -> Int {
-        return DataStore.instance.numberOfLayers
+    func structure(of tournamentView: KRTournamentView) -> Bracket {
+        return Bracket.Builder.build(numberOfLayers: 3)
     }
 
-    func tournamentView(_ tournamentView: KRTournamentView, entryAt index: Int) -> KRTournamentViewEntry? {
+    func tournamentView(_ tournamentView: KRTournamentView, entryAt index: Int) -> KRTournamentViewEntry {
         let entry = KRTournamentViewEntry()
         if DataStore.instance.entries.contains(index) {
             entry.textLabel.text = "\(index+1): Show"

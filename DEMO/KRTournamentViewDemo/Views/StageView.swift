@@ -14,6 +14,275 @@ class StageView: UIView {
 
     var observations = [NSKeyValueObservation]()
 
+    let items: [(KRTournamentViewStyle, Bracket)] = [
+        (.left, Bracket.Builder.build(numberOfLayers: 4) { _ in [0] }),
+        (.right, Bracket.Builder.build(numberOfLayers: 4) { _ in [0] }),
+        (.top, Bracket.Builder.build(numberOfLayers: 4) { _ in [0] }),
+        (.bottom, Bracket.Builder.build(numberOfLayers: 4) { _ in [0] }),
+        (.leftRight(direction: .top), Bracket.Builder.build(numberOfLayers: 4) { _ in [0] }),
+        (.topBottom(direction: .right), Bracket.Builder.build(numberOfLayers: 4) { _ in [0] }),
+
+        (
+            .left,
+            Bracket.Builder(winnerIndexes: [0])
+                .addBracket {
+                    Bracket.Builder(winnerIndexes: [0])
+                        .addBracket {
+                            Bracket.Builder(winnerIndexes: [0])
+                                .addEntry()
+                                .addEntry()
+                                .build()
+                        }
+                        .addEntry()
+                        .build()
+                }
+                .addEntry()
+                .build(withFormat: true)
+        ),
+
+        (
+            .leftRight(direction: .top),
+            Bracket.Builder(numberOfWinners: 2, winnerIndexes: [0, 4])
+                .addBracket {
+                    Bracket.Builder(numberOfWinners: 2, winnerIndexes: [0, 1])
+                        .addBracket {
+                            Bracket.Builder(winnerIndexes: [0])
+                                .addEntry()
+                                .addEntry()
+                                .build()
+                        }
+                        .addEntry()
+                        .addEntry()
+                        .build()
+                }
+                .addBracket {
+                    Bracket.Builder(numberOfWinners: 2, winnerIndexes: [0, 1])
+                        .addEntry()
+                        .addBracket {
+                            Bracket.Builder(winnerIndexes: [0])
+                                .addEntry()
+                                .addEntry()
+                                .build()
+                        }
+                        .addEntry()
+                        .build()
+                }
+                .addEntry()
+                .build(withFormat: true)
+        ),
+
+        (
+            .left,
+            Bracket.Builder(winnerIndexes: [0])
+                .addBracket {
+                    Bracket.Builder(winnerIndexes: [0])
+                        .addEntry()
+                        .addEntry()
+                        .addEntry()
+                        .addEntry()
+                        .build()
+                }
+                .addBracket {
+                    Bracket.Builder(winnerIndexes: [1])
+                        .addEntry()
+                        .addEntry()
+                        .addEntry()
+                        .addEntry()
+                        .build()
+                }
+                .addBracket {
+                    Bracket.Builder(winnerIndexes: [2])
+                        .addEntry()
+                        .addEntry()
+                        .addEntry()
+                        .addEntry()
+                        .build()
+                }
+                .addBracket {
+                    Bracket.Builder(winnerIndexes: [3])
+                        .addEntry()
+                        .addEntry()
+                        .addEntry()
+                        .addEntry()
+                        .build()
+                }
+                .build(withFormat: true)
+        ),
+
+        (
+            .leftRight(direction: .top),
+            Bracket.Builder(winnerIndexes: [0])
+                .addBracket {
+                    Bracket.Builder(numberOfWinners: 2, winnerIndexes: [0, 2])
+                        .addEntry()
+                        .addEntry()
+                        .addEntry()
+                        .addEntry()
+                        .build()
+                }
+                .addBracket {
+                    Bracket.Builder(numberOfWinners: 2, winnerIndexes: [0, 3])
+                        .addEntry()
+                        .addEntry()
+                        .addEntry()
+                        .addEntry()
+                        .build()
+                }
+                .build(withFormat: true)
+        ),
+        (
+            .leftRight(direction: .top),
+            Bracket.Builder(winnerIndexes: [0])
+                .addBracket {
+                    Bracket.Builder(winnerIndexes: [0])
+                        .addBracket {
+                            Bracket.Builder(winnerIndexes: [0])
+                                .addEntry()
+                                .addEntry()
+                                .build()
+                        }
+                        .addBracket {
+                            Bracket.Builder(winnerIndexes: [0])
+                                .addEntry()
+                                .addEntry()
+                                .build()
+                        }
+                        .build()
+                }
+                .addBracket {
+                    Bracket.Builder(winnerIndexes: [0])
+                        .addBracket {
+                            Bracket.Builder(winnerIndexes: [0])
+                                .addEntry()
+                                .addEntry()
+                                .build()
+                        }
+                        .addBracket {
+                            Bracket.Builder(winnerIndexes: [0])
+                                .addEntry()
+                                .addEntry()
+                                .build()
+                        }
+                        .build()
+                }
+                .build(withFormat: true)
+        ),
+        (
+            .leftRight(direction: .top),
+            Bracket.Builder(winnerIndexes: [0])
+                .addBracket {
+                    Bracket.Builder(winnerIndexes: [0])
+                        .addBracket {
+                            Bracket.Builder(winnerIndexes: [0])
+                                .addEntry()
+                                .addEntry()
+                                .build()
+                        }
+                        .addEntry()
+                        .build()
+                }
+                .addBracket {
+                    Bracket.Builder(winnerIndexes: [0])
+                        .addBracket {
+                            Bracket.Builder(winnerIndexes: [0])
+                                .addEntry()
+                                .addEntry()
+                                .build()
+                        }
+                        .addBracket {
+                            Bracket.Builder(winnerIndexes: [0])
+                                .addEntry()
+                                .addEntry()
+                                .build()
+                        }
+                        .build()
+                }
+                .build(withFormat: true)
+        ),
+        (
+            .leftRight(direction: .top),
+            Bracket.Builder(numberOfWinners: 2, winnerIndexes: [0, 2])
+                .addBracket {
+                    Bracket.Builder(winnerIndexes: [1])
+                        .addBracket {
+                            Bracket.Builder(winnerIndexes: [1])
+                                .addBracket {
+                                    Bracket.Builder(winnerIndexes: [1])
+                                        .addBracket {
+                                            Bracket.Builder(winnerIndexes: [0])
+                                                .addBracket {
+                                                    Bracket.Builder(winnerIndexes: [1])
+                                                        .addEntry()
+                                                        .addEntry()
+                                                        .build()
+                                                }
+                                                .addEntry()
+                                                .build()
+                                        }
+                                        .addEntry()
+                                        .build()
+                                }
+                                .addEntry()
+                                .build()
+                        }
+                        .addEntry()
+                        .build()
+                }
+                .addBracket {
+                    Bracket.Builder(numberOfWinners: 2, winnerIndexes: [1, 2])
+                        .addEntry()
+                        .addEntry()
+                        .addBracket {
+                            Bracket.Builder(winnerIndexes: [1])
+                                .addEntry()
+                                .addBracket {
+                                    Bracket.Builder(winnerIndexes: [1])
+                                        .addEntry()
+                                        .addBracket {
+                                            Bracket.Builder(winnerIndexes: [0])
+                                                .addEntry()
+                                                .addBracket {
+                                                    Bracket.Builder(winnerIndexes: [1])
+                                                        .addEntry()
+                                                        .addEntry()
+                                                        .build()
+                                                }
+                                                .build()
+                                        }
+                                        .build()
+                                }
+                                .build()
+                        }
+                        .build()
+                }
+                .build(withFormat: true)
+        ),
+        (
+            .left,
+            Bracket.Builder(winnerIndexes: [1])
+                .addEntry()
+                .addBracket {
+                    Bracket.Builder(winnerIndexes: [0])
+                        .addBracket {
+                            Bracket.Builder(winnerIndexes: [1])
+                                .addEntry()
+                                .addEntry()
+                                .build()
+                        }
+                        .build()
+                }
+                .build(withFormat: true)
+        )
+    ]
+
+    var index = 0 {
+        didSet {
+            if items.count <= index { return }
+            tournamentView.style = items[index].0
+            tournamentView.reloadData()
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -23,9 +292,14 @@ class StageView: UIView {
 
         tournamentView.dataSource = self
         tournamentView.delegate = self
+        tournamentView.style = items[index].0
         tournamentView.lineWidth = 2
 
-        setUpObservers()
+//        setUpObservers()
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        index += 1
     }
 }
 
@@ -34,22 +308,22 @@ class StageView: UIView {
 extension StageView {
     func setUpObservers() {
         observations = [
-            DataStore.instance.observe(\.entries, options: .new) { _, _ in
+            DataStore.instance.observe(\.entries, options: .new) { [unowned self] _, _ in
                 self.tournamentView.reloadData()
             },
-            DataStore.instance.observe(\.styleNumber, options: .new) { _, _ in
+            DataStore.instance.observe(\.styleNumber, options: .new) { [unowned self] _, _ in
                 self.tournamentView.style = DataStore.instance.style
                 self.tournamentView.reloadData()
             },
-            DataStore.instance.observe(\.lineColor, options: .new) { _, _ in
+            DataStore.instance.observe(\.lineColor, options: .new) { [unowned self] _, _ in
                 self.tournamentView.lineColor = DataStore.instance.lineColor
                 self.tournamentView.reloadData()
             },
-            DataStore.instance.observe(\.preferredLineColor, options: .new) { _, _ in
+            DataStore.instance.observe(\.preferredLineColor, options: .new) { [unowned self] _, _ in
                 self.tournamentView.preferredLineColor = DataStore.instance.preferredLineColor
                 self.tournamentView.reloadData()
             },
-            DataStore.instance.observe(\.fixOrientation, options: .new) { _, _ in
+            DataStore.instance.observe(\.fixOrientation, options: .new) { [unowned self] _, _ in
                 self.tournamentView.fixOrientation = DataStore.instance.fixOrientation
             }
         ]
@@ -59,13 +333,11 @@ extension StageView {
 // MARK: - KRTournament data source -------------------
 
 extension StageView: KRTournamentViewDataSource {
-    func numberOfLayers(in tournamentView: KRTournamentView) -> Int {
-        return DataStore.instance.numberOfLayers
+    func structure(of tournamentView: KRTournamentView) -> Bracket {
+        return items[index].1
     }
 
-    func tournamentView(_ tournamentView: KRTournamentView, entryAt index: Int) -> KRTournamentViewEntry? {
-        guard DataStore.instance.entries.contains(index) else { return nil }
-
+    func tournamentView(_ tournamentView: KRTournamentView, entryAt index: Int) -> KRTournamentViewEntry {
         let entry = KRTournamentViewEntry()
         switch tournamentView.style {
         case .left, .right, .leftRight:
@@ -77,9 +349,7 @@ extension StageView: KRTournamentViewDataSource {
     }
 
     func tournamentView(_ tournamentView: KRTournamentView, matchAt matchPath: MatchPath) -> KRTournamentViewMatch {
-        let match = KRTournamentViewMatch()
-        match.preferredSide = (Int.random(in: 0...1) == 0) ? .home : .away
-        return match
+        return KRTournamentViewMatch()
     }
 }
 
