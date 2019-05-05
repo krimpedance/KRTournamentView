@@ -7,9 +7,9 @@
 
 import CoreGraphics
 
-/// this represents the behaviour of the entries and matches.
+/// This represents the behaviour of the entries and matches.
 public protocol KRTournamentViewDelegate: class {
-    // MARK: Layout ---------------
+    // MARK: Layout ------------
 
     /// Entry size.
     ///
@@ -17,7 +17,7 @@ public protocol KRTournamentViewDelegate: class {
     /// - Returns: CGSize.
     func entrySize(in tournamentView: KRTournamentView) -> CGSize
 
-    // MARK: Selection ---------------
+    // MARK: Selection ------------
 
     /// Called after the user changes the selection of entry.
     ///
@@ -34,7 +34,7 @@ public protocol KRTournamentViewDelegate: class {
     func tournamentView(_ tournamentView: KRTournamentView, didSelectMatchAt matchPath: MatchPath)
 }
 
-// MARK: - Default behavior ---------------
+// MARK: - Default behavior ------------
 
 public extension KRTournamentViewDelegate {
     func entrySize(in tournamentView: KRTournamentView) -> CGSize {

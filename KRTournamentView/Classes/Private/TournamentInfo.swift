@@ -2,7 +2,7 @@
 //  KRTournamentCalculatable.swift
 //  KRTournamentView
 //
-//  Copyright © 2018 Krimpedance. All rights reserved.
+//  Copyright © 2019 Krimpedance. All rights reserved.
 //
 
 import UIKit
@@ -23,18 +23,7 @@ struct TournamentInfo {
     let stepSize: CGSize
     let drawMargin: CGFloat
 
-    init(structure: Bracket, style: KRTournamentViewStyle, drawHalf: DrawHalf, rect: CGRect, entrySize: CGSize) {
-        self.init(
-            offset: style.isHalf ? 0 : structure.entries(style: style, drawHalf: .first).count,
-            numberOfLayer: structure.matchPath.layer,
-            style: style,
-            drawHalf: drawHalf,
-            rect: rect,
-            firstEntryNum: structure.entries(style: style, drawHalf: .first).count,
-            secondEntryNum: structure.entries(style: style, drawHalf: .second).count,
-            entrySize: entrySize
-        )
-    }
+    // Initializers ------------
 
     private init(
         offset: Int,
@@ -83,6 +72,23 @@ struct TournamentInfo {
         }()
     }
 
+    init(structure: Bracket, style: KRTournamentViewStyle, drawHalf: DrawHalf, rect: CGRect, entrySize: CGSize) {
+        self.init(
+            offset: style.isHalf ? 0 : structure.entries(style: style, drawHalf: .first).count,
+            numberOfLayer: structure.matchPath.layer,
+            style: style,
+            drawHalf: drawHalf,
+            rect: rect,
+            firstEntryNum: structure.entries(style: style, drawHalf: .first).count,
+            secondEntryNum: structure.entries(style: style, drawHalf: .second).count,
+            entrySize: entrySize
+        )
+    }
+}
+
+// MARK: - Actions ------------
+
+extension TournamentInfo {
     func convert(drawHalf: DrawHalf) -> TournamentInfo {
         return .init(
             offset: offset,

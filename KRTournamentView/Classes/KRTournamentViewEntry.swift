@@ -9,11 +9,11 @@ import UIKit
 
 /// KRTournamentViewEntry is a view for entry of KRTournamentView
 open class KRTournamentViewEntry: UIView {
+    /// Index in tournament view.
+    internal(set) public var index: Int!
+
     /// Default is nil. Label will be created if necessary.
     private(set) open lazy var textLabel: KRTournamentViewEntryLabel = self.makeTextLabel()
-
-    /// Index in tournament view.
-    internal(set) public var index: Int = 0
 
     /// Initializer
     public convenience init() {
@@ -23,7 +23,7 @@ open class KRTournamentViewEntry: UIView {
     }
 }
 
-// MARK: - Private actions -------------------
+// MARK: - Private actions ------------
 
 private extension KRTournamentViewEntry {
     func makeTextLabel() -> KRTournamentViewEntryLabel {

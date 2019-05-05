@@ -8,63 +8,46 @@
 import UIKit
 
 /// KRTournamentView is a flexible tournament bracket which can support to the various structure.
-@IBDesignable public class KRTournamentView: UIView, KRTournamentViewDataStore {
-
-    // MARK: Private properties -------------------
-
+@IBDesignable open class KRTournamentView: UIView, KRTournamentViewDataStore {
     private lazy var drawingView = KRTournamentDrawingView(dataStore: self)
     private lazy var firstEntriesView = KRTournamentEntriesView(dataStore: self, drawHalf: .first)
     private lazy var secondEntriesView = KRTournamentEntriesView(dataStore: self, drawHalf: .second)
     private var orientation = UIDeviceOrientation.portrait
     private var orientationObserver: NSObjectProtocol?
 
-    // MARK: Public properties -------------------
-
     /// KRTournamentView style. Default is `.left`.
-    public var style: KRTournamentViewStyle = Default.style
+    open var style: KRTournamentViewStyle = Default.style
 
     /// Structure of tournament. This is set by the data source.
     internal(set) public var tournamentStructure: Bracket = Default.tournamentStructure
 
-    /// entry size. This is set by the delegate. Default is CGSize(80.0, 30.0).
+    /// Entry size. This is set by the delegate. Default is CGSize(80.0, 30.0).
     internal(set) public var entrySize: CGSize = Default.entrySize(with: Default.style)
 
     /// KRTournamentView data source.
-    public weak var dataSource: KRTournamentViewDataSource?
+    open weak var dataSource: KRTournamentViewDataSource?
 
     /// KRTournamentView delegate.
-    public weak var delegate: KRTournamentViewDelegate?
+    open weak var delegate: KRTournamentViewDelegate?
 
-    /// Line color
-    @IBInspectable public var lineColor: UIColor {
-        get { return drawingView.lineColor }
-        set { drawingView.lineColor = newValue }
-    }
+    /// Line color.
+    @IBInspectable public var lineColor: UIColor = Default.lineColor
 
-    /// Preferred line (i.e. winner line) color.
-    @IBInspectable public var preferredLineColor: UIColor {
-        get { return drawingView.preferredLineColor }
-        set { drawingView.preferredLineColor = newValue }
-    }
+    /// Winner's line color.
+    @IBInspectable public var winnerLineColor: UIColor = Default.winnerLineColor
 
     /// Line width.
-    @IBInspectable public var lineWidth: CGFloat {
-        get { return drawingView.lineWidth }
-        set { drawingView.lineWidth = newValue }
-    }
+    @IBInspectable public var lineWidth: CGFloat = Default.lineWidth
 
-    /// Preferred line (i.e. winner line) width. If nil, `lineWidth` is used.
-    public var preferredLineWidth: CGFloat? {
-        get { return drawingView.preferredLineWidth }
-        set { drawingView.preferredLineWidth = newValue }
-    }
+    /// winner's line width. If nil, `lineWidth` is used.
+    public var winnerLineWidth: CGFloat?
 
     /// If true, the tournament direction isn't changed when the device is rotated.
     @IBInspectable public var fixOrientation: Bool = Default.fixOrientation
 
-    // MARK: Lifecycle ---------------
+    // Lifecycle ------------
 
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         updateLayout()
         reloadData()
@@ -77,7 +60,7 @@ import UIKit
     }
 }
 
-// MARK: - Private layout actions -------------------
+// MARK: - Private layout actions ------------
 
 private extension KRTournamentView {
     func updateLayout() {
@@ -151,7 +134,7 @@ private extension KRTournamentView {
     }
 }
 
-// MARK: - Private actions -------------------
+// MARK: - Private actions ------------
 
 private extension KRTournamentView {
     func reloadEntries() {
@@ -167,7 +150,7 @@ private extension KRTournamentView {
     }
 
     func reloadMatches() {
-        drawingView.matches = tournamentStructure.matchPaths.map { matchPath in
+        drawingView.matches = tournamentStructure.getMatchPaths().map { matchPath in
             let match = (dataSource ?? self).tournamentView(self, matchAt: matchPath)
             match.matchPath = matchPath
             match.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didSelectMatch(sender:))))
@@ -186,36 +169,39 @@ private extension KRTournamentView {
     }
 }
 
-// MARK: - Internal actions -------------------
+// MARK: - Open actions ------------
 
 extension KRTournamentView {
-}
-
-// MARK: - Public actions -------------------
-
-public extension KRTournamentView {
     /// Reloads everything from scratch. Redisplays entries and matches.
-    func reloadData() {
+    open func reloadData() {
         tournamentStructure = (dataSource ?? self).structure(of: self)
         reloadEntries()
         reloadMatches()
         setNeedsLayout()
         drawingView.setNeedsDisplay()
     }
+
+    /// Returns match for `MatchPath`. If matchPath is out of range, returns nil.
+    ///
+    /// - Parameter matchPath: `MatchPath` of match.
+    /// - Returns: KRTournamentViewMatch instance if exists.
+    open func match(at matchPath: MatchPath) -> KRTournamentViewMatch? {
+        return drawingView.matches.first { $0.matchPath == matchPath }
+    }
 }
 
-// MARK: - KRTournamentView data source -------------------
+// MARK: - KRTournamentView data source ------------
 
 extension KRTournamentView: KRTournamentViewDataSource {
-    public func structure(of tournamentView: KRTournamentView) -> Bracket {
+    open func structure(of tournamentView: KRTournamentView) -> Bracket {
         return Default.tournamentStructure
     }
 
-    public func tournamentView(_ tournamentView: KRTournamentView, entryAt index: Int) -> KRTournamentViewEntry {
+    open func tournamentView(_ tournamentView: KRTournamentView, entryAt index: Int) -> KRTournamentViewEntry {
         return Default.tournamentViewEntry
     }
 
-    public func tournamentView(_ tournamentView: KRTournamentView, matchAt matchPath: MatchPath) -> KRTournamentViewMatch {
+    open func tournamentView(_ tournamentView: KRTournamentView, matchAt matchPath: MatchPath) -> KRTournamentViewMatch {
         return Default.tournamentViewMatch
     }
 }

@@ -15,20 +15,20 @@ class StageView: UIView {
     var observations = [NSKeyValueObservation]()
 
     let items: [(KRTournamentViewStyle, Bracket)] = [
-        (.left, Bracket.Builder.build(numberOfLayers: 4) { _ in [0] }),
-        (.right, Bracket.Builder.build(numberOfLayers: 4) { _ in [0] }),
-        (.top, Bracket.Builder.build(numberOfLayers: 4) { _ in [0] }),
-        (.bottom, Bracket.Builder.build(numberOfLayers: 4) { _ in [0] }),
-        (.leftRight(direction: .top), Bracket.Builder.build(numberOfLayers: 4) { _ in [0] }),
-        (.topBottom(direction: .right), Bracket.Builder.build(numberOfLayers: 4) { _ in [0] }),
+        (.left, TournamentBuilder.build(numberOfLayers: 4) { _ in [0] }),
+        (.right, TournamentBuilder.build(numberOfLayers: 4) { _ in [0] }),
+        (.top, TournamentBuilder.build(numberOfLayers: 4) { _ in [0] }),
+        (.bottom, TournamentBuilder.build(numberOfLayers: 4) { _ in [0] }),
+        (.leftRight(direction: .top), TournamentBuilder.build(numberOfLayers: 4) { _ in [0] }),
+        (.topBottom(direction: .right), TournamentBuilder.build(numberOfLayers: 4) { _ in [0] }),
 
         (
             .left,
-            Bracket.Builder(winnerIndexes: [0])
+            TournamentBuilder(winnerIndexes: [0])
                 .addBracket {
-                    Bracket.Builder(winnerIndexes: [0])
+                    TournamentBuilder(winnerIndexes: [0])
                         .addBracket {
-                            Bracket.Builder(winnerIndexes: [0])
+                            TournamentBuilder(winnerIndexes: [0])
                                 .addEntry()
                                 .addEntry()
                                 .build()
@@ -42,11 +42,11 @@ class StageView: UIView {
 
         (
             .leftRight(direction: .top),
-            Bracket.Builder(numberOfWinners: 2, winnerIndexes: [0, 4])
+            TournamentBuilder(numberOfWinners: 2, winnerIndexes: [0, 4])
                 .addBracket {
-                    Bracket.Builder(numberOfWinners: 2, winnerIndexes: [0, 1])
+                    TournamentBuilder(numberOfWinners: 2, winnerIndexes: [0, 1])
                         .addBracket {
-                            Bracket.Builder(winnerIndexes: [0])
+                            TournamentBuilder(winnerIndexes: [0])
                                 .addEntry()
                                 .addEntry()
                                 .build()
@@ -56,10 +56,10 @@ class StageView: UIView {
                         .build()
                 }
                 .addBracket {
-                    Bracket.Builder(numberOfWinners: 2, winnerIndexes: [0, 1])
+                    TournamentBuilder(numberOfWinners: 2, winnerIndexes: [0, 1])
                         .addEntry()
                         .addBracket {
-                            Bracket.Builder(winnerIndexes: [0])
+                            TournamentBuilder(winnerIndexes: [0])
                                 .addEntry()
                                 .addEntry()
                                 .build()
@@ -73,9 +73,9 @@ class StageView: UIView {
 
         (
             .left,
-            Bracket.Builder(winnerIndexes: [0])
+            TournamentBuilder(winnerIndexes: [0])
                 .addBracket {
-                    Bracket.Builder(winnerIndexes: [0])
+                    TournamentBuilder(winnerIndexes: [0])
                         .addEntry()
                         .addEntry()
                         .addEntry()
@@ -83,7 +83,7 @@ class StageView: UIView {
                         .build()
                 }
                 .addBracket {
-                    Bracket.Builder(winnerIndexes: [1])
+                    TournamentBuilder(winnerIndexes: [1])
                         .addEntry()
                         .addEntry()
                         .addEntry()
@@ -91,7 +91,7 @@ class StageView: UIView {
                         .build()
                 }
                 .addBracket {
-                    Bracket.Builder(winnerIndexes: [2])
+                    TournamentBuilder(winnerIndexes: [2])
                         .addEntry()
                         .addEntry()
                         .addEntry()
@@ -99,7 +99,7 @@ class StageView: UIView {
                         .build()
                 }
                 .addBracket {
-                    Bracket.Builder(winnerIndexes: [3])
+                    TournamentBuilder(winnerIndexes: [3])
                         .addEntry()
                         .addEntry()
                         .addEntry()
@@ -111,9 +111,9 @@ class StageView: UIView {
 
         (
             .leftRight(direction: .top),
-            Bracket.Builder(winnerIndexes: [0])
+            TournamentBuilder(winnerIndexes: [0])
                 .addBracket {
-                    Bracket.Builder(numberOfWinners: 2, winnerIndexes: [0, 2])
+                    TournamentBuilder(numberOfWinners: 2, winnerIndexes: [0, 2])
                         .addEntry()
                         .addEntry()
                         .addEntry()
@@ -121,76 +121,44 @@ class StageView: UIView {
                         .build()
                 }
                 .addBracket {
-                    Bracket.Builder(numberOfWinners: 2, winnerIndexes: [0, 3])
+                    TournamentBuilder(numberOfWinners: 2, winnerIndexes: [0, 3])
                         .addEntry()
                         .addEntry()
                         .addEntry()
                         .addEntry()
-                        .build()
-                }
-                .build(withFormat: true)
-        ),
-        (
-            .leftRight(direction: .top),
-            Bracket.Builder(winnerIndexes: [0])
-                .addBracket {
-                    Bracket.Builder(winnerIndexes: [0])
-                        .addBracket {
-                            Bracket.Builder(winnerIndexes: [0])
-                                .addEntry()
-                                .addEntry()
-                                .build()
-                        }
-                        .addBracket {
-                            Bracket.Builder(winnerIndexes: [0])
-                                .addEntry()
-                                .addEntry()
-                                .build()
-                        }
-                        .build()
-                }
-                .addBracket {
-                    Bracket.Builder(winnerIndexes: [0])
-                        .addBracket {
-                            Bracket.Builder(winnerIndexes: [0])
-                                .addEntry()
-                                .addEntry()
-                                .build()
-                        }
-                        .addBracket {
-                            Bracket.Builder(winnerIndexes: [0])
-                                .addEntry()
-                                .addEntry()
-                                .build()
-                        }
                         .build()
                 }
                 .build(withFormat: true)
         ),
         (
             .leftRight(direction: .top),
-            Bracket.Builder(winnerIndexes: [0])
+            TournamentBuilder(winnerIndexes: [0])
                 .addBracket {
-                    Bracket.Builder(winnerIndexes: [0])
+                    TournamentBuilder(winnerIndexes: [0])
                         .addBracket {
-                            Bracket.Builder(winnerIndexes: [0])
+                            TournamentBuilder(winnerIndexes: [0])
                                 .addEntry()
                                 .addEntry()
                                 .build()
                         }
-                        .addEntry()
+                        .addBracket {
+                            TournamentBuilder(winnerIndexes: [0])
+                                .addEntry()
+                                .addEntry()
+                                .build()
+                        }
                         .build()
                 }
                 .addBracket {
-                    Bracket.Builder(winnerIndexes: [0])
+                    TournamentBuilder(winnerIndexes: [0])
                         .addBracket {
-                            Bracket.Builder(winnerIndexes: [0])
+                            TournamentBuilder(winnerIndexes: [0])
                                 .addEntry()
                                 .addEntry()
                                 .build()
                         }
                         .addBracket {
-                            Bracket.Builder(winnerIndexes: [0])
+                            TournamentBuilder(winnerIndexes: [0])
                                 .addEntry()
                                 .addEntry()
                                 .build()
@@ -201,17 +169,49 @@ class StageView: UIView {
         ),
         (
             .leftRight(direction: .top),
-            Bracket.Builder(numberOfWinners: 2, winnerIndexes: [0, 2])
+            TournamentBuilder(winnerIndexes: [0])
                 .addBracket {
-                    Bracket.Builder(winnerIndexes: [1])
+                    TournamentBuilder(winnerIndexes: [0])
                         .addBracket {
-                            Bracket.Builder(winnerIndexes: [1])
+                            TournamentBuilder(winnerIndexes: [0])
+                                .addEntry()
+                                .addEntry()
+                                .build()
+                        }
+                        .addEntry()
+                        .build()
+                }
+                .addBracket {
+                    TournamentBuilder(winnerIndexes: [0])
+                        .addBracket {
+                            TournamentBuilder(winnerIndexes: [0])
+                                .addEntry()
+                                .addEntry()
+                                .build()
+                        }
+                        .addBracket {
+                            TournamentBuilder(winnerIndexes: [0])
+                                .addEntry()
+                                .addEntry()
+                                .build()
+                        }
+                        .build()
+                }
+                .build(withFormat: true)
+        ),
+        (
+            .leftRight(direction: .top),
+            TournamentBuilder(numberOfWinners: 2, winnerIndexes: [0, 2])
+                .addBracket {
+                    TournamentBuilder(winnerIndexes: [1])
+                        .addBracket {
+                            TournamentBuilder(winnerIndexes: [1])
                                 .addBracket {
-                                    Bracket.Builder(winnerIndexes: [1])
+                                    TournamentBuilder(winnerIndexes: [1])
                                         .addBracket {
-                                            Bracket.Builder(winnerIndexes: [0])
+                                            TournamentBuilder(winnerIndexes: [0])
                                                 .addBracket {
-                                                    Bracket.Builder(winnerIndexes: [1])
+                                                    TournamentBuilder(winnerIndexes: [1])
                                                         .addEntry()
                                                         .addEntry()
                                                         .build()
@@ -229,20 +229,20 @@ class StageView: UIView {
                         .build()
                 }
                 .addBracket {
-                    Bracket.Builder(numberOfWinners: 2, winnerIndexes: [1, 2])
+                    TournamentBuilder(numberOfWinners: 2, winnerIndexes: [1, 2])
                         .addEntry()
                         .addEntry()
                         .addBracket {
-                            Bracket.Builder(winnerIndexes: [1])
+                            TournamentBuilder(winnerIndexes: [1])
                                 .addEntry()
                                 .addBracket {
-                                    Bracket.Builder(winnerIndexes: [1])
+                                    TournamentBuilder(winnerIndexes: [1])
                                         .addEntry()
                                         .addBracket {
-                                            Bracket.Builder(winnerIndexes: [0])
+                                            TournamentBuilder(winnerIndexes: [0])
                                                 .addEntry()
                                                 .addBracket {
-                                                    Bracket.Builder(winnerIndexes: [1])
+                                                    TournamentBuilder(winnerIndexes: [1])
                                                         .addEntry()
                                                         .addEntry()
                                                         .build()
@@ -259,12 +259,12 @@ class StageView: UIView {
         ),
         (
             .left,
-            Bracket.Builder(winnerIndexes: [1])
+            TournamentBuilder(winnerIndexes: [1])
                 .addEntry()
                 .addBracket {
-                    Bracket.Builder(winnerIndexes: [0])
+                    TournamentBuilder(winnerIndexes: [0])
                         .addBracket {
-                            Bracket.Builder(winnerIndexes: [1])
+                            TournamentBuilder(winnerIndexes: [1])
                                 .addEntry()
                                 .addEntry()
                                 .build()
@@ -320,7 +320,7 @@ extension StageView {
                 self.tournamentView.reloadData()
             },
             DataStore.instance.observe(\.preferredLineColor, options: .new) { [unowned self] _, _ in
-                self.tournamentView.preferredLineColor = DataStore.instance.preferredLineColor
+                self.tournamentView.winnerLineColor = DataStore.instance.preferredLineColor
                 self.tournamentView.reloadData()
             },
             DataStore.instance.observe(\.fixOrientation, options: .new) { [unowned self] _, _ in
@@ -361,6 +361,6 @@ extension StageView: KRTournamentViewDelegate {
     }
 
     func tournamentView(_ tournamentView: KRTournamentView, didSelectMatchAt matchPath: MatchPath) {
-        print("match \(matchPath.layer)-\(matchPath.number) is selected")
+        print("match \(matchPath.layer)-\(matchPath.item) is selected")
     }
 }

@@ -10,10 +10,10 @@ import UIKit
 /// KRTournamentViewMatch is a view for match of KRTournamentView
 open class KRTournamentViewMatch: UIView {
     /// MatchPath in tournament view.
-    internal(set) public var matchPath = MatchPath(layer: 1, number: 0)
+    internal(set) public var matchPath: MatchPath!
 
     /// Vertexes of winning line
-    internal(set) public var winnerPoints = [CGPoint]()
+    internal(set) public var winnerPoints: [CGPoint]!
 
     /// Initializer
     public convenience init() {

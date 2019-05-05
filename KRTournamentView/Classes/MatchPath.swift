@@ -8,23 +8,18 @@
 /// `MatchPath` represents the path to a specific match in a tournament.
 public struct MatchPath {
     public let layer: Int
-    public let number: Int
+    public let item: Int
 
-    public init(layer: Int, number: Int) {
+    public init(layer: Int, item: Int) {
         self.layer = layer
-        self.number = number
+        self.item = item
     }
 }
 
-// MARK: - Actions ---------------
-
-public extension MatchPath {
-}
-
-// MARK: - Equatable ---------------
+// MARK: - Equatable ------------
 
 extension MatchPath: Equatable {
     public static func == (lhs: MatchPath, rhs: MatchPath) -> Bool {
-        return lhs.layer == rhs.layer && lhs.number == rhs.number
+        return lhs.layer == rhs.layer && lhs.item == rhs.item
     }
 }

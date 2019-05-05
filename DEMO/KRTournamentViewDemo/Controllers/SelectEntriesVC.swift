@@ -138,7 +138,7 @@ extension SelectEntriesVC {
 
 extension SelectEntriesVC: KRTournamentViewDataSource {
     func structure(of tournamentView: KRTournamentView) -> Bracket {
-        return Bracket.Builder.build(numberOfLayers: 3)
+        return TournamentBuilder.build(numberOfLayers: 3)
     }
 
     func tournamentView(_ tournamentView: KRTournamentView, entryAt index: Int) -> KRTournamentViewEntry {
