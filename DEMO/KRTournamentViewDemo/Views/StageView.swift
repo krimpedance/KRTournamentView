@@ -20,7 +20,7 @@ class StageView: UIView {
             TournamentBuilder()
                 .addEntry()
                 .addBracket { TournamentBuilder.build(numberOfLayers: 2) }
-                .build(withFormat: true)
+                .build(format: true)
         ),
         (.left, TournamentBuilder.build(numberOfLayers: 4) { _ in [0] }),
         (.right, TournamentBuilder.build(numberOfLayers: 4) { _ in [0] }),
@@ -44,7 +44,7 @@ class StageView: UIView {
                         .build()
                 }
                 .addEntry()
-                .build(withFormat: true)
+                .build(format: true)
         ),
 
         (
@@ -75,7 +75,7 @@ class StageView: UIView {
                         .build()
                 }
                 .addEntry()
-                .build(withFormat: true)
+                .build(format: true)
         ),
 
         (
@@ -113,7 +113,7 @@ class StageView: UIView {
                         .addEntry()
                         .build()
                 }
-                .build(withFormat: true)
+                .build(format: true)
         ),
 
         (
@@ -135,7 +135,7 @@ class StageView: UIView {
                         .addEntry()
                         .build()
                 }
-                .build(withFormat: true)
+                .build(format: true)
         ),
         (
             .leftRight(direction: .top),
@@ -172,7 +172,7 @@ class StageView: UIView {
                         }
                         .build()
                 }
-                .build(withFormat: true)
+                .build(format: true)
         ),
         (
             .leftRight(direction: .top),
@@ -204,7 +204,7 @@ class StageView: UIView {
                         }
                         .build()
                 }
-                .build(withFormat: true)
+                .build(format: true)
         ),
         (
             .leftRight(direction: .top),
@@ -262,7 +262,7 @@ class StageView: UIView {
                         }
                         .build()
                 }
-                .build(withFormat: true)
+                .build(format: true)
         ),
         (
             .left,
@@ -278,7 +278,7 @@ class StageView: UIView {
                         }
                         .build()
                 }
-                .build(withFormat: true)
+                .build(format: true)
         )
     ]
 

@@ -133,7 +133,8 @@ private extension Bracket {
 
             // call handler
             let frame = CGRect.bracketRect(with: info, start: grandchildInfo.start, end: grandchildInfo.end)
-            handler(childMatchPath, frame, points.map { $0.0 })
+            let framePoints = points.map { $0.0.adding(x: -frame.origin.x, y: -frame.origin.y) }
+            handler(childMatchPath, frame, framePoints)
         }
 
         let grandchildInfo = GrandChildInfo(startPoint, endPoint, wonPoints, numberOfChildWinners, numberOfWinners)
@@ -271,9 +272,8 @@ private extension Bracket {
 
             // call handler
             var frame: CGRect {
-                if childEntryPoints.count == 1 {
-                    return .bracketRect(with: info, start: grandchildInfo.start, end: grandchildInfo.end)
-                }
+                if childEntryPoints.count == 1 { return .bracketRect(with: info, start: grandchildInfo.start, end: grandchildInfo.end) }
+
                 let margin = min(10, info.stepSize.length(in: info.style, direction: .entry) / 2)
                 return info.style.isVertical
                     ? .init(
@@ -289,7 +289,8 @@ private extension Bracket {
                         height: info.stepSize.height * 2 / 3
                 )
             }
-            handler(childMatchPath, frame, points)
+            let framePoints = points.map { $0.adding(x: -frame.origin.x, y: -frame.origin.y) }
+            handler(childMatchPath, frame, framePoints)
         }
 
         let joinedPath = getChildJoinedPathForFinal(
@@ -360,7 +361,8 @@ private extension Bracket {
 
         // call handler
         let frame = getRectOfFinalMatch(from: info, entryPoints: childEntryPoints, center: centerPoint, championLength: championLength)
-        handler(matchPath, frame, winnerPoints)
+        let framePoints = winnerPoints.map { $0.adding(x: -frame.origin.x, y: -frame.origin.y) }
+        handler(matchPath, frame, framePoints)
 
         return pathSet
     }
@@ -483,11 +485,11 @@ private extension CGRect {
             ? .init(
                 origin: start.adding(x: -info.stepSize.width / 2, y: -margin),
                 size: .init(width: info.stepSize.width, height: (end.y - start.y) + margin * 2)
-                )
+            )
             : .init(
                 origin: start.adding(x: -margin, y: -info.stepSize.height / 2),
                 size: .init(width: (end.x - start.x) + margin * 2, height: info.stepSize.height)
-        )
+            )
     }
 }
 

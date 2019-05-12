@@ -37,27 +37,16 @@ class BracketPathSetTests: QuickSpec {
 
                 expect(pathSet).to(equal(expectedPathSet))
                 expect(params == expectedParams).to(beTrue())
+
+                // For check
+
+                //                print("------------------------------------------")
+                //                print(pathSet.path)
+                //                print(pathSet.winnerPath)
+                //                print(params.description)
+                //                print("------------------------------------------")
             }
         }
-
-        // For check
-
-//        items.forEach { style, bracket in
-//            let info = TournamentInfo(
-//                structure: bracket,
-//                style: style,
-//                drawHalf: style.drawHalf,
-//                rect: .init(x: 0, y: 0, width: 500, height: 500),
-//                entrySize: .init(width: 50, height: 50)
-//            )
-//            var params = [(MatchPath, CGRect, [CGPoint])]()
-//            let pathSet = bracket.getPath(with: info) { params.append(($0, $1, $2)) }
-//            print("------------------------------------------")
-//            print(pathSet.path)
-//            print(pathSet.winnerPath)
-//            print(params.description)
-//            print("------------------------------------------")
-//        }
     }
 
     let items: [(KRTournamentViewStyle, Bracket)] = [
@@ -367,7 +356,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 250, y: 250))
                 path.addLine(to: .init(x: 277.77777777777777, y: 250))
                 return path
-            }(),
+        }(),
             winnerPath: .init()
         ),
         .init(
@@ -435,7 +424,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 400, y: 250))
                 path.addLine(to: .init(x: 400, y: 375))
                 return path
-            }(),
+        }(),
             winnerPath: {
                 let path = UIBezierPath()
                 path.move(to: .init(x: 0, y: 15.625))
@@ -515,7 +504,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 400, y: 250))
                 path.addLine(to: .init(x: 500, y: 250))
                 return path
-            }()
+        }()
         ),
         .init(
             path: {
@@ -582,7 +571,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 100, y: 250))
                 path.addLine(to: .init(x: 100, y: 375))
                 return path
-            }(),
+        }(),
             winnerPath: {
                 let path = UIBezierPath()
                 path.move(to: .init(x: 500, y: 15.625))
@@ -662,7 +651,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 100, y: 250))
                 path.addLine(to: .init(x: 0, y: 250))
                 return path
-            }()
+        }()
         ),
         .init(
             path: {
@@ -729,7 +718,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 250, y: 400))
                 path.addLine(to: .init(x: 375, y: 400))
                 return path
-            }(),
+        }(),
             winnerPath: {
                 let path = UIBezierPath()
                 path.move(to: .init(x: 15.625, y: 0))
@@ -809,7 +798,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 250, y: 400))
                 path.addLine(to: .init(x: 250, y: 500))
                 return path
-            }()
+        }()
         ),
         .init(
             path: {
@@ -876,7 +865,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 250, y: 100))
                 path.addLine(to: .init(x: 375, y: 100))
                 return path
-            }(),
+        }(),
             winnerPath: {
                 let path = UIBezierPath()
                 path.move(to: .init(x: 15.625, y: 500))
@@ -956,7 +945,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 250, y: 100))
                 path.addLine(to: .init(x: 250, y: 0))
                 return path
-            }()
+        }()
         ),
         .init(
             path: {
@@ -1027,7 +1016,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 250, y: 250))
                 path.addLine(to: .init(x: 270.83333333333331, y: 250))
                 return path
-            }(),
+        }(),
             winnerPath: {
                 let path = UIBezierPath()
                 path.move(to: .init(x: 0, y: 25))
@@ -1108,7 +1097,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 250, y: 250))
                 path.addLine(to: .init(x: 250, y: 230))
                 return path
-            }()
+        }()
         ),
         .init(
             path: {
@@ -1179,7 +1168,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 250, y: 250))
                 path.addLine(to: .init(x: 250, y: 270.83333333333331))
                 return path
-            }(),
+        }(),
             winnerPath: {
                 let path = UIBezierPath()
                 path.move(to: .init(x: 25, y: 0))
@@ -1260,7 +1249,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 250, y: 250))
                 path.addLine(to: .init(x: 270, y: 250))
                 return path
-            }()
+        }()
         ),
         .init(
             path: {
@@ -1281,7 +1270,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 375, y: 343.75))
                 path.addLine(to: .init(x: 375, y: 475))
                 return path
-            }(),
+        }(),
             winnerPath: {
                 let path = UIBezierPath()
                 path.move(to: .init(x: 0, y: 25))
@@ -1299,7 +1288,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 375, y: 343.75))
                 path.addLine(to: .init(x: 500, y: 343.75))
                 return path
-            }()
+        }()
         ),
         .init(
             path: {
@@ -1343,7 +1332,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 245, y: 250))
                 path.addLine(to: .init(x: 255, y: 250))
                 return path
-            }(),
+        }(),
             winnerPath: {
                 let path = UIBezierPath()
                 path.move(to: .init(x: 0, y: 25))
@@ -1393,7 +1382,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 255, y: 250))
                 path.addLine(to: .init(x: 277.77777777777777, y: 250))
                 return path
-            }()
+        }()
         ),
         .init(
             path: {
@@ -1440,7 +1429,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 333.33333333333331, y: 250))
                 path.addLine(to: .init(x: 333.33333333333331, y: 437.5))
                 return path
-            }(),
+        }(),
             winnerPath: {
                 let path = UIBezierPath()
                 path.move(to: .init(x: 0, y: 15.625))
@@ -1472,7 +1461,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 333.33333333333331, y: 250))
                 path.addLine(to: .init(x: 500, y: 250))
                 return path
-            }()
+        }()
         ),
         .init(
             path: {
@@ -1511,7 +1500,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 250, y: 250))
                 path.addLine(to: .init(x: 291.66666666666669, y: 250))
                 return path
-            }(),
+        }(),
             winnerPath: {
                 let path = UIBezierPath()
                 path.move(to: .init(x: 0, y: 25))
@@ -1542,7 +1531,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 250, y: 250))
                 path.addLine(to: .init(x: 250, y: 230))
                 return path
-            }()
+        }()
         ),
         .init(
             path: {
@@ -1581,7 +1570,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 250, y: 250))
                 path.addLine(to: .init(x: 277.77777777777777, y: 250))
                 return path
-            }(),
+        }(),
             winnerPath: {
                 let path = UIBezierPath()
                 path.move(to: .init(x: 0, y: 25))
@@ -1622,7 +1611,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 250, y: 250))
                 path.addLine(to: .init(x: 250, y: 230))
                 return path
-            }()
+        }()
         ),
         .init(
             path: {
@@ -1658,7 +1647,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 250, y: 250))
                 path.addLine(to: .init(x: 277.77777777777777, y: 250))
                 return path
-            }(),
+        }(),
             winnerPath: {
                 let path = UIBezierPath()
                 path.move(to: .init(x: 0, y: 25))
@@ -1693,7 +1682,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 250, y: 250))
                 path.addLine(to: .init(x: 250, y: 230))
                 return path
-            }()
+        }()
         ),
         .init(
             path: {
@@ -1750,7 +1739,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 245.83333333333334, y: 261.484375))
                 path.addLine(to: .init(x: 254.16666666666669, y: 261.484375))
                 return path
-            }(),
+        }(),
             winnerPath: {
                 let path = UIBezierPath()
                 path.move(to: .init(x: 0, y: 115))
@@ -1826,7 +1815,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 254.16666666666669, y: 261.484375))
                 path.addLine(to: .init(x: 263.88888888888891, y: 261.484375))
                 return path
-            }()
+        }()
         ),
         .init(
             path: {
@@ -1842,7 +1831,7 @@ class BracketPathSetTests: QuickSpec {
                 path.addLine(to: .init(x: 375, y: 193.75))
                 path.move(to: .init(x: 375, y: 362.5))
                 return path
-            }(),
+        }(),
             winnerPath: {
                 let path = UIBezierPath()
                 path.move(to: .init(x: 0, y: 475))
@@ -1858,7 +1847,7 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 375, y: 193.75))
                 path.addLine(to: .init(x: 500, y: 193.75))
                 return path
-            }()
+        }()
         )
     ]
 
@@ -1867,589 +1856,589 @@ class BracketPathSetTests: QuickSpec {
             (
                 MatchPath(layer: 1, item: 0),
                 CGRect(x: 375.0, y: 15.0, width: 83.33333333333333, height: 170.0),
-                [CGPoint(x: 416.6666666666667, y: 100.0)]
+                [CGPoint(x: 41.666666666666686, y: 85.0)]
             ), (
                 MatchPath(layer: 1, item: 1),
                 CGRect(x: 375.0, y: 315.0, width: 83.33333333333333, height: 170.0),
-                [CGPoint(x: 416.6666666666667, y: 400.0)]
+                [CGPoint(x: 41.666666666666686, y: 85.0)]
             ), (
                 MatchPath(layer: 2, item: 0),
                 CGRect(x: 291.6666666666667, y: 90.0, width: 83.33333333333333, height: 320.0),
-                [CGPoint(x: 333.33333333333337, y: 250.0)]
+                [CGPoint(x: 41.666666666666686, y: 160.0)]
             ), (
                 MatchPath(layer: 3, item: 0),
                 CGRect(x: 208.33333333333334, y: 230.0, width: 83.33333333333334, height: 40.0),
-                [CGPoint(x: 250.0, y: 250.0)]
+                [CGPoint(x: 41.66666666666666, y: 20.0)]
             )
         ],
         [
             (
                 MatchPath(layer: 1, item: 0),
                 CGRect(x: 50.0, y: 5.625, width: 100.0, height: 51.25),
-                [CGPoint(x: 100.0, y: 31.25)]
+                [CGPoint(x: 50.0, y: 25.625)]
             ), (
                 MatchPath(layer: 1, item: 1),
                 CGRect(x: 50.0, y: 68.125, width: 100.0, height: 51.25),
-                [CGPoint(x: 100.0, y: 93.75)]
+                [CGPoint(x: 50.0, y: 25.625)]
             ), (
                 MatchPath(layer: 1, item: 2),
                 CGRect(x: 50.0, y: 130.625, width: 100.0, height: 51.25),
-                [CGPoint(x: 100.0, y: 156.25)]
+                [CGPoint(x: 50.0, y: 25.625)]
             ), (
                 MatchPath(layer: 1, item: 3),
                 CGRect(x: 50.0, y: 193.125, width: 100.0, height: 51.25),
-                [CGPoint(x: 100.0, y: 218.75)]
+                [CGPoint(x: 50.0, y: 25.625)]
             ), (
                 MatchPath(layer: 2, item: 0),
                 CGRect(x: 150.0, y: 21.25, width: 100.0, height: 82.5),
-                [CGPoint(x: 200.0, y: 62.5)]
+                [CGPoint(x: 50.0, y: 41.25)]
             ), (
                 MatchPath(layer: 2, item: 1),
                 CGRect(x: 150.0, y: 146.25, width: 100.0, height: 82.5),
-                [CGPoint(x: 200.0, y: 187.5)]
+                [CGPoint(x: 50.0, y: 41.25)]
             ), (
                 MatchPath(layer: 1, item: 4),
                 CGRect(x: 50.0, y: 255.625, width: 100.0, height: 51.25),
-                [CGPoint(x: 100.0, y: 281.25)]
+                [CGPoint(x: 50.0, y: 25.625)]
             ), (
                 MatchPath(layer: 1, item: 5),
                 CGRect(x: 50.0, y: 318.125, width: 100.0, height: 51.25),
-                [CGPoint(x: 100.0, y: 343.75)]
+                [CGPoint(x: 50.0, y: 25.625)]
             ), (
                 MatchPath(layer: 1, item: 6),
                 CGRect(x: 50.0, y: 380.625, width: 100.0, height: 51.25),
-                [CGPoint(x: 100.0, y: 406.25)]
+                [CGPoint(x: 50.0, y: 25.625)]
             ), (
                 MatchPath(layer: 1, item: 7),
                 CGRect(x: 50.0, y: 443.125, width: 100.0, height: 51.25),
-                [CGPoint(x: 100.0, y: 468.75)]
+                [CGPoint(x: 50.0, y: 25.625)]
             ), (
                 MatchPath(layer: 2, item: 2),
                 CGRect(x: 150.0, y: 271.25, width: 100.0, height: 82.5),
-                [CGPoint(x: 200.0, y: 312.5)]
+                [CGPoint(x: 50.0, y: 41.25)]
             ), (
                 MatchPath(layer: 2, item: 3),
                 CGRect(x: 150.0, y: 396.25, width: 100.0, height: 82.5),
-                [CGPoint(x: 200.0, y: 437.5)]
+                [CGPoint(x: 50.0, y: 41.25)]
             ), (
                 MatchPath(layer: 3, item: 0),
                 CGRect(x: 250.0, y: 52.5, width: 100.0, height: 145.0),
-                [CGPoint(x: 300.0, y: 125.0)]
+                [CGPoint(x: 50.0, y: 72.5)]
             ), (
                 MatchPath(layer: 3, item: 1),
                 CGRect(x: 250.0, y: 302.5, width: 100.0, height: 145.0),
-                [CGPoint(x: 300.0, y: 375.0)]
+                [CGPoint(x: 50.0, y: 72.5)]
             ), (
                 MatchPath(layer: 4, item: 0),
                 CGRect(x: 350.0, y: 115.0, width: 100.0, height: 270.0),
-                [CGPoint(x: 400.0, y: 250.0)]
+                [CGPoint(x: 50.0, y: 135.0)]
             )
         ],
         [
             (
                 MatchPath(layer: 1, item: 0),
                 CGRect(x: 350.0, y: 5.625, width: 100.0, height: 51.25),
-                [CGPoint(x: 400.0, y: 31.25)]
+                [CGPoint(x: 50.0, y: 25.625)]
             ), (
                 MatchPath(layer: 1, item: 1),
                 CGRect(x: 350.0, y: 68.125, width: 100.0, height: 51.25),
-                [CGPoint(x: 400.0, y: 93.75)]
+                [CGPoint(x: 50.0, y: 25.625)]
             ), (
                 MatchPath(layer: 1, item: 2),
                 CGRect(x: 350.0, y: 130.625, width: 100.0, height: 51.25),
-                [CGPoint(x: 400.0, y: 156.25)]
+                [CGPoint(x: 50.0, y: 25.625)]
             ), (
                 MatchPath(layer: 1, item: 3),
                 CGRect(x: 350.0, y: 193.125, width: 100.0, height: 51.25),
-                [CGPoint(x: 400.0, y: 218.75)]
+                [CGPoint(x: 50.0, y: 25.625)]
             ), (
                 MatchPath(layer: 2, item: 0),
                 CGRect(x: 250.0, y: 21.25, width: 100.0, height: 82.5),
-                [CGPoint(x: 300.0, y: 62.5)]
+                [CGPoint(x: 50.0, y: 41.25)]
             ), (
                 MatchPath(layer: 2, item: 1),
                 CGRect(x: 250.0, y: 146.25, width: 100.0, height: 82.5),
-                [CGPoint(x: 300.0, y: 187.5)]
+                [CGPoint(x: 50.0, y: 41.25)]
             ), (
                 MatchPath(layer: 1, item: 4),
                 CGRect(x: 350.0, y: 255.625, width: 100.0, height: 51.25),
-                [CGPoint(x: 400.0, y: 281.25)]
+                [CGPoint(x: 50.0, y: 25.625)]
             ), (
                 MatchPath(layer: 1, item: 5),
                 CGRect(x: 350.0, y: 318.125, width: 100.0, height: 51.25),
-                [CGPoint(x: 400.0, y: 343.75)]
+                [CGPoint(x: 50.0, y: 25.625)]
             ), (
                 MatchPath(layer: 1, item: 6),
                 CGRect(x: 350.0, y: 380.625, width: 100.0, height: 51.25),
-                [CGPoint(x: 400.0, y: 406.25)]
+                [CGPoint(x: 50.0, y: 25.625)]
             ), (
                 MatchPath(layer: 1, item: 7),
                 CGRect(x: 350.0, y: 443.125, width: 100.0, height: 51.25),
-                [CGPoint(x: 400.0, y: 468.75)]
+                [CGPoint(x: 50.0, y: 25.625)]
             ), (
                 MatchPath(layer: 2, item: 2),
                 CGRect(x: 250.0, y: 271.25, width: 100.0, height: 82.5),
-                [CGPoint(x: 300.0, y: 312.5)]
+                [CGPoint(x: 50.0, y: 41.25)]
             ), (
                 MatchPath(layer: 2, item: 3),
                 CGRect(x: 250.0, y: 396.25, width: 100.0, height: 82.5),
-                [CGPoint(x: 300.0, y: 437.5)]
+                [CGPoint(x: 50.0, y: 41.25)]
             ), (
                 MatchPath(layer: 3, item: 0),
                 CGRect(x: 150.0, y: 52.5, width: 100.0, height: 145.0),
-                [CGPoint(x: 200.0, y: 125.0)]
+                [CGPoint(x: 50.0, y: 72.5)]
             ), (
                 MatchPath(layer: 3, item: 1),
                 CGRect(x: 150.0, y: 302.5, width: 100.0, height: 145.0),
-                [CGPoint(x: 200.0, y: 375.0)]
+                [CGPoint(x: 50.0, y: 72.5)]
             ), (
                 MatchPath(layer: 4, item: 0),
                 CGRect(x: 50.0, y: 115.0, width: 100.0, height: 270.0),
-                [CGPoint(x: 100.0, y: 250.0)]
+                [CGPoint(x: 50.0, y: 135.0)]
             )
         ],
         [
             (
                 MatchPath(layer: 1, item: 0),
                 CGRect(x: 5.625, y: 50.0, width: 51.25, height: 100.0),
-                [CGPoint(x: 31.25, y: 100.0)]
+                [CGPoint(x: 25.625, y: 50.0)]
             ), (
                 MatchPath(layer: 1, item: 1),
                 CGRect(x: 68.125, y: 50.0, width: 51.25, height: 100.0),
-                [CGPoint(x: 93.75, y: 100.0)]
+                [CGPoint(x: 25.625, y: 50.0)]
             ), (
                 MatchPath(layer: 1, item: 2),
                 CGRect(x: 130.625, y: 50.0, width: 51.25, height: 100.0),
-                [CGPoint(x: 156.25, y: 100.0)]
+                [CGPoint(x: 25.625, y: 50.0)]
             ), (
                 MatchPath(layer: 1, item: 3),
                 CGRect(x: 193.125, y: 50.0, width: 51.25, height: 100.0),
-                [CGPoint(x: 218.75, y: 100.0)]
+                [CGPoint(x: 25.625, y: 50.0)]
             ), (
                 MatchPath(layer: 2, item: 0),
                 CGRect(x: 21.25, y: 150.0, width: 82.5, height: 100.0),
-                [CGPoint(x: 62.5, y: 200.0)]
+                [CGPoint(x: 41.25, y: 50.0)]
             ), (
                 MatchPath(layer: 2, item: 1),
                 CGRect(x: 146.25, y: 150.0, width: 82.5, height: 100.0),
-                [CGPoint(x: 187.5, y: 200.0)]
+                [CGPoint(x: 41.25, y: 50.0)]
             ), (
                 MatchPath(layer: 1, item: 4),
                 CGRect(x: 255.625, y: 50.0, width: 51.25, height: 100.0),
-                [CGPoint(x: 281.25, y: 100.0)]
+                [CGPoint(x: 25.625, y: 50.0)]
             ), (
                 MatchPath(layer: 1, item: 5),
                 CGRect(x: 318.125, y: 50.0, width: 51.25, height: 100.0),
-                [CGPoint(x: 343.75, y: 100.0)]
+                [CGPoint(x: 25.625, y: 50.0)]
             ), (
                 MatchPath(layer: 1, item: 6),
                 CGRect(x: 380.625, y: 50.0, width: 51.25, height: 100.0),
-                [CGPoint(x: 406.25, y: 100.0)]
+                [CGPoint(x: 25.625, y: 50.0)]
             ), (
                 MatchPath(layer: 1, item: 7),
                 CGRect(x: 443.125, y: 50.0, width: 51.25, height: 100.0),
-                [CGPoint(x: 468.75, y: 100.0)]
+                [CGPoint(x: 25.625, y: 50.0)]
             ), (
                 MatchPath(layer: 2, item: 2),
                 CGRect(x: 271.25, y: 150.0, width: 82.5, height: 100.0),
-                [CGPoint(x: 312.5, y: 200.0)]
+                [CGPoint(x: 41.25, y: 50.0)]
             ), (
                 MatchPath(layer: 2, item: 3),
                 CGRect(x: 396.25, y: 150.0, width: 82.5, height: 100.0),
-                [CGPoint(x: 437.5, y: 200.0)]
+                [CGPoint(x: 41.25, y: 50.0)]
             ), (
                 MatchPath(layer: 3, item: 0),
                 CGRect(x: 52.5, y: 250.0, width: 145.0, height: 100.0),
-                [CGPoint(x: 125.0, y: 300.0)]
+                [CGPoint(x: 72.5, y: 50.0)]
             ), (
                 MatchPath(layer: 3, item: 1),
                 CGRect(x: 302.5, y: 250.0, width: 145.0, height: 100.0),
-                [CGPoint(x: 375.0, y: 300.0)]
+                [CGPoint(x: 72.5, y: 50.0)]
             ), (
                 MatchPath(layer: 4, item: 0),
                 CGRect(x: 115.0, y: 350.0, width: 270.0, height: 100.0),
-                [CGPoint(x: 250.0, y: 400.0)]
+                [CGPoint(x: 135.0, y: 50.0)]
             )
         ],
         [
             (
                 MatchPath(layer: 1, item: 0),
                 CGRect(x: 5.625, y: 350.0, width: 51.25, height: 100.0),
-                [CGPoint(x: 31.25, y: 400.0)]
+                [CGPoint(x: 25.625, y: 50.0)]
             ), (
                 MatchPath(layer: 1, item: 1),
                 CGRect(x: 68.125, y: 350.0, width: 51.25, height: 100.0),
-                [CGPoint(x: 93.75, y: 400.0)]
+                [CGPoint(x: 25.625, y: 50.0)]
             ), (
                 MatchPath(layer: 1, item: 2),
                 CGRect(x: 130.625, y: 350.0, width: 51.25, height: 100.0),
-                [CGPoint(x: 156.25, y: 400.0)]
+                [CGPoint(x: 25.625, y: 50.0)]
             ), (
                 MatchPath(layer: 1, item: 3),
                 CGRect(x: 193.125, y: 350.0, width: 51.25, height: 100.0),
-                [CGPoint(x: 218.75, y: 400.0)]
+                [CGPoint(x: 25.625, y: 50.0)]
             ), (
                 MatchPath(layer: 2, item: 0),
                 CGRect(x: 21.25, y: 250.0, width: 82.5, height: 100.0),
-                [CGPoint(x: 62.5, y: 300.0)]
+                [CGPoint(x: 41.25, y: 50.0)]
             ), (
                 MatchPath(layer: 2, item: 1),
                 CGRect(x: 146.25, y: 250.0, width: 82.5, height: 100.0),
-                [CGPoint(x: 187.5, y: 300.0)]
+                [CGPoint(x: 41.25, y: 50.0)]
             ), (
                 MatchPath(layer: 1, item: 4),
                 CGRect(x: 255.625, y: 350.0, width: 51.25, height: 100.0),
-                [CGPoint(x: 281.25, y: 400.0)]
+                [CGPoint(x: 25.625, y: 50.0)]
             ), (
                 MatchPath(layer: 1, item: 5),
                 CGRect(x: 318.125, y: 350.0, width: 51.25, height: 100.0),
-                [CGPoint(x: 343.75, y: 400.0)]
+                [CGPoint(x: 25.625, y: 50.0)]
             ), (
                 MatchPath(layer: 1, item: 6),
                 CGRect(x: 380.625, y: 350.0, width: 51.25, height: 100.0),
-                [CGPoint(x: 406.25, y: 400.0)]
+                [CGPoint(x: 25.625, y: 50.0)]
             ), (
                 MatchPath(layer: 1, item: 7),
                 CGRect(x: 443.125, y: 350.0, width: 51.25, height: 100.0),
-                [CGPoint(x: 468.75, y: 400.0)]
+                [CGPoint(x: 25.625, y: 50.0)]
             ), (
                 MatchPath(layer: 2, item: 2),
                 CGRect(x: 271.25, y: 250.0, width: 82.5, height: 100.0),
-                [CGPoint(x: 312.5, y: 300.0)]
+                [CGPoint(x: 41.25, y: 50.0)]
             ), (
                 MatchPath(layer: 2, item: 3),
                 CGRect(x: 396.25, y: 250.0, width: 82.5, height: 100.0),
-                [CGPoint(x: 437.5, y: 300.0)]
+                [CGPoint(x: 41.25, y: 50.0)]
             ), (
                 MatchPath(layer: 3, item: 0),
                 CGRect(x: 52.5, y: 150.0, width: 145.0, height: 100.0),
-                [CGPoint(x: 125.0, y: 200.0)]
+                [CGPoint(x: 72.5, y: 50.0)]
             ), (
                 MatchPath(layer: 3, item: 1),
                 CGRect(x: 302.5, y: 150.0, width: 145.0, height: 100.0),
-                [CGPoint(x: 375.0, y: 200.0)]
+                [CGPoint(x: 72.5, y: 50.0)]
             ), (
                 MatchPath(layer: 4, item: 0),
                 CGRect(x: 115.0, y: 50.0, width: 270.0, height: 100.0),
-                [CGPoint(x: 250.0, y: 100.0)]
+                [CGPoint(x: 135.0, y: 50.0)]
             )
         ],
         [
             (
                 MatchPath(layer: 1, item: 0),
                 CGRect(x: 31.25, y: 15.0, width: 62.5, height: 84.28571428571429),
-                [CGPoint(x: 62.5, y: 57.142857142857146)]
+                [CGPoint(x: 31.25, y: 42.142857142857146)]
             ), (
                 MatchPath(layer: 1, item: 1),
                 CGRect(x: 31.25, y: 143.57142857142858, width: 62.5, height: 84.2857142857143),
-                [CGPoint(x: 62.5, y: 185.71428571428572)]
+                [CGPoint(x: 31.25, y: 42.14285714285714)]
             ), (
                 MatchPath(layer: 1, item: 2),
                 CGRect(x: 31.25, y: 272.14285714285717, width: 62.5, height: 84.28571428571428),
-                [CGPoint(x: 62.5, y: 314.28571428571433)]
+                [CGPoint(x: 31.25, y: 42.14285714285717)]
             ), (
                 MatchPath(layer: 1, item: 3),
                 CGRect(x: 31.25, y: 400.7142857142858, width: 62.5, height: 84.28571428571428),
-                [CGPoint(x: 62.5, y: 442.8571428571429)]
+                [CGPoint(x: 31.25, y: 42.14285714285711)]
             ), (
                 MatchPath(layer: 2, item: 0),
                 CGRect(x: 93.75, y: 47.142857142857146, width: 62.5, height: 148.57142857142858),
-                [CGPoint(x: 125.0, y: 121.42857142857144)]
+                [CGPoint(x: 31.25, y: 74.2857142857143)]
             ), (
                 MatchPath(layer: 2, item: 1),
                 CGRect(x: 93.75, y: 304.28571428571433, width: 62.5, height: 148.57142857142856),
-                [CGPoint(x: 125.0, y: 378.5714285714286)]
+                [CGPoint(x: 31.25, y: 74.28571428571428)]
             ), (
                 MatchPath(layer: 1, item: 4),
                 CGRect(x: 406.25, y: 15.0, width: 62.5, height: 84.28571428571429),
-                [CGPoint(x: 437.5, y: 57.142857142857146)]
+                [CGPoint(x: 31.25, y: 42.142857142857146)]
             ), (
                 MatchPath(layer: 1, item: 5),
                 CGRect(x: 406.25, y: 143.57142857142858, width: 62.5, height: 84.2857142857143),
-                [CGPoint(x: 437.5, y: 185.71428571428572)]
+                [CGPoint(x: 31.25, y: 42.14285714285714)]
             ), (
                 MatchPath(layer: 1, item: 6),
                 CGRect(x: 406.25, y: 272.14285714285717, width: 62.5, height: 84.28571428571428),
-                [CGPoint(x: 437.5, y: 314.28571428571433)]
+                [CGPoint(x: 31.25, y: 42.14285714285717)]
             ), (
                 MatchPath(layer: 1, item: 7),
                 CGRect(x: 406.25, y: 400.7142857142858, width: 62.5, height: 84.28571428571428),
-                [CGPoint(x: 437.5, y: 442.8571428571429)]
+                [CGPoint(x: 31.25, y: 42.14285714285711)]
             ), (
                 MatchPath(layer: 2, item: 2),
                 CGRect(x: 343.75, y: 47.142857142857146, width: 62.5, height: 148.57142857142858),
-                [CGPoint(x: 375.0, y: 121.42857142857144)]
+                [CGPoint(x: 31.25, y: 74.2857142857143)]
             ), (
                 MatchPath(layer: 2, item: 3),
                 CGRect(x: 343.75, y: 304.28571428571433, width: 62.5, height: 148.57142857142856),
-                [CGPoint(x: 375.0, y: 378.5714285714286)]
+                [CGPoint(x: 31.25, y: 74.28571428571428)]
             ), (
                 MatchPath(layer: 3, item: 0),
                 CGRect(x: 156.25, y: 111.42857142857144, width: 62.5, height: 277.14285714285717),
-                [CGPoint(x: 187.5, y: 250.0)]
+                [CGPoint(x: 31.25, y: 138.57142857142856)]
             ), (
                 MatchPath(layer: 3, item: 1),
                 CGRect(x: 281.25, y: 111.42857142857144, width: 62.5, height: 277.14285714285717),
-                [CGPoint(x: 312.5, y: 250.0)]
+                [CGPoint(x: 31.25, y: 138.57142857142856)]
             ), (
                 MatchPath(layer: 4, item: 0),
                 CGRect(x: 218.75, y: 230.0, width: 62.5, height: 40.0),
-                [CGPoint(x: 250.0, y: 250.0)]
+                [CGPoint(x: 31.25, y: 20.0)]
             )
         ],
         [
             (
                 MatchPath(layer: 1, item: 0),
                 CGRect(x: 15.0, y: 31.25, width: 84.28571428571429, height: 62.5),
-                [CGPoint(x: 57.142857142857146, y: 62.5)]
+                [CGPoint(x: 42.142857142857146, y: 31.25)]
             ), (
                 MatchPath(layer: 1, item: 1),
                 CGRect(x: 143.57142857142858, y: 31.25, width: 84.2857142857143, height: 62.5),
-                [CGPoint(x: 185.71428571428572, y: 62.5)]
+                [CGPoint(x: 42.14285714285714, y: 31.25)]
             ), (
                 MatchPath(layer: 1, item: 2),
                 CGRect(x: 272.14285714285717, y: 31.25, width: 84.28571428571428, height: 62.5),
-                [CGPoint(x: 314.28571428571433, y: 62.5)]
+                [CGPoint(x: 42.14285714285717, y: 31.25)]
             ), (
                 MatchPath(layer: 1, item: 3),
                 CGRect(x: 400.7142857142858, y: 31.25, width: 84.28571428571428, height: 62.5),
-                [CGPoint(x: 442.8571428571429, y: 62.5)]
+                [CGPoint(x: 42.14285714285711, y: 31.25)]
             ), (
                 MatchPath(layer: 2, item: 0),
                 CGRect(x: 47.142857142857146, y: 93.75, width: 148.57142857142858, height: 62.5),
-                [CGPoint(x: 121.42857142857144, y: 125.0)]
+                [CGPoint(x: 74.2857142857143, y: 31.25)]
             ), (
                 MatchPath(layer: 2, item: 1),
                 CGRect(x: 304.28571428571433, y: 93.75, width: 148.57142857142856, height: 62.5),
-                [CGPoint(x: 378.5714285714286, y: 125.0)]
+                [CGPoint(x: 74.28571428571428, y: 31.25)]
             ), (
                 MatchPath(layer: 1, item: 4),
                 CGRect(x: 15.0, y: 406.25, width: 84.28571428571429, height: 62.5),
-                [CGPoint(x: 57.142857142857146, y: 437.5)]
+                [CGPoint(x: 42.142857142857146, y: 31.25)]
             ), (
                 MatchPath(layer: 1, item: 5),
                 CGRect(x: 143.57142857142858, y: 406.25, width: 84.2857142857143, height: 62.5),
-                [CGPoint(x: 185.71428571428572, y: 437.5)]
+                [CGPoint(x: 42.14285714285714, y: 31.25)]
             ), (
                 MatchPath(layer: 1, item: 6),
                 CGRect(x: 272.14285714285717, y: 406.25, width: 84.28571428571428, height: 62.5),
-                [CGPoint(x: 314.28571428571433, y: 437.5)]
+                [CGPoint(x: 42.14285714285717, y: 31.25)]
             ), (
                 MatchPath(layer: 1, item: 7),
                 CGRect(x: 400.7142857142858, y: 406.25, width: 84.28571428571428, height: 62.5),
-                [CGPoint(x: 442.8571428571429, y: 437.5)]
+                [CGPoint(x: 42.14285714285711, y: 31.25)]
             ), (
                 MatchPath(layer: 2, item: 2),
                 CGRect(x: 47.142857142857146, y: 343.75, width: 148.57142857142858, height: 62.5),
-                [CGPoint(x: 121.42857142857144, y: 375.0)]
+                [CGPoint(x: 74.2857142857143, y: 31.25)]
             ), (
                 MatchPath(layer: 2, item: 3),
                 CGRect(x: 304.28571428571433, y: 343.75, width: 148.57142857142856, height: 62.5),
-                [CGPoint(x: 378.5714285714286, y: 375.0)]
+                [CGPoint(x: 74.28571428571428, y: 31.25)]
             ), (
                 MatchPath(layer: 3, item: 0),
                 CGRect(x: 111.42857142857144, y: 156.25, width: 277.14285714285717, height: 62.5),
-                [CGPoint(x: 250.0, y: 187.5)]
+                [CGPoint(x: 138.57142857142856, y: 31.25)]
             ), (
                 MatchPath(layer: 3, item: 1),
                 CGRect(x: 111.42857142857144, y: 281.25, width: 277.14285714285717, height: 62.5),
-                [CGPoint(x: 250.0, y: 312.5)]
+                [CGPoint(x: 138.57142857142856, y: 31.25)]
             ), (
                 MatchPath(layer: 4, item: 0),
                 CGRect(x: 230.0, y: 218.75, width: 40.0, height: 62.5),
-                [CGPoint(x: 250.0, y: 250.0)]
+                [CGPoint(x: 20.0, y: 31.25)]
             )
         ],
         [
             (
                 MatchPath(layer: 1, item: 0),
                 CGRect(x: 62.5, y: 15.0, width: 125.0, height: 170.0),
-                [CGPoint(x: 125.0, y: 100.0)]
+                [CGPoint(x: 62.5, y: 85.0)]
             ), (
                 MatchPath(layer: 2, item: 0),
                 CGRect(x: 187.5, y: 90.0, width: 125.0, height: 245.0),
-                [CGPoint(x: 250.0, y: 212.5)]
+                [CGPoint(x: 62.5, y: 122.5)]
             ), (
                 MatchPath(layer: 3, item: 0),
                 CGRect(x: 312.5, y: 202.5, width: 125.0, height: 282.5),
-                [CGPoint(x: 375.0, y: 343.75)]
+                [CGPoint(x: 62.5, y: 141.25)]
             )
         ],
         [
             (
                 MatchPath(layer: 1, item: 0),
                 CGRect(x: 41.666666666666664, y: 15.0, width: 83.33333333333333, height: 170.0),
-                [CGPoint(x: 83.33333333333333, y: 100.0)]
+                [CGPoint(x: 41.666666666666664, y: 85.0)]
             ), (
                 MatchPath(layer: 1, item: 1),
                 CGRect(x: 375.0, y: 127.5, width: 83.33333333333333, height: 132.5),
-                [CGPoint(x: 416.6666666666667, y: 193.75)]
+                [CGPoint(x: 41.666666666666686, y: 66.25)]
             ), (
                 MatchPath(layer: 2, item: 0),
                 CGRect(x: 125.0, y: 90.0, width: 55.55555555555555, height: 395.0),
-                [CGPoint(x: 166.66666666666666, y: 165.625), CGPoint(x: 166.66666666666666, y: 334.375)]
+                [CGPoint(x: 41.66666666666666, y: 75.625), CGPoint(x: 41.66666666666666, y: 244.375)]
             ), (
                 MatchPath(layer: 2, item: 1),
                 CGRect(x: 319.44444444444446, y: 15.0, width: 55.55555555555555, height: 357.5),
-                [CGPoint(x: 333.33333333333337, y: 117.8125), CGPoint(x: 333.33333333333337, y: 269.6875)]
+                [CGPoint(x: 13.888888888888914, y: 102.8125), CGPoint(x: 13.888888888888914, y: 254.6875)]
             ), (
                 MatchPath(layer: 3, item: 0),
                 CGRect(x: 180.55555555555554, y: 107.8125, width: 138.8888888888889, height: 377.1875),
-                [CGPoint(x: 245.0, y: 250.0), CGPoint(x: 255.0, y: 250.0)]
+                [CGPoint(x: 64.44444444444446, y: 142.1875), CGPoint(x: 74.44444444444446, y: 142.1875)]
             )
         ],
         [
             (
                 MatchPath(layer: 1, item: 0),
                 CGRect(x: 83.33333333333333, y: 5.625, width: 166.66666666666666, height: 113.75),
-                [CGPoint(x: 166.66666666666666, y: 62.5)]
+                [CGPoint(x: 83.33333333333333, y: 56.875)]
             ), (
                 MatchPath(layer: 1, item: 1),
                 CGRect(x: 83.33333333333333, y: 130.625, width: 166.66666666666666, height: 113.75),
-                [CGPoint(x: 166.66666666666666, y: 187.5)]
+                [CGPoint(x: 83.33333333333333, y: 56.875)]
             ), (
                 MatchPath(layer: 1, item: 2),
                 CGRect(x: 83.33333333333333, y: 255.625, width: 166.66666666666666, height: 113.75),
-                [CGPoint(x: 166.66666666666666, y: 312.5)]
+                [CGPoint(x: 83.33333333333333, y: 56.875)]
             ), (
                 MatchPath(layer: 1, item: 3),
                 CGRect(x: 83.33333333333333, y: 380.625, width: 166.66666666666666, height: 113.75),
-                [CGPoint(x: 166.66666666666666, y: 437.5)]
+                [CGPoint(x: 83.33333333333333, y: 56.875)]
             ), (
                 MatchPath(layer: 2, item: 0),
                 CGRect(x: 250.0, y: 52.5, width: 166.66666666666666, height: 395.0),
-                [CGPoint(x: 333.3333333333333, y: 250.0)]
+                [CGPoint(x: 83.33333333333331, y: 197.5)]
             )
         ],
         [
             (
                 MatchPath(layer: 1, item: 0),
                 CGRect(x: 62.5, y: 15.0, width: 83.33333333333333, height: 470.0),
-                [CGPoint(x: 125.0, y: 182.5), CGPoint(x: 125.0, y: 317.5)]
+                [CGPoint(x: 62.5, y: 167.5), CGPoint(x: 62.5, y: 302.5)]
             ), (
                 MatchPath(layer: 1, item: 1),
                 CGRect(x: 354.1666666666667, y: 15.0, width: 83.33333333333333, height: 470.0),
-                [CGPoint(x: 375.0, y: 182.5), CGPoint(x: 375.0, y: 317.5)]
+                [CGPoint(x: 20.833333333333314, y: 167.5), CGPoint(x: 20.833333333333314, y: 302.5)]
             ), (
                 MatchPath(layer: 2, item: 0),
                 CGRect(x: 145.83333333333331, y: 172.5, width: 208.33333333333337, height: 155.0),
-                [CGPoint(x: 250.0, y: 250.0)]
+                [CGPoint(x: 104.16666666666669, y: 77.5)]
             )
         ],
         [
             (
                 MatchPath(layer: 1, item: 0),
                 CGRect(x: 41.666666666666664, y: 15.0, width: 83.33333333333333, height: 170.0),
-                [CGPoint(x: 83.33333333333333, y: 100.0)]
+                [CGPoint(x: 41.666666666666664, y: 85.0)]
             ), (
                 MatchPath(layer: 1, item: 1),
                 CGRect(x: 41.666666666666664, y: 315.0, width: 83.33333333333333, height: 170.0),
-                [CGPoint(x: 83.33333333333333, y: 400.0)]
+                [CGPoint(x: 41.666666666666664, y: 85.0)]
             ), (
                 MatchPath(layer: 1, item: 2),
                 CGRect(x: 375.0, y: 15.0, width: 83.33333333333333, height: 170.0),
-                [CGPoint(x: 416.6666666666667, y: 100.0)]
+                [CGPoint(x: 41.666666666666686, y: 85.0)]
             ), (
                 MatchPath(layer: 1, item: 3),
                 CGRect(x: 375.0, y: 315.0, width: 83.33333333333333, height: 170.0),
-                [CGPoint(x: 416.6666666666667, y: 400.0)]
+                [CGPoint(x: 41.666666666666686, y: 85.0)]
             ), (
                 MatchPath(layer: 2, item: 0),
                 CGRect(x: 125.0, y: 90.0, width: 83.33333333333333, height: 320.0),
-                [CGPoint(x: 166.66666666666666, y: 250.0)]
+                [CGPoint(x: 41.66666666666666, y: 160.0)]
             ), (
                 MatchPath(layer: 2, item: 1),
                 CGRect(x: 291.6666666666667, y: 90.0, width: 83.33333333333333, height: 320.0),
-                [CGPoint(x: 333.33333333333337, y: 250.0)]
+                [CGPoint(x: 41.666666666666686, y: 160.0)]
             ), (
                 MatchPath(layer: 3, item: 0),
                 CGRect(x: 208.33333333333334, y: 230.0, width: 83.33333333333334, height: 40.0),
-                [CGPoint(x: 250.0, y: 250.0)]
+                [CGPoint(x: 41.66666666666666, y: 20.0)]
             )
         ],
         [
             (
                 MatchPath(layer: 1, item: 0),
                 CGRect(x: 41.666666666666664, y: 15.0, width: 83.33333333333333, height: 245.0),
-                [CGPoint(x: 83.33333333333333, y: 137.5)]
+                [CGPoint(x: 41.666666666666664, y: 122.5)]
             ), (
                 MatchPath(layer: 1, item: 1),
                 CGRect(x: 375.0, y: 15.0, width: 83.33333333333333, height: 170.0),
-                [CGPoint(x: 416.6666666666667, y: 100.0)]
+                [CGPoint(x: 41.666666666666686, y: 85.0)]
             ), (
                 MatchPath(layer: 1, item: 2),
                 CGRect(x: 375.0, y: 315.0, width: 83.33333333333333, height: 170.0),
-                [CGPoint(x: 416.6666666666667, y: 400.0)]
+                [CGPoint(x: 41.666666666666686, y: 85.0)]
             ), (
                 MatchPath(layer: 2, item: 0),
                 CGRect(x: 125.0, y: 127.5, width: 83.33333333333333, height: 357.5),
-                [CGPoint(x: 166.66666666666666, y: 250.0)]
+                [CGPoint(x: 41.66666666666666, y: 122.5)]
             ), (
                 MatchPath(layer: 2, item: 1),
                 CGRect(x: 291.6666666666667, y: 90.0, width: 83.33333333333333, height: 320.0),
-                [CGPoint(x: 333.33333333333337, y: 250.0)]
+                [CGPoint(x: 41.666666666666686, y: 160.0)]
             ), (
                 MatchPath(layer: 3, item: 0),
                 CGRect(x: 208.33333333333334, y: 230.0, width: 83.33333333333334, height: 40.0),
-                [CGPoint(x: 250.0, y: 250.0)]
+                [CGPoint(x: 41.66666666666666, y: 20.0)]
             )
         ],
         [
             (
                 MatchPath(layer: 1, item: 0),
                 CGRect(x: 20.833333333333332, y: 15.0, width: 41.666666666666664, height: 110.0),
-                [CGPoint(x: 41.666666666666664, y: 70.0)]
+                [CGPoint(x: 20.833333333333332, y: 55.0)]
             ), (
                 MatchPath(layer: 2, item: 0),
                 CGRect(x: 62.5, y: 60.0, width: 41.666666666666664, height: 155.0),
-                [CGPoint(x: 83.33333333333333, y: 137.5)]
+                [CGPoint(x: 20.83333333333333, y: 77.5)]
             ), (
                 MatchPath(layer: 3, item: 0),
                 CGRect(x: 104.16666666666667, y: 127.5, width: 41.666666666666664, height: 177.5),
-                [CGPoint(x: 125.0, y: 216.25)]
+                [CGPoint(x: 20.83333333333333, y: 88.75)]
             ), (
                 MatchPath(layer: 4, item: 0),
                 CGRect(x: 145.83333333333331, y: 206.25, width: 41.666666666666664, height: 188.75),
-                [CGPoint(x: 166.66666666666666, y: 300.625)]
+                [CGPoint(x: 20.833333333333343, y: 94.375)]
             ), (
                 MatchPath(layer: 1, item: 1),
                 CGRect(x: 437.5, y: 390.0, width: 41.666666666666664, height: 95.0),
-                [CGPoint(x: 458.3333333333333, y: 437.5)]
+                [CGPoint(x: 20.833333333333314, y: 47.5)]
             ), (
                 MatchPath(layer: 2, item: 1),
                 CGRect(x: 395.83333333333337, y: 315.0, width: 41.666666666666664, height: 132.5),
-                [CGPoint(x: 416.6666666666667, y: 381.25)]
+                [CGPoint(x: 20.833333333333314, y: 66.25)]
             ), (
                 MatchPath(layer: 3, item: 1),
                 CGRect(x: 354.1666666666667, y: 240.0, width: 41.666666666666664, height: 151.25),
-                [CGPoint(x: 375.0, y: 315.625)]
+                [CGPoint(x: 20.833333333333314, y: 75.625)]
             ), (
                 MatchPath(layer: 4, item: 1),
                 CGRect(x: 312.50000000000006, y: 165.0, width: 41.666666666666664, height: 160.625),
-                [CGPoint(x: 333.33333333333337, y: 245.3125)]
+                [CGPoint(x: 20.833333333333314, y: 80.3125)]
             ), (
                 MatchPath(layer: 5, item: 0),
                 CGRect(x: 187.49999999999997, y: 290.625, width: 41.666666666666664, height: 194.375),
-                [CGPoint(x: 208.33333333333331, y: 387.8125)]
+                [CGPoint(x: 20.833333333333343, y: 97.1875)]
             ), (
                 MatchPath(layer: 5, item: 1),
                 CGRect(x: 284.72222222222223, y: 15.0, width: 27.777777777777775, height: 240.3125),
-                [CGPoint(x: 291.6666666666667, y: 85.5859375), CGPoint(x: 291.6666666666667, y: 184.7265625)]
+                [CGPoint(x: 6.944444444444457, y: 70.5859375), CGPoint(x: 6.944444444444457, y: 169.7265625)]
             ), (
                 MatchPath(layer: 6, item: 0),
                 CGRect(x: 229.16666666666666, y: 75.5859375, width: 55.55555555555557, height: 322.2265625),
-                [CGPoint(x: 245.83333333333334, y: 261.484375), CGPoint(x: 254.16666666666669, y: 261.484375)]
+                [CGPoint(x: 16.666666666666686, y: 185.8984375), CGPoint(x: 25.00000000000003, y: 185.8984375)]
             )
         ],
         [
             (
                 MatchPath(layer: 1, item: 0),
                 CGRect(x: 62.5, y: 240.0, width: 125.0, height: 245.0),
-                [CGPoint(x: 125.0, y: 362.5)]
+                [CGPoint(x: 62.5, y: 122.5)]
             ), (
                 MatchPath(layer: 3, item: 0),
                 CGRect(x: 312.5, y: 15.0, width: 125.0, height: 357.5),
-                [CGPoint(x: 375.0, y: 193.75)]
+                [CGPoint(x: 62.5, y: 178.75)]
             )
         ]
     ]
@@ -2513,15 +2502,15 @@ extension Array where Element == (MatchPath, CGRect, [CGPoint]) {
         let descriptions = map { matchPath, rect, points in
             return """
             (
-                    \(String(describing: matchPath)),
-                    \(String(describing: rect)),
-                    [\(points.map(String.init(describing:)).joined(separator: ", "))]
-                )
+            \(String(describing: matchPath)),
+            \(String(describing: rect)),
+            [\(points.map(String.init(describing:)).joined(separator: ", "))]
+            )
             """
         }
         return """
         [
-            \(descriptions.joined(separator: ", "))
+        \(descriptions.joined(separator: ", "))
         ]
         """
     }
