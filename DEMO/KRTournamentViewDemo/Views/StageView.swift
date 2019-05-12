@@ -15,6 +15,13 @@ class StageView: UIView {
     var observations = [NSKeyValueObservation]()
 
     let items: [(KRTournamentViewStyle, Bracket)] = [
+        (
+            .leftRight,
+            TournamentBuilder()
+                .addEntry()
+                .addBracket { TournamentBuilder.build(numberOfLayers: 2) }
+                .build(withFormat: true)
+        ),
         (.left, TournamentBuilder.build(numberOfLayers: 4) { _ in [0] }),
         (.right, TournamentBuilder.build(numberOfLayers: 4) { _ in [0] }),
         (.top, TournamentBuilder.build(numberOfLayers: 4) { _ in [0] }),

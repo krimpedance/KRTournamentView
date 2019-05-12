@@ -43,20 +43,20 @@ public struct Bracket: TournamentStructure, CustomStringConvertible {
 // MARK: - Internal actions ------------
 
 extension Bracket {
-    init(matchPath: MatchPath, children: [TournamentStructure], numberOfWinner: Int = 1, winnerIndexes: [Int] = []) {
+    init(matchPath: MatchPath, children: [TournamentStructure], numberOfWinners: Int = 1, winnerIndexes: [Int] = []) {
         self.matchPath = matchPath
-        self.children = children
-        self.numberOfWinners = numberOfWinner
+        self.children = children.filter { ($0 is Bracket) || ($0 is Entry) }
+        self.numberOfWinners = numberOfWinners
         self.winnerIndexes = winnerIndexes
     }
 
     func getMatchPaths() -> [MatchPath] {
-        let (entryNum, childMatchPathes) = children.reduce((0, [])) { result, child -> (Int, [MatchPath]) in
+        let (entryNum, childMatchPaths) = children.reduce((0, [])) { result, child -> (Int, [MatchPath]) in
             if child is Entry { return (result.0 + 1, result.1) }
             guard let bracket = child as? Bracket else { return result }
             return (result.0 + bracket.numberOfWinners, result.1 + bracket.getMatchPaths())
         }
-        return (entryNum == 1) ? childMatchPathes : [matchPath] + childMatchPathes
+        return (entryNum == 1) ? childMatchPaths : [matchPath] + childMatchPaths
     }
 
     func formatted(force: Bool) -> Bracket {
@@ -84,7 +84,7 @@ extension Bracket {
             return nil
         }
 
-        return Bracket(matchPath: .init(layer: layer, item: 0), children: children, numberOfWinner: numberOfWinners, winnerIndexes: winnerIndexes)
+        return Bracket(matchPath: .init(layer: layer, item: 0), children: children, numberOfWinners: numberOfWinners, winnerIndexes: winnerIndexes)
     }
 
     private func formatted(matchPath: MatchPath, matchNumbers: inout [Int: Int], entryIndex: inout Int) -> Bracket {
@@ -105,7 +105,7 @@ extension Bracket {
             return nil
         }
 
-        return .init(matchPath: matchPath, children: children, numberOfWinner: numberOfWinners, winnerIndexes: winnerIndexes)
+        return .init(matchPath: matchPath, children: children, numberOfWinners: numberOfWinners, winnerIndexes: winnerIndexes)
     }
 }
 

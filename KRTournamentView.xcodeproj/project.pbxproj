@@ -13,7 +13,6 @@
 		6B4102D3202036FB00E078B7 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6B4102CE202036DC00E078B7 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6B4102D4202036FB00E078B7 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6B4102CF202036DC00E078B7 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6B4102D62020379300E078B7 /* KRTournamentViewEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4102D52020379300E078B7 /* KRTournamentViewEntryTests.swift */; };
-		6B4102D82020443400E078B7 /* KRTournamentViewMatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4102D72020443400E078B7 /* KRTournamentViewMatchTests.swift */; };
 		6B4102DA2020603800E078B7 /* KRTournamentViewStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4102D92020603800E078B7 /* KRTournamentViewStyleTests.swift */; };
 		6B58092D225C42250045DC27 /* NSLayoutConstraint+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B58092C225C42250045DC27 /* NSLayoutConstraint+Ex.swift */; };
 		6B5D6B7320245D93007C7F82 /* KRTournamentViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5D6B7220245D93007C7F82 /* KRTournamentViewTests.swift */; };
@@ -21,10 +20,15 @@
 		6B5E427A201271AE00CF6E6A /* KRTournamentViewDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5E4279201271AE00CF6E6A /* KRTournamentViewDataStore.swift */; };
 		6B6BAA0D224F38A2005DA6BD /* TournamentStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6BAA0C224F38A2005DA6BD /* TournamentStructure.swift */; };
 		6B85577E1FE428A1001601C0 /* MatchPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B85577D1FE428A1001601C0 /* MatchPath.swift */; };
-		6B9B73C620233B3500341B71 /* KRTournamentDrawingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9B73C520233B3500341B71 /* KRTournamentDrawingViewTests.swift */; };
 		6BA370D92020A86900655E60 /* KRTournamentViewEntryLabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA370D82020A86900655E60 /* KRTournamentViewEntryLabelTests.swift */; };
 		6BA5D0691FE50C9300FB8A80 /* KRTournamentViewEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5D0681FE50C9300FB8A80 /* KRTournamentViewEntry.swift */; };
 		6BA5D0701FE584F300FB8A80 /* KRTournamentViewMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5D06F1FE584F300FB8A80 /* KRTournamentViewMatch.swift */; };
+		6BB5D8642286C0010065840B /* KRTournamentViewEntryFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB5D8632286C0010065840B /* KRTournamentViewEntryFake.swift */; };
+		6BB5D8662286C5D90065840B /* BracketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB5D8652286C5D90065840B /* BracketTests.swift */; };
+		6BB5D8682286D78F0065840B /* EntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB5D8672286D78F0065840B /* EntryTests.swift */; };
+		6BB5D86A2286D7D50065840B /* TournamentStructureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB5D8692286D7D50065840B /* TournamentStructureTests.swift */; };
+		6BB5D86C2287B9300065840B /* TournamentBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB5D86B2287B9300065840B /* TournamentBuilderTests.swift */; };
+		6BB5D86E2287DCDF0065840B /* Bracket+PathSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB5D86D2287DCDF0065840B /* Bracket+PathSetTests.swift */; };
 		6BBBF6E81FE2AF76002F68C3 /* KRTournamentDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBBF6E71FE2AF76002F68C3 /* KRTournamentDrawingView.swift */; };
 		6BBBF6EA1FE2AFDC002F68C3 /* KRTournamentEntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBBF6E91FE2AFDC002F68C3 /* KRTournamentEntriesView.swift */; };
 		6BC99F8220126649005CC95B /* KRTournamentViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC99F8120126649005CC95B /* KRTournamentViewStyle.swift */; };
@@ -32,16 +36,18 @@
 		6BCE2CC72022B11500A248A0 /* KRTournamentEntriesViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCE2CC62022B11500A248A0 /* KRTournamentEntriesViewTests.swift */; };
 		6BD3AB56227E92AB00620FC9 /* Bracket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3AB55227E92AB00620FC9 /* Bracket.swift */; };
 		6BD3AB58227E93D600620FC9 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3AB57227E93D600620FC9 /* Entry.swift */; };
-		6BD3AB5A227E944100620FC9 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3AB59227E944000620FC9 /* Builder.swift */; };
+		6BD3AB5A227E944100620FC9 /* TournamentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3AB59227E944000620FC9 /* TournamentBuilder.swift */; };
 		6BD3AB5C227EC89100620FC9 /* PathSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3AB5B227EC89100620FC9 /* PathSet.swift */; };
 		6BD3AB5E227EC8C500620FC9 /* Bracket+PathSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3AB5D227EC8C500620FC9 /* Bracket+PathSet.swift */; };
+		6BD3AB61227EDE7900620FC9 /* KRTournamentViewDataStoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3AB60227EDE7900620FC9 /* KRTournamentViewDataStoreMock.swift */; };
+		6BD3AB69227FF1F800620FC9 /* KRTournamentViewDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3AB68227FF1F800620FC9 /* KRTournamentViewDataSourceMock.swift */; };
+		6BD3AB6C2280036E00620FC9 /* PathSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3AB6B2280036E00620FC9 /* PathSetTests.swift */; };
+		6BD3AB6E2280103400620FC9 /* TournamentInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3AB6D2280103400620FC9 /* TournamentInfoTests.swift */; };
 		6BE6904D201C637C00BA93D5 /* KRTournamentViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE6904C201C637C00BA93D5 /* KRTournamentViewDataSource.swift */; };
 		6BE6904F201C63D100BA93D5 /* KRTournamentViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE6904E201C63D100BA93D5 /* KRTournamentViewDelegate.swift */; };
 		6BF4AE6F1FD57413005EDCE0 /* KRTournamentView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BF4AE651FD57413005EDCE0 /* KRTournamentView.framework */; };
 		6BF4AE761FD57413005EDCE0 /* KRTournamentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BF4AE681FD57413005EDCE0 /* KRTournamentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6BF527772000B490006120EE /* TournamentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF527762000B490006120EE /* TournamentInfo.swift */; };
-		6BFEF9972020AE51008257B1 /* KRTournamentViewDataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFEF9962020AE51008257B1 /* KRTournamentViewDataStoreTests.swift */; };
-		6BFEF9992020B428008257B1 /* KRTournamentCalculatableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFEF9982020B428008257B1 /* KRTournamentCalculatableTests.swift */; };
 		6BFEF99B20219C40008257B1 /* MatchPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFEF99A20219C40008257B1 /* MatchPathTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +80,6 @@
 		6B4102CE202036DC00E078B7 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		6B4102CF202036DC00E078B7 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		6B4102D52020379300E078B7 /* KRTournamentViewEntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentViewEntryTests.swift; sourceTree = "<group>"; };
-		6B4102D72020443400E078B7 /* KRTournamentViewMatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentViewMatchTests.swift; sourceTree = "<group>"; };
 		6B4102D92020603800E078B7 /* KRTournamentViewStyleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentViewStyleTests.swift; sourceTree = "<group>"; };
 		6B58092C225C42250045DC27 /* NSLayoutConstraint+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Ex.swift"; sourceTree = "<group>"; };
 		6B5D6B7220245D93007C7F82 /* KRTournamentViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRTournamentViewTests.swift; sourceTree = "<group>"; };
@@ -82,10 +87,15 @@
 		6B5E4279201271AE00CF6E6A /* KRTournamentViewDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentViewDataStore.swift; sourceTree = "<group>"; };
 		6B6BAA0C224F38A2005DA6BD /* TournamentStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentStructure.swift; sourceTree = "<group>"; };
 		6B85577D1FE428A1001601C0 /* MatchPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchPath.swift; sourceTree = "<group>"; };
-		6B9B73C520233B3500341B71 /* KRTournamentDrawingViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentDrawingViewTests.swift; sourceTree = "<group>"; };
 		6BA370D82020A86900655E60 /* KRTournamentViewEntryLabelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentViewEntryLabelTests.swift; sourceTree = "<group>"; };
 		6BA5D0681FE50C9300FB8A80 /* KRTournamentViewEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentViewEntry.swift; sourceTree = "<group>"; };
 		6BA5D06F1FE584F300FB8A80 /* KRTournamentViewMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentViewMatch.swift; sourceTree = "<group>"; };
+		6BB5D8632286C0010065840B /* KRTournamentViewEntryFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentViewEntryFake.swift; sourceTree = "<group>"; };
+		6BB5D8652286C5D90065840B /* BracketTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketTests.swift; sourceTree = "<group>"; };
+		6BB5D8672286D78F0065840B /* EntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTests.swift; sourceTree = "<group>"; };
+		6BB5D8692286D7D50065840B /* TournamentStructureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentStructureTests.swift; sourceTree = "<group>"; };
+		6BB5D86B2287B9300065840B /* TournamentBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentBuilderTests.swift; sourceTree = "<group>"; };
+		6BB5D86D2287DCDF0065840B /* Bracket+PathSetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bracket+PathSetTests.swift"; sourceTree = "<group>"; };
 		6BBBF6E71FE2AF76002F68C3 /* KRTournamentDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentDrawingView.swift; sourceTree = "<group>"; };
 		6BBBF6E91FE2AFDC002F68C3 /* KRTournamentEntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentEntriesView.swift; sourceTree = "<group>"; };
 		6BC99F8120126649005CC95B /* KRTournamentViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentViewStyle.swift; sourceTree = "<group>"; };
@@ -93,9 +103,13 @@
 		6BCE2CC62022B11500A248A0 /* KRTournamentEntriesViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentEntriesViewTests.swift; sourceTree = "<group>"; };
 		6BD3AB55227E92AB00620FC9 /* Bracket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bracket.swift; sourceTree = "<group>"; };
 		6BD3AB57227E93D600620FC9 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
-		6BD3AB59227E944000620FC9 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		6BD3AB59227E944000620FC9 /* TournamentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentBuilder.swift; sourceTree = "<group>"; };
 		6BD3AB5B227EC89100620FC9 /* PathSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathSet.swift; sourceTree = "<group>"; };
 		6BD3AB5D227EC8C500620FC9 /* Bracket+PathSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bracket+PathSet.swift"; sourceTree = "<group>"; };
+		6BD3AB60227EDE7900620FC9 /* KRTournamentViewDataStoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentViewDataStoreMock.swift; sourceTree = "<group>"; };
+		6BD3AB68227FF1F800620FC9 /* KRTournamentViewDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentViewDataSourceMock.swift; sourceTree = "<group>"; };
+		6BD3AB6B2280036E00620FC9 /* PathSetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathSetTests.swift; sourceTree = "<group>"; };
+		6BD3AB6D2280103400620FC9 /* TournamentInfoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentInfoTests.swift; sourceTree = "<group>"; };
 		6BE6904C201C637C00BA93D5 /* KRTournamentViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentViewDataSource.swift; sourceTree = "<group>"; };
 		6BE6904E201C63D100BA93D5 /* KRTournamentViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentViewDelegate.swift; sourceTree = "<group>"; };
 		6BF4AE651FD57413005EDCE0 /* KRTournamentView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KRTournamentView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,8 +118,6 @@
 		6BF4AE6E1FD57413005EDCE0 /* KRTournamentViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KRTournamentViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BF4AE751FD57413005EDCE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BF527762000B490006120EE /* TournamentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentInfo.swift; sourceTree = "<group>"; };
-		6BFEF9962020AE51008257B1 /* KRTournamentViewDataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentViewDataStoreTests.swift; sourceTree = "<group>"; };
-		6BFEF9982020B428008257B1 /* KRTournamentCalculatableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRTournamentCalculatableTests.swift; sourceTree = "<group>"; };
 		6BFEF99A20219C40008257B1 /* MatchPathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchPathTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,9 +133,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BF4AE6F1FD57413005EDCE0 /* KRTournamentView.framework in Frameworks */,
 				6B4102D0202036DC00E078B7 /* Nimble.framework in Frameworks */,
 				6B4102D1202036DC00E078B7 /* Quick.framework in Frameworks */,
-				6BF4AE6F1FD57413005EDCE0 /* KRTournamentView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,9 +156,9 @@
 			children = (
 				6BD3AB5D227EC8C500620FC9 /* Bracket+PathSet.swift */,
 				6B5E42772012714700CF6E6A /* Defaults.swift */,
-				6B5E4279201271AE00CF6E6A /* KRTournamentViewDataStore.swift */,
 				6BBBF6E71FE2AF76002F68C3 /* KRTournamentDrawingView.swift */,
 				6BBBF6E91FE2AFDC002F68C3 /* KRTournamentEntriesView.swift */,
+				6B5E4279201271AE00CF6E6A /* KRTournamentViewDataStore.swift */,
 				6B58092C225C42250045DC27 /* NSLayoutConstraint+Ex.swift */,
 				6BD3AB5B227EC89100620FC9 /* PathSet.swift */,
 				6BF527762000B490006120EE /* TournamentInfo.swift */,
@@ -154,24 +166,61 @@
 			path = Private;
 			sourceTree = "<group>";
 		};
+		6BB5D8622286BFE60065840B /* Fakes */ = {
+			isa = PBXGroup;
+			children = (
+				6BB5D8632286C0010065840B /* KRTournamentViewEntryFake.swift */,
+			);
+			path = Fakes;
+			sourceTree = "<group>";
+		};
 		6BD3AB54227E929400620FC9 /* TournamentStructure */ = {
 			isa = PBXGroup;
 			children = (
 				6BD3AB55227E92AB00620FC9 /* Bracket.swift */,
-				6BD3AB59227E944000620FC9 /* Builder.swift */,
+				6BD3AB59227E944000620FC9 /* TournamentBuilder.swift */,
 				6BD3AB57227E93D600620FC9 /* Entry.swift */,
 				6B6BAA0C224F38A2005DA6BD /* TournamentStructure.swift */,
 			);
 			path = TournamentStructure;
 			sourceTree = "<group>";
 		};
+		6BD3AB5F227EDE4400620FC9 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				6BD3AB68227FF1F800620FC9 /* KRTournamentViewDataSourceMock.swift */,
+				6BD3AB60227EDE7900620FC9 /* KRTournamentViewDataStoreMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		6BD3AB6A2280029C00620FC9 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6BCE2CC62022B11500A248A0 /* KRTournamentEntriesViewTests.swift */,
+				6BA370D82020A86900655E60 /* KRTournamentViewEntryLabelTests.swift */,
+				6B4102D52020379300E078B7 /* KRTournamentViewEntryTests.swift */,
+				6BB5D8652286C5D90065840B /* BracketTests.swift */,
+				6BB5D86D2287DCDF0065840B /* Bracket+PathSetTests.swift */,
+				6B5D6B7220245D93007C7F82 /* KRTournamentViewTests.swift */,
+				6BB5D8672286D78F0065840B /* EntryTests.swift */,
+				6B4102D92020603800E078B7 /* KRTournamentViewStyleTests.swift */,
+				6BB5D86B2287B9300065840B /* TournamentBuilderTests.swift */,
+				6BB5D8692286D7D50065840B /* TournamentStructureTests.swift */,
+				6BFEF99A20219C40008257B1 /* MatchPathTests.swift */,
+				6BD3AB6B2280036E00620FC9 /* PathSetTests.swift */,
+				6BD3AB6D2280103400620FC9 /* TournamentInfoTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		6BF4AE5B1FD57413005EDCE0 = {
 			isa = PBXGroup;
 			children = (
+				6B4102CD202036DC00E078B7 /* Frameworks */,
 				6BF4AE671FD57413005EDCE0 /* KRTournamentView */,
 				6BF4AE721FD57413005EDCE0 /* KRTournamentViewTests */,
 				6BF4AE661FD57413005EDCE0 /* Products */,
-				6B4102CD202036DC00E078B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -188,8 +237,8 @@
 			isa = PBXGroup;
 			children = (
 				6BF4AEC01FD57969005EDCE0 /* Classes */,
-				6BF4AE681FD57413005EDCE0 /* KRTournamentView.h */,
 				6BF4AE691FD57413005EDCE0 /* Info.plist */,
+				6BF4AE681FD57413005EDCE0 /* KRTournamentView.h */,
 			);
 			path = KRTournamentView;
 			sourceTree = "<group>";
@@ -197,16 +246,9 @@
 		6BF4AE721FD57413005EDCE0 /* KRTournamentViewTests */ = {
 			isa = PBXGroup;
 			children = (
-				6BFEF9982020B428008257B1 /* KRTournamentCalculatableTests.swift */,
-				6BCE2CC62022B11500A248A0 /* KRTournamentEntriesViewTests.swift */,
-				6B9B73C520233B3500341B71 /* KRTournamentDrawingViewTests.swift */,
-				6BFEF9962020AE51008257B1 /* KRTournamentViewDataStoreTests.swift */,
-				6BA370D82020A86900655E60 /* KRTournamentViewEntryLabelTests.swift */,
-				6B4102D52020379300E078B7 /* KRTournamentViewEntryTests.swift */,
-				6B4102D72020443400E078B7 /* KRTournamentViewMatchTests.swift */,
-				6B4102D92020603800E078B7 /* KRTournamentViewStyleTests.swift */,
-				6B5D6B7220245D93007C7F82 /* KRTournamentViewTests.swift */,
-				6BFEF99A20219C40008257B1 /* MatchPathTests.swift */,
+				6BB5D8622286BFE60065840B /* Fakes */,
+				6BD3AB5F227EDE4400620FC9 /* Mocks */,
+				6BD3AB6A2280029C00620FC9 /* Tests */,
 				6BF4AE751FD57413005EDCE0 /* Info.plist */,
 			);
 			path = KRTournamentViewTests;
@@ -360,26 +402,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BC99F8220126649005CC95B /* KRTournamentViewStyle.swift in Sources */,
-				6BD3AB58227E93D600620FC9 /* Entry.swift in Sources */,
-				6BE6904F201C63D100BA93D5 /* KRTournamentViewDelegate.swift in Sources */,
-				6B6BAA0D224F38A2005DA6BD /* TournamentStructure.swift in Sources */,
-				6BF527772000B490006120EE /* TournamentInfo.swift in Sources */,
-				6BD3AB5A227E944100620FC9 /* Builder.swift in Sources */,
-				6BD3AB56227E92AB00620FC9 /* Bracket.swift in Sources */,
-				6BA5D0701FE584F300FB8A80 /* KRTournamentViewMatch.swift in Sources */,
-				6B2A4A8C2010E8C100CB6611 /* KRTournamentViewEntryLabel.swift in Sources */,
-				6BE6904D201C637C00BA93D5 /* KRTournamentViewDataSource.swift in Sources */,
-				6BCC9CA91FD5859B00EE7DEC /* KRTournamentView.swift in Sources */,
-				6BBBF6EA1FE2AFDC002F68C3 /* KRTournamentEntriesView.swift in Sources */,
 				6BD3AB5E227EC8C500620FC9 /* Bracket+PathSet.swift in Sources */,
-				6BA5D0691FE50C9300FB8A80 /* KRTournamentViewEntry.swift in Sources */,
-				6BD3AB5C227EC89100620FC9 /* PathSet.swift in Sources */,
-				6B58092D225C42250045DC27 /* NSLayoutConstraint+Ex.swift in Sources */,
-				6B5E427A201271AE00CF6E6A /* KRTournamentViewDataStore.swift in Sources */,
-				6B85577E1FE428A1001601C0 /* MatchPath.swift in Sources */,
-				6BBBF6E81FE2AF76002F68C3 /* KRTournamentDrawingView.swift in Sources */,
+				6BD3AB56227E92AB00620FC9 /* Bracket.swift in Sources */,
+				6BD3AB5A227E944100620FC9 /* TournamentBuilder.swift in Sources */,
 				6B5E42782012714700CF6E6A /* Defaults.swift in Sources */,
+				6BD3AB58227E93D600620FC9 /* Entry.swift in Sources */,
+				6BBBF6E81FE2AF76002F68C3 /* KRTournamentDrawingView.swift in Sources */,
+				6BBBF6EA1FE2AFDC002F68C3 /* KRTournamentEntriesView.swift in Sources */,
+				6BCC9CA91FD5859B00EE7DEC /* KRTournamentView.swift in Sources */,
+				6BE6904D201C637C00BA93D5 /* KRTournamentViewDataSource.swift in Sources */,
+				6B5E427A201271AE00CF6E6A /* KRTournamentViewDataStore.swift in Sources */,
+				6BE6904F201C63D100BA93D5 /* KRTournamentViewDelegate.swift in Sources */,
+				6BA5D0691FE50C9300FB8A80 /* KRTournamentViewEntry.swift in Sources */,
+				6B2A4A8C2010E8C100CB6611 /* KRTournamentViewEntryLabel.swift in Sources */,
+				6BA5D0701FE584F300FB8A80 /* KRTournamentViewMatch.swift in Sources */,
+				6BC99F8220126649005CC95B /* KRTournamentViewStyle.swift in Sources */,
+				6B85577E1FE428A1001601C0 /* MatchPath.swift in Sources */,
+				6B58092D225C42250045DC27 /* NSLayoutConstraint+Ex.swift in Sources */,
+				6BD3AB5C227EC89100620FC9 /* PathSet.swift in Sources */,
+				6BF527772000B490006120EE /* TournamentInfo.swift in Sources */,
+				6B6BAA0D224F38A2005DA6BD /* TournamentStructure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,16 +429,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BFEF9972020AE51008257B1 /* KRTournamentViewDataStoreTests.swift in Sources */,
-				6BFEF9992020B428008257B1 /* KRTournamentCalculatableTests.swift in Sources */,
-				6B4102DA2020603800E078B7 /* KRTournamentViewStyleTests.swift in Sources */,
-				6B4102D82020443400E078B7 /* KRTournamentViewMatchTests.swift in Sources */,
-				6BFEF99B20219C40008257B1 /* MatchPathTests.swift in Sources */,
-				6B9B73C620233B3500341B71 /* KRTournamentDrawingViewTests.swift in Sources */,
-				6B4102D62020379300E078B7 /* KRTournamentViewEntryTests.swift in Sources */,
+				6BD3AB6E2280103400620FC9 /* TournamentInfoTests.swift in Sources */,
+				6BB5D8682286D78F0065840B /* EntryTests.swift in Sources */,
 				6BCE2CC72022B11500A248A0 /* KRTournamentEntriesViewTests.swift in Sources */,
-				6B5D6B7320245D93007C7F82 /* KRTournamentViewTests.swift in Sources */,
+				6BD3AB69227FF1F800620FC9 /* KRTournamentViewDataSourceMock.swift in Sources */,
+				6BD3AB61227EDE7900620FC9 /* KRTournamentViewDataStoreMock.swift in Sources */,
+				6BD3AB6C2280036E00620FC9 /* PathSetTests.swift in Sources */,
 				6BA370D92020A86900655E60 /* KRTournamentViewEntryLabelTests.swift in Sources */,
+				6BB5D86C2287B9300065840B /* TournamentBuilderTests.swift in Sources */,
+				6B4102D62020379300E078B7 /* KRTournamentViewEntryTests.swift in Sources */,
+				6BB5D86A2286D7D50065840B /* TournamentStructureTests.swift in Sources */,
+				6BB5D8642286C0010065840B /* KRTournamentViewEntryFake.swift in Sources */,
+				6B4102DA2020603800E078B7 /* KRTournamentViewStyleTests.swift in Sources */,
+				6B5D6B7320245D93007C7F82 /* KRTournamentViewTests.swift in Sources */,
+				6BB5D8662286C5D90065840B /* BracketTests.swift in Sources */,
+				6BB5D86E2287DCDF0065840B /* Bracket+PathSetTests.swift in Sources */,
+				6BFEF99B20219C40008257B1 /* MatchPathTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

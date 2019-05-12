@@ -174,11 +174,19 @@ private extension KRTournamentView {
 extension KRTournamentView {
     /// Reloads everything from scratch. Redisplays entries and matches.
     open func reloadData() {
-        tournamentStructure = (dataSource ?? self).structure(of: self)
+        tournamentStructure = (dataSource ?? self).structure(of: self).formatted(force: false)
         reloadEntries()
         reloadMatches()
         setNeedsLayout()
         drawingView.setNeedsDisplay()
+    }
+
+    /// Returns entry for index. If index is out of range, returns nil.
+    ///
+    /// - Parameter index: index of entry.
+    /// - Returns: KRTournamentViewEntry instance if exists.
+    open func entry(at index: Int) -> KRTournamentViewEntry? {
+        return firstEntriesView.entries.first { $0.index == index } ?? secondEntriesView.entries.first { $0.index == index }
     }
 
     /// Returns match for `MatchPath`. If matchPath is out of range, returns nil.

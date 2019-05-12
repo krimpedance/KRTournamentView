@@ -10,14 +10,12 @@ import UIKit
 enum DrawHalf { case first, second }
 
 struct TournamentInfo {
-    private let offset: Int
-    private let firstEntryNum: Int
-    private let secondEntryNum: Int
-
     let numberOfLayer: Int
     let style: KRTournamentViewStyle
     let drawHalf: DrawHalf
     let rect: CGRect
+    let firstEntryNum: Int
+    let secondEntryNum: Int
 
     let entrySize: CGSize
     let stepSize: CGSize
@@ -25,8 +23,29 @@ struct TournamentInfo {
 
     // Initializers ------------
 
-    private init(
-        offset: Int,
+    init(
+        numberOfLayer: Int,
+        style: KRTournamentViewStyle,
+        drawHalf: DrawHalf,
+        rect: CGRect,
+        firstEntryNum: Int,
+        secondEntryNum: Int,
+        entrySize: CGSize,
+        stepSize: CGSize,
+        drawMargin: CGFloat
+    ) {
+        self.numberOfLayer = numberOfLayer
+        self.style = style
+        self.drawHalf = drawHalf
+        self.rect = rect
+        self.firstEntryNum = firstEntryNum
+        self.secondEntryNum = secondEntryNum
+        self.entrySize = entrySize
+        self.stepSize = stepSize
+        self.drawMargin = drawMargin
+    }
+
+    init(
         numberOfLayer: Int,
         style: KRTournamentViewStyle,
         drawHalf: DrawHalf,
@@ -34,15 +53,7 @@ struct TournamentInfo {
         firstEntryNum: Int,
         secondEntryNum: Int,
         entrySize: CGSize
-        ) {
-        self.offset = offset
-        self.numberOfLayer = numberOfLayer
-        self.style = style
-        self.drawHalf = drawHalf
-        self.rect = rect
-        self.firstEntryNum = firstEntryNum
-        self.secondEntryNum = secondEntryNum
-
+    ) {
         let entryNum = (drawHalf == .first) ? firstEntryNum : secondEntryNum
 
         let entrySize: CGSize = {
@@ -53,12 +64,10 @@ struct TournamentInfo {
                 .init(width: entrySize.width, height: min(length, maxLength)) :
                 .init(width: min(length, maxLength), height: entrySize.height)
         }()
-        self.entrySize = entrySize
 
         let drawMargin = style.isVertical ? entrySize.height / 2 : entrySize.width / 2
-        self.drawMargin = drawMargin
 
-        self.stepSize = {
+        let stepSize: CGSize = {
             let layers = style.isHalf ? numberOfLayer + 1 : numberOfLayer * 2
             return style.isVertical
                 ? .init(
@@ -70,11 +79,22 @@ struct TournamentInfo {
                     height: rect.height / CGFloat(layers)
             )
         }()
+
+        self.init(
+            numberOfLayer: numberOfLayer,
+            style: style,
+            drawHalf: drawHalf,
+            rect: rect,
+            firstEntryNum: firstEntryNum,
+            secondEntryNum: secondEntryNum,
+            entrySize: entrySize,
+            stepSize: stepSize,
+            drawMargin: drawMargin
+        )
     }
 
     init(structure: Bracket, style: KRTournamentViewStyle, drawHalf: DrawHalf, rect: CGRect, entrySize: CGSize) {
         self.init(
-            offset: style.isHalf ? 0 : structure.entries(style: style, drawHalf: .first).count,
             numberOfLayer: structure.matchPath.layer,
             style: style,
             drawHalf: drawHalf,
@@ -91,7 +111,6 @@ struct TournamentInfo {
 extension TournamentInfo {
     func convert(drawHalf: DrawHalf) -> TournamentInfo {
         return .init(
-            offset: offset,
             numberOfLayer: numberOfLayer,
             style: style,
             drawHalf: drawHalf,
@@ -104,6 +123,7 @@ extension TournamentInfo {
 
     func entryPoint(at index: Int) -> CGPoint {
         let entryNum = (drawHalf == .first) ? firstEntryNum : secondEntryNum
+        let offset = (style.isHalf || drawHalf == .first) ? 0 : firstEntryNum
 
         if entryNum == 1 {
             return style.isVertical ? .init(x: 0, y: rect.midY) : .init(x: rect.midX, y: 0)
@@ -116,13 +136,9 @@ extension TournamentInfo {
         case .top,
              .topBottom where drawHalf == .first:
             return .init(x: drawMargin + stepSize.width * CGFloat(index), y: 0)
-        case .right:
-            return .init(x: rect.width, y: drawMargin + stepSize.height * CGFloat(index))
-        case .bottom:
-            return .init(x: drawMargin + stepSize.width * CGFloat(index), y: rect.height)
-        case .leftRight:
+        case .right, .leftRight:
             return .init(x: rect.width, y: drawMargin + stepSize.height * CGFloat(index - offset))
-        case .topBottom:
+        case .bottom, .topBottom:
             return .init(x: drawMargin + stepSize.width * CGFloat(index - offset), y: rect.height)
         }
     }

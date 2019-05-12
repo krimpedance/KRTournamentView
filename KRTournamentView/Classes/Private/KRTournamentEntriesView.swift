@@ -7,10 +7,24 @@
 
 import UIKit
 
+// MARK: - Protocols ------------
+
+protocol EntriesViewTournamentInfoProtocol {
+    var entrySize: CGSize { get }
+    init(structure: Bracket, style: KRTournamentViewStyle, drawHalf: DrawHalf, rect: CGRect, entrySize: CGSize)
+    func entryPoint(at index: Int) -> CGPoint
+}
+
+extension TournamentInfo: EntriesViewTournamentInfoProtocol {}
+
+// MARK: - KRTournamentEntriesView ------------
+
 final class KRTournamentEntriesView: UIView {
     private weak var dataStore: KRTournamentViewDataStore!
     private var drawHalf: DrawHalf!
-    private var info: TournamentInfo!
+    private var info: EntriesViewTournamentInfoProtocol!
+
+    var tournamentInfoType: EntriesViewTournamentInfoProtocol.Type = TournamentInfo.self    // for test
 
     var entries = [KRTournamentViewEntry]() {
         willSet { entries.forEach { $0.removeFromSuperview() } }
@@ -28,7 +42,7 @@ final class KRTournamentEntriesView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        info = TournamentInfo(
+        info = tournamentInfoType.init(
             structure: dataStore.tournamentStructure,
             style: dataStore.style,
             drawHalf: drawHalf,
@@ -46,22 +60,18 @@ private extension KRTournamentEntriesView {
     func updateLayout() {
         if info == nil { return }
 
-        entries.enumerated().forEach { index, view in
-            var origin: CGPoint
+        entries.forEach { entry in
+            let point = info.entryPoint(at: entry.index)
+
             if dataStore.style.isVertical {
-                origin = CGPoint(x: 0, y: info.stepSize.height * CGFloat(index))
-                if entries.count == 1 {
-                    origin.y = (frame.height - info.entrySize.height) / 2
-                }
+                let origin = CGPoint(x: 0, y: point.y - info.entrySize.height / 2)
+                entry.frame = CGRect(origin: origin, size: info.entrySize)
             } else {
-                origin = CGPoint(x: info.stepSize.width * CGFloat(index), y: 0)
-                if entries.count == 1 {
-                    origin.x = (frame.width - info.entrySize.width) / 2
-                }
+                let origin = CGPoint(x: point.x - info.entrySize.width / 2, y: 0)
+                entry.frame = CGRect(origin: origin, size: info.entrySize)
             }
 
-            view.frame = CGRect(origin: origin, size: info.entrySize)
-            addSubview(view)
+            addSubview(entry)
         }
     }
 }

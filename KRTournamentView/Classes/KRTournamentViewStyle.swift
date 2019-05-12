@@ -50,7 +50,10 @@ extension KRTournamentViewStyle {
         case .right:    return .left
         case .top:      return .bottom
         case .bottom:   return .top
-        case .leftRight(let direction), .topBottom(let direction): return direction
+        case .leftRight(let direction):
+            return (direction == .bottom) ? .bottom : .top
+        case .topBottom(let direction):
+            return (direction == .left) ? .left : .right
         }
     }
 

@@ -18,6 +18,7 @@ extension TournamentStructure {
     }
 
     func entries(style: KRTournamentViewStyle, drawHalf: DrawHalf) -> [Entry] {
+        if let entry = self as? Entry { return [entry] }
         guard let bracket = self as? Bracket else { return [] }
 
         switch style {
