@@ -67,14 +67,14 @@ class BracketTests: QuickSpec {
             let brackets: [Bracket] = [
                 TournamentBuilder.build(numberOfLayers: 2),
                 TournamentBuilder()
-                    .addBracket { TournamentBuilder.build(numberOfLayers: 2) }
-                    .addBracket { TournamentBuilder.build(numberOfLayers: 3) }
+                    .addBracket { TournamentBuilder(numberOfLayers: 2) }
+                    .addBracket { TournamentBuilder(numberOfLayers: 3) }
                     .build(format: true),
                 TournamentBuilder()
-                    .addBracket { TournamentBuilder.build(numberOfLayers: 1) }
+                    .addBracket { TournamentBuilder(numberOfLayers: 1) }
                     .build(format: true),
                 TournamentBuilder()
-                    .addBracket { TournamentBuilder.build(numberOfLayers: 1, numberOfEntries: 4, numberOfWinners: 2) }
+                    .addBracket { TournamentBuilder(numberOfLayers: 1, numberOfEntries: 4, numberOfWinners: 2) }
                     .build(format: true)
             ]
             let matchPaths: [[MatchPath]] = [
@@ -111,35 +111,31 @@ class BracketTests: QuickSpec {
                 Bracket(children: [Entry(), Entry()]),
                 Bracket(matchPath: .init(layer: 5, item: 0), children: [Entry(), Entry()]),
                 TournamentBuilder()
-                    .addBracket { Bracket(children: [Entry(), Entry()]) }
-                    .addBracket { Bracket(children: [Entry(), Entry(), Entry()]) }
+                    .addBracket { .init(children: [.entry, .entry]) }
+                    .addBracket { .init(children: [.entry, .entry, .entry]) }
                     .build(),
                 TournamentBuilder()
                     .addBracket {
                         TournamentBuilder()
-                            .addBracket { Bracket(children: [Entry(), Entry()]) }
-                            .addBracket { Bracket(children: [Entry(), Entry()]) }
-                            .build()
+                            .addBracket { .init(children: [.entry, .entry]) }
+                            .addBracket { .init(children: [.entry, .entry]) }
                     }
                     .addBracket {
                         TournamentBuilder()
                             .addBracket {
                                 TournamentBuilder()
-                                    .addBracket { Bracket(children: [Entry(), Entry()]) }
-                                    .addBracket { Bracket(children: [Entry(), Entry()]) }
-                                    .build()
+                                    .addBracket { .init(children: [.entry, .entry]) }
+                                    .addBracket { .init(children: [.entry, .entry]) }
                             }
                             .addBracket {
                                 TournamentBuilder()
-                                    .addBracket { Bracket(children: [Entry(), Entry()]) }
-                                    .addBracket { Bracket(children: [Entry(), Entry()]) }
-                                    .build()
+                                    .addBracket { .init(children: [.entry, .entry]) }
+                                    .addBracket { .init(children: [.entry, .entry]) }
                             }
-                            .build()
                     }
                     .build(),
                 TournamentBuilder()
-                    .addBracket { Bracket(children: [Entry(), Entry()]) }
+                    .addBracket { .init(children: [.entry, .entry]) }
                     .build()
             ]
 
@@ -173,9 +169,10 @@ class BracketTests: QuickSpec {
 
             let formattedBrackets = brackets.map { $0.formatted(force: true) }
 
-            (0..<formattedBrackets.count).forEach {
-                print(formattedBrackets[$0] == expectedBrackets[$0])
-            }
+            // For check
+//            (0..<formattedBrackets.count).forEach {
+//                print(formattedBrackets[$0] == expectedBrackets[$0])
+//            }
 
             expect(formattedBrackets == expectedBrackets).to(beTrue())
 

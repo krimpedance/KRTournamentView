@@ -39,12 +39,11 @@ class BracketPathSetTests: QuickSpec {
                 expect(params == expectedParams).to(beTrue())
 
                 // For check
-
-                //                print("------------------------------------------")
-                //                print(pathSet.path)
-                //                print(pathSet.winnerPath)
-                //                print(params.description)
-                //                print("------------------------------------------")
+//                print("------------------------------------------")
+//                print(pathSet.path)
+//                print(pathSet.winnerPath)
+//                print(params.description)
+//                print("------------------------------------------")
             }
         }
     }
@@ -54,7 +53,7 @@ class BracketPathSetTests: QuickSpec {
             .leftRight,
             TournamentBuilder()
                 .addEntry()
-                .addBracket { TournamentBuilder.build(numberOfLayers: 2) }
+                .addBracket { .init(numberOfLayers: 2) }
                 .build(format: true)
         ),
         (.left, TournamentBuilder.build(numberOfLayers: 4) { _ in [0] }),
@@ -69,14 +68,8 @@ class BracketPathSetTests: QuickSpec {
             TournamentBuilder(winnerIndexes: [0])
                 .addBracket {
                     TournamentBuilder(winnerIndexes: [0])
-                        .addBracket {
-                            TournamentBuilder(winnerIndexes: [0])
-                                .addEntry()
-                                .addEntry()
-                                .build()
-                        }
+                        .addBracket { .init(children: [.entry, .entry], winnerIndexes: [0]) }
                         .addEntry()
-                        .build()
                 }
                 .addEntry()
                 .build(format: true)
@@ -87,27 +80,14 @@ class BracketPathSetTests: QuickSpec {
             TournamentBuilder(numberOfWinners: 2, winnerIndexes: [0, 4])
                 .addBracket {
                     TournamentBuilder(numberOfWinners: 2, winnerIndexes: [0, 1])
-                        .addBracket {
-                            TournamentBuilder(winnerIndexes: [0])
-                                .addEntry()
-                                .addEntry()
-                                .build()
-                        }
-                        .addEntry()
-                        .addEntry()
-                        .build()
+                        .addBracket { .init(children: [.entry, .entry], winnerIndexes: [0]) }
+                        .addEntry(2)
                 }
                 .addBracket {
                     TournamentBuilder(numberOfWinners: 2, winnerIndexes: [0, 1])
                         .addEntry()
-                        .addBracket {
-                            TournamentBuilder(winnerIndexes: [0])
-                                .addEntry()
-                                .addEntry()
-                                .build()
-                        }
+                        .addBracket { .init(children: [.entry, .entry], winnerIndexes: [0]) }
                         .addEntry()
-                        .build()
                 }
                 .addEntry()
                 .build(format: true)
@@ -116,59 +96,32 @@ class BracketPathSetTests: QuickSpec {
         (
             .left,
             TournamentBuilder(winnerIndexes: [0])
-                .addBracket {
-                    TournamentBuilder(winnerIndexes: [0])
-                        .addEntry()
-                        .addEntry()
-                        .addEntry()
-                        .addEntry()
-                        .build()
-                }
-                .addBracket {
-                    TournamentBuilder(winnerIndexes: [1])
-                        .addEntry()
-                        .addEntry()
-                        .addEntry()
-                        .addEntry()
-                        .build()
-                }
-                .addBracket {
-                    TournamentBuilder(winnerIndexes: [2])
-                        .addEntry()
-                        .addEntry()
-                        .addEntry()
-                        .addEntry()
-                        .build()
-                }
-                .addBracket {
-                    TournamentBuilder(winnerIndexes: [3])
-                        .addEntry()
-                        .addEntry()
-                        .addEntry()
-                        .addEntry()
-                        .build()
-                }
+                .addBracket { TournamentBuilder(winnerIndexes: [0]).addEntry(4) }
+                .addBracket { TournamentBuilder(winnerIndexes: [1]).addEntry(4) }
+                .addBracket { TournamentBuilder(winnerIndexes: [2]).addEntry(4) }
+                .addBracket { TournamentBuilder(winnerIndexes: [3]).addEntry(4) }
                 .build(format: true)
         ),
 
         (
             .leftRight(direction: .top),
             TournamentBuilder(winnerIndexes: [0])
+                .addBracket { TournamentBuilder(numberOfWinners: 2, winnerIndexes: [0, 2]).addEntry(4) }
+                .addBracket { TournamentBuilder(numberOfWinners: 2, winnerIndexes: [0, 3]).addEntry(4) }
+                .build(format: true)
+        ),
+        (
+            .leftRight(direction: .top),
+            TournamentBuilder(winnerIndexes: [0])
                 .addBracket {
-                    TournamentBuilder(numberOfWinners: 2, winnerIndexes: [0, 2])
-                        .addEntry()
-                        .addEntry()
-                        .addEntry()
-                        .addEntry()
-                        .build()
+                    TournamentBuilder(winnerIndexes: [0])
+                        .addBracket { TournamentBuilder(winnerIndexes: [0]).addEntry(2) }
+                        .addBracket { TournamentBuilder(winnerIndexes: [0]).addEntry(2) }
                 }
                 .addBracket {
-                    TournamentBuilder(numberOfWinners: 2, winnerIndexes: [0, 3])
-                        .addEntry()
-                        .addEntry()
-                        .addEntry()
-                        .addEntry()
-                        .build()
+                    TournamentBuilder(winnerIndexes: [0])
+                        .addBracket { TournamentBuilder(winnerIndexes: [0]).addEntry(2) }
+                        .addBracket { TournamentBuilder(winnerIndexes: [0]).addEntry(2) }
                 }
                 .build(format: true)
         ),
@@ -177,67 +130,13 @@ class BracketPathSetTests: QuickSpec {
             TournamentBuilder(winnerIndexes: [0])
                 .addBracket {
                     TournamentBuilder(winnerIndexes: [0])
-                        .addBracket {
-                            TournamentBuilder(winnerIndexes: [0])
-                                .addEntry()
-                                .addEntry()
-                                .build()
-                        }
-                        .addBracket {
-                            TournamentBuilder(winnerIndexes: [0])
-                                .addEntry()
-                                .addEntry()
-                                .build()
-                        }
-                        .build()
-                }
-                .addBracket {
-                    TournamentBuilder(winnerIndexes: [0])
-                        .addBracket {
-                            TournamentBuilder(winnerIndexes: [0])
-                                .addEntry()
-                                .addEntry()
-                                .build()
-                        }
-                        .addBracket {
-                            TournamentBuilder(winnerIndexes: [0])
-                                .addEntry()
-                                .addEntry()
-                                .build()
-                        }
-                        .build()
-                }
-                .build(format: true)
-        ),
-        (
-            .leftRight(direction: .top),
-            TournamentBuilder(winnerIndexes: [0])
-                .addBracket {
-                    TournamentBuilder(winnerIndexes: [0])
-                        .addBracket {
-                            TournamentBuilder(winnerIndexes: [0])
-                                .addEntry()
-                                .addEntry()
-                                .build()
-                        }
+                        .addBracket { TournamentBuilder(winnerIndexes: [0]).addEntry(2) }
                         .addEntry()
-                        .build()
                 }
                 .addBracket {
                     TournamentBuilder(winnerIndexes: [0])
-                        .addBracket {
-                            TournamentBuilder(winnerIndexes: [0])
-                                .addEntry()
-                                .addEntry()
-                                .build()
-                        }
-                        .addBracket {
-                            TournamentBuilder(winnerIndexes: [0])
-                                .addEntry()
-                                .addEntry()
-                                .build()
-                        }
-                        .build()
+                        .addBracket { TournamentBuilder(winnerIndexes: [0]).addEntry(2) }
+                        .addBracket { TournamentBuilder(winnerIndexes: [0]).addEntry(2) }
                 }
                 .build(format: true)
         ),
@@ -252,28 +151,18 @@ class BracketPathSetTests: QuickSpec {
                                     TournamentBuilder(winnerIndexes: [1])
                                         .addBracket {
                                             TournamentBuilder(winnerIndexes: [0])
-                                                .addBracket {
-                                                    TournamentBuilder(winnerIndexes: [1])
-                                                        .addEntry()
-                                                        .addEntry()
-                                                        .build()
-                                                }
+                                                .addBracket { TournamentBuilder(winnerIndexes: [1]).addEntry(2) }
                                                 .addEntry()
-                                                .build()
                                         }
                                         .addEntry()
-                                        .build()
                                 }
                                 .addEntry()
-                                .build()
                         }
                         .addEntry()
-                        .build()
                 }
                 .addBracket {
                     TournamentBuilder(numberOfWinners: 2, winnerIndexes: [1, 2])
-                        .addEntry()
-                        .addEntry()
+                        .addEntry(2)
                         .addBracket {
                             TournamentBuilder(winnerIndexes: [1])
                                 .addEntry()
@@ -283,19 +172,10 @@ class BracketPathSetTests: QuickSpec {
                                         .addBracket {
                                             TournamentBuilder(winnerIndexes: [0])
                                                 .addEntry()
-                                                .addBracket {
-                                                    TournamentBuilder(winnerIndexes: [1])
-                                                        .addEntry()
-                                                        .addEntry()
-                                                        .build()
-                                                }
-                                                .build()
+                                                .addBracket { TournamentBuilder(winnerIndexes: [1]).addEntry(2) }
                                         }
-                                        .build()
                                 }
-                                .build()
                         }
-                        .build()
                 }
                 .build(format: true)
         ),
@@ -305,13 +185,7 @@ class BracketPathSetTests: QuickSpec {
                 .addEntry()
                 .addBracket {
                     TournamentBuilder(winnerIndexes: [0])
-                        .addBracket {
-                            TournamentBuilder(winnerIndexes: [1])
-                                .addEntry()
-                                .addEntry()
-                                .build()
-                        }
-                        .build()
+                        .addBracket { TournamentBuilder(winnerIndexes: [1]).addEntry(2) }
                 }
                 .build(format: true)
         )

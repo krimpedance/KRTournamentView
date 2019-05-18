@@ -222,26 +222,11 @@ class TournamentInfoTests: QuickSpec {
                         secondEntryNum: dataset.secondEntryNum,
                         entrySize: dataset.entrySize
                     )
-                    print("----")
-                    print(info)
 
                     expect(info == dataset.expectedInfo).to(beTrue())
                 }
             }
         }
-        /*
-         style: KRTournamentViewStyle,
-         drawHalf: DrawHalf,
-         firstEntryNum: Int,
-         secondEntryNum: Int,
-         stepSize: CGSize,
-         drawMargin: CGFloat,
-         expectedPoints: [CGPoint]
-         )
-
-         override func spec() {
-         it("can initialize") {
-        */
 
         let listForEntryPoint: [EntryPointDataset] = [
             (

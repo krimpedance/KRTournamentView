@@ -36,15 +36,7 @@ final class KRTournamentDrawingView: UIView {
         pathSet.winnerPath.lineCapStyle = .square
         pathSet.winnerPath.stroke()
 
-        matches.forEach { match in
-            match.backgroundColor = UIColor.green.withAlphaComponent(0.2)
-            if match.matchPath.layer == dataStore.tournamentStructure.matchPath.layer - 1 {
-                match.backgroundColor = UIColor.blue.withAlphaComponent(0.2)
-            }
-            match.layer.borderWidth = 1
-            match.layer.borderColor = UIColor.green.withAlphaComponent(0.5).cgColor
-            addSubview(match)
-        }
+        matches.forEach { addSubview($0) }
     }
 }
 

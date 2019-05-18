@@ -18,8 +18,8 @@ import Nimble
 class TournamentBuilderTests: QuickSpec {
     override func spec() {
         it("can initialize") {
-            let builder = TournamentBuilder(numberOfWinners: 2, winnerIndexes: [0, 2])
-            expect(builder.children.isEmpty).to(beTrue())
+            let builder = TournamentBuilder(children: [.entry], numberOfWinners: 2, winnerIndexes: [0, 2])
+            expect(builder.children).to(equal([.entry]))
             expect(builder.numberOfWinners).to(be(2))
             expect(builder.winnerIndexes).to(equal([0, 2]))
 
@@ -29,63 +29,50 @@ class TournamentBuilderTests: QuickSpec {
             expect(builder2.winnerIndexes).to(equal([]))
         }
 
+        it("can initialize with symmetrical children") {
+            let builders: [TournamentBuilder] = [
+                .init(numberOfLayers: 1),
+                .init(numberOfLayers: 2),
+                .init(numberOfLayers: 1, numberOfEntries: 4, numberOfWinners: 2),
+                .init(numberOfLayers: 2, numberOfEntries: 4, numberOfWinners: 2),
+                .init(numberOfLayers: 2) { ($0.layer == 1) ? [0] : [1] }
+            ]
+            let manualBuilders: [TournamentBuilder] = [
+                .init(children: [.entry, .entry]),
+                TournamentBuilder()
+                    .addBracket { .init(children: [.entry, .entry]) }
+                    .addBracket { .init(children: [.entry, .entry]) },
+                TournamentBuilder(numberOfWinners: 2).addEntry(4),
+                TournamentBuilder(numberOfWinners: 2)
+                    .addBracket { TournamentBuilder(numberOfWinners: 2).addEntry(4) }
+                    .addBracket { TournamentBuilder(numberOfWinners: 2).addEntry(4) },
+                TournamentBuilder(winnerIndexes: [1])
+                    .addBracket { .init(children: [.entry, .entry], winnerIndexes: [0]) }
+                    .addBracket { .init(children: [.entry, .entry], winnerIndexes: [0]) }
+            ]
+
+            expect(builders).to(equal(manualBuilders))
+        }
+
         // Static actions ------------
 
         it("returns symmetrical Bracket") {
-            let builtBrackets: [Bracket] = [
+            let brackets: [Bracket] = [
                 TournamentBuilder.build(numberOfLayers: 1),
                 TournamentBuilder.build(numberOfLayers: 2),
                 TournamentBuilder.build(numberOfLayers: 1, numberOfEntries: 4, numberOfWinners: 2),
                 TournamentBuilder.build(numberOfLayers: 2, numberOfEntries: 4, numberOfWinners: 2),
                 TournamentBuilder.build(numberOfLayers: 2) { ($0.layer == 1) ? [0] : [1] }
             ]
-            let brackets: [Bracket] = [
-                .init(matchPath: .init(layer: 1, item: 0), children: [Entry(index: 0), Entry(index: 1)]),
-                .init(
-                    matchPath: .init(layer: 2, item: 0),
-                    children: [
-                        Bracket(matchPath: .init(layer: 1, item: 0), children: [Entry(index: 0), Entry(index: 1)]),
-                        Bracket(matchPath: .init(layer: 1, item: 1), children: [Entry(index: 2), Entry(index: 3)])
-                    ]
-                ),
-                .init(
-                    matchPath: .init(layer: 1, item: 0),
-                    children: [Entry(index: 0), Entry(index: 1), Entry(index: 2), Entry(index: 3)],
-                    numberOfWinners: 2,
-                    winnerIndexes: []
-                ),
-                .init(
-                    matchPath: .init(layer: 2, item: 0),
-                    children: [
-                        Bracket(
-                            matchPath: .init(layer: 1, item: 0),
-                            children: [Entry(index: 0), Entry(index: 1), Entry(index: 2), Entry(index: 3)],
-                            numberOfWinners: 2
-                        ),
-                        Bracket(
-                            matchPath: .init(layer: 1, item: 1),
-                            children: [Entry(index: 4), Entry(index: 5), Entry(index: 6), Entry(index: 7)],
-                            numberOfWinners: 2
-                        )
-                    ],
-                    numberOfWinners: 2
-                ),
-                .init(
-                    matchPath: .init(layer: 2, item: 0),
-                    children: [
-                        Bracket(matchPath: .init(layer: 1, item: 0), children: [Entry(index: 0), Entry(index: 1)], winnerIndexes: [0]),
-                        Bracket(matchPath: .init(layer: 1, item: 1), children: [Entry(index: 2), Entry(index: 3)], winnerIndexes: [0])
-                    ],
-                    winnerIndexes: [1]
-                )
+            let expectedBrackets: [Bracket] = [
+                TournamentBuilder(numberOfLayers: 1).build(format: true),
+                TournamentBuilder(numberOfLayers: 2).build(format: true),
+                TournamentBuilder(numberOfLayers: 1, numberOfEntries: 4, numberOfWinners: 2).build(format: true),
+                TournamentBuilder(numberOfLayers: 2, numberOfEntries: 4, numberOfWinners: 2).build(format: true),
+                TournamentBuilder(numberOfLayers: 2) { ($0.layer == 1) ? [0] : [1] }.build(format: true)
             ]
 
-            expect(builtBrackets == brackets).to(beTrue())
-
-            // For check
-//            (0..<builtBrackets.count).forEach {
-//                print(builtBrackets[$0] == brackets[$0], builtBrackets[$0], brackets[$0], separator: "\n")
-//            }
+            expect(brackets == expectedBrackets).to(beTrue())
         }
 
         // Actions ------------
@@ -105,40 +92,31 @@ class TournamentBuilderTests: QuickSpec {
         it("can add entries") {
             let builder = TournamentBuilder()
             builder.addEntry()
-            expect(builder.children == [Entry()]).to(beTrue())
+            expect(builder.children).to(equal([.entry]))
             builder.addEntry(2)
-            expect(builder.children == [Entry(), Entry(), Entry()]).to(beTrue())
+            expect(builder.children).to(equal([.entry, .entry, .entry]))
         }
 
         it("can add bracket") {
-            let bracket = Bracket(children: [Entry(), Entry()], numberOfWinners: 2, winnerIndexes: [0, 1])
-            let builder = TournamentBuilder()
-            builder.addBracket {
-                Bracket(children: [Entry(), Entry()], numberOfWinners: 2, winnerIndexes: [0, 1])
-            }
-            expect(builder.children == [bracket]).to(beTrue())
+            let bracketBuilder = TournamentBuilder(children: [.entry, .entry], numberOfWinners: 2, winnerIndexes: [0, 1])
+            let builder = TournamentBuilder().addBracket { bracketBuilder }
+            expect(builder.children).to(equal([.bracket(bracketBuilder)]))
         }
 
         it("keeps children order") {
             let builder = TournamentBuilder()
             builder.addEntry()
-            builder.addBracket {
-                Bracket(children: [Entry(), Entry()])
-            }
+            builder.addBracket { .init(children: [.entry, .entry]) }
             builder.addEntry()
 
-            let children: [TournamentStructure] = [Entry(), Bracket(children: [Entry(), Entry()]), Entry()]
-            expect(builder.children == children).to(beTrue())
+            let children: [TournamentBuilder.BuildType] = [.entry, .bracket(.init(children: [.entry, .entry])), .entry]
+            expect(builder.children).to(equal(children))
         }
 
         it("can build") {
             let bracket = TournamentBuilder()
                 .addEntry()
-                .addBracket {
-                    TournamentBuilder(numberOfWinners: 2, winnerIndexes: [0, 1])
-                        .addEntry(3)
-                        .build()
-                }
+                .addBracket { .init(children: [.entry, .entry, .entry], numberOfWinners: 2, winnerIndexes: [0, 1]) }
                 .build()
 
             let expectedBracket = Bracket(
@@ -154,11 +132,7 @@ class TournamentBuilderTests: QuickSpec {
         it("can build and format") {
             let bracket = TournamentBuilder()
                 .addEntry()
-                .addBracket {
-                    TournamentBuilder(numberOfWinners: 2, winnerIndexes: [0, 1])
-                        .addEntry(3)
-                        .build()
-                }
+                .addBracket { .init(children: [.entry, .entry, .entry], numberOfWinners: 2, winnerIndexes: [0, 1]) }
                 .build(format: true)
 
             let expectedBracket = Bracket(

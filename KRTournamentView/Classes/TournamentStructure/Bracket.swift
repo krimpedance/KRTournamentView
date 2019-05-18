@@ -141,6 +141,7 @@ private extension TournamentStructure {
 
     func searchNumberOfLayer() -> Int {
         guard let bracket = self as? Bracket else { return 0 }
+        if bracket.children.count == 0 { return 1 }
         return bracket.children.map { $0.searchNumberOfLayer() }.max()! + 1
     }
 }
