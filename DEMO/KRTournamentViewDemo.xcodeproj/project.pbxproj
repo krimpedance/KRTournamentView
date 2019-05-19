@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6B50CD202019FD5C005C4179 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B50CD1F2019FD5C005C4179 /* DataStore.swift */; };
-		6B50CD23201A28E8005C4179 /* SelectEntriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B50CD22201A28E8005C4179 /* SelectEntriesVC.swift */; };
 		6B50CD28201A3DA7005C4179 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B50CD27201A3DA7005C4179 /* Launch Screen.storyboard */; };
 		6BC0BC302019ED750033FEC1 /* StageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC0BC2F2019ED750033FEC1 /* StageView.swift */; };
 		6BC0BC352019F7140033FEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BC0BC332019F7140033FEC1 /* Main.storyboard */; };
-		6BC0BC372019FA4F0033FEC1 /* ColorListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC0BC362019FA4F0033FEC1 /* ColorListVC.swift */; };
+		6BDB17AB2288181A00A1E4E5 /* KRTournamentViewStyle+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDB17AA2288181A00A1E4E5 /* KRTournamentViewStyle+Ex.swift */; };
+		6BDB17AD22881A6200A1E4E5 /* MyMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDB17AC22881A6200A1E4E5 /* MyMatch.swift */; };
+		6BDB17AF2288456000A1E4E5 /* BracketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDB17AE2288456000A1E4E5 /* BracketVC.swift */; };
 		6BF4AED01FD579E1005EDCE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF4AECF1FD579E1005EDCE0 /* AppDelegate.swift */; };
 		6BF4AED21FD579E1005EDCE0 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF4AED11FD579E1005EDCE0 /* MainVC.swift */; };
 		6BF4AED71FD579E1005EDCE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BF4AED61FD579E1005EDCE0 /* Assets.xcassets */; };
@@ -21,12 +21,12 @@
 
 /* Begin PBXFileReference section */
 		1E50F977C05A73112F3733B8 /* Pods-KRTournamentViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KRTournamentViewDemo.debug.xcconfig"; path = "Target Support Files/Pods-KRTournamentViewDemo/Pods-KRTournamentViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		6B50CD1F2019FD5C005C4179 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
-		6B50CD22201A28E8005C4179 /* SelectEntriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEntriesVC.swift; sourceTree = "<group>"; };
 		6B50CD27201A3DA7005C4179 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		6BC0BC2F2019ED750033FEC1 /* StageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageView.swift; sourceTree = "<group>"; };
 		6BC0BC332019F7140033FEC1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		6BC0BC362019FA4F0033FEC1 /* ColorListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListVC.swift; sourceTree = "<group>"; };
+		6BDB17AA2288181A00A1E4E5 /* KRTournamentViewStyle+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KRTournamentViewStyle+Ex.swift"; sourceTree = "<group>"; };
+		6BDB17AC22881A6200A1E4E5 /* MyMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMatch.swift; sourceTree = "<group>"; };
+		6BDB17AE2288456000A1E4E5 /* BracketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketVC.swift; sourceTree = "<group>"; };
 		6BF4AECC1FD579E1005EDCE0 /* KRTournamentViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KRTournamentViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BF4AECF1FD579E1005EDCE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BF4AED11FD579E1005EDCE0 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -55,33 +55,6 @@
 				A85706E02E63AD483C5181AF /* Pods-KRTournamentViewDemo.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		6B50CD24201A3D60005C4179 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				6BC0BC362019FA4F0033FEC1 /* ColorListVC.swift */,
-				6BF4AED11FD579E1005EDCE0 /* MainVC.swift */,
-				6B50CD22201A28E8005C4179 /* SelectEntriesVC.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		6B50CD25201A3D72005C4179 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				6BC0BC2F2019ED750033FEC1 /* StageView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		6B50CD26201A3D82005C4179 /* Layouts */ = {
-			isa = PBXGroup;
-			children = (
-				6BC0BC332019F7140033FEC1 /* Main.storyboard */,
-				6B50CD27201A3DA7005C4179 /* Launch Screen.storyboard */,
-			);
-			path = Layouts;
 			sourceTree = "<group>";
 		};
 		6BADBA9A22535D1900CBEE76 /* Frameworks */ = {
@@ -114,10 +87,13 @@
 			isa = PBXGroup;
 			children = (
 				6BF4AECF1FD579E1005EDCE0 /* AppDelegate.swift */,
-				6B50CD1F2019FD5C005C4179 /* DataStore.swift */,
-				6B50CD25201A3D72005C4179 /* Views */,
-				6B50CD24201A3D60005C4179 /* Controllers */,
-				6B50CD26201A3D82005C4179 /* Layouts */,
+				6BDB17AA2288181A00A1E4E5 /* KRTournamentViewStyle+Ex.swift */,
+				6BDB17AC22881A6200A1E4E5 /* MyMatch.swift */,
+				6BC0BC2F2019ED750033FEC1 /* StageView.swift */,
+				6BF4AED11FD579E1005EDCE0 /* MainVC.swift */,
+				6BDB17AE2288456000A1E4E5 /* BracketVC.swift */,
+				6BC0BC332019F7140033FEC1 /* Main.storyboard */,
+				6B50CD27201A3DA7005C4179 /* Launch Screen.storyboard */,
 				6BF4AED61FD579E1005EDCE0 /* Assets.xcassets */,
 				6BF4AEDB1FD579E1005EDCE0 /* Info.plist */,
 			);
@@ -259,11 +235,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BC0BC372019FA4F0033FEC1 /* ColorListVC.swift in Sources */,
 				6BF4AED21FD579E1005EDCE0 /* MainVC.swift in Sources */,
+				6BDB17AB2288181A00A1E4E5 /* KRTournamentViewStyle+Ex.swift in Sources */,
+				6BDB17AD22881A6200A1E4E5 /* MyMatch.swift in Sources */,
+				6BDB17AF2288456000A1E4E5 /* BracketVC.swift in Sources */,
 				6BC0BC302019ED750033FEC1 /* StageView.swift in Sources */,
-				6B50CD23201A28E8005C4179 /* SelectEntriesVC.swift in Sources */,
-				6B50CD202019FD5C005C4179 /* DataStore.swift in Sources */,
 				6BF4AED01FD579E1005EDCE0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -41,7 +41,10 @@ public class TournamentBuilder: Equatable {
     /// - Returns: TournamentBuilder
     public init(numberOfLayers: Int, numberOfEntries: Int = 2, numberOfWinners: Int = 1, handler: ((MatchPath) -> [Int])? = nil) {
         precondition(numberOfLayers > 0, "numberOfLayers must be greater than 0")
-        precondition(numberOfEntries.divisors.contains(numberOfWinners), "numberOfWinners must be divisor of numberOfEntries: \(numberOfEntries) -> \(numberOfEntries.divisors)")
+        precondition(
+            numberOfLayers == 1 || numberOfEntries.divisors.contains(numberOfWinners),
+            "numberOfWinners must be divisor of numberOfEntries: \(numberOfEntries) -> \(numberOfEntries.divisors)"
+        )
 
         func innerInit(layer: Int, num: Int) -> TournamentBuilder {
             let winnerIndexes = handler?(.init(layer: layer, item: num)) ?? []
