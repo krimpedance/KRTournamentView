@@ -87,6 +87,31 @@ extension TournamentBuilder {
     }
 }
 
+// MARK: - Private actions ------------
+
+private extension TournamentBuilder {
+    func getChildBuilder(for matchPath: MatchPath, ownMatchPath: MatchPath, matchNumbers: inout [Int: Int]) -> TournamentBuilder? {
+        if matchPath == ownMatchPath { return self }
+        if matchPath.layer == ownMatchPath.layer { return nil }
+
+        return children.compactMap { child -> TournamentBuilder? in
+            guard case let .bracket(builder) = child else { return nil }
+            let childLayer = ownMatchPath.layer - 1
+            defer { matchNumbers[childLayer]! += 1 }
+            let childMatchPath = MatchPath(layer: childLayer, item: matchNumbers[childLayer]!)
+            return builder.getChildBuilder(for: matchPath, ownMatchPath: childMatchPath, matchNumbers: &matchNumbers)
+            }.first
+    }
+
+    func searchNumberOfLayer() -> Int {
+        if children.count == 0 { return 1 }
+        return children.map {
+            guard case let .bracket(builder) = $0 else { return 0 }
+            return builder.searchNumberOfLayer()
+            }.max()! + 1
+    }
+}
+
 // MARK: - Public actions ------------
 
 public extension TournamentBuilder {
@@ -143,6 +168,24 @@ public extension TournamentBuilder {
         }
         let bracket = Bracket(children: structures, numberOfWinners: numberOfWinners, winnerIndexes: winnerIndexes)
         return format ? bracket.formatted() : bracket
+    }
+
+    func getChildBuilder(for matchPath: MatchPath) -> TournamentBuilder? {
+        let layer = searchNumberOfLayer()
+
+        if layer < matchPath.layer { return nil }
+        if layer == matchPath.layer { return (matchPath.item == 0) ? self : nil }
+
+        var matchNumbers = [Int: Int]()
+        (0...layer).forEach { matchNumbers[$0] = 0 }
+
+        return children.compactMap { child -> TournamentBuilder? in
+            guard case let .bracket(builder) = child else { return nil }
+            let childLayer = layer - 1
+            defer { matchNumbers[childLayer]! += 1 }
+            let childMatchPath = MatchPath(layer: childLayer, item: matchNumbers[childLayer]!)
+            return builder.getChildBuilder(for: matchPath, ownMatchPath: childMatchPath, matchNumbers: &matchNumbers)
+        }.first
     }
 }
 

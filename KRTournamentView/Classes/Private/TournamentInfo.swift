@@ -125,21 +125,25 @@ extension TournamentInfo {
         let entryNum = (drawHalf == .first) ? firstEntryNum : secondEntryNum
         let offset = (style.isHalf || drawHalf == .first) ? 0 : firstEntryNum
 
-        if entryNum == 1 {
-            return style.isVertical ? .init(x: 0, y: rect.midY) : .init(x: rect.midX, y: 0)
-        }
-
         switch style {
         case .left,
              .leftRight where drawHalf == .first:
-            return .init(x: 0, y: drawMargin + stepSize.height * CGFloat(index))
+            return (entryNum == 1)
+                ? .init(x: 0, y: rect.midY)
+                : .init(x: 0, y: drawMargin + stepSize.height * CGFloat(index))
         case .top,
              .topBottom where drawHalf == .first:
-            return .init(x: drawMargin + stepSize.width * CGFloat(index), y: 0)
+            return (entryNum == 1)
+                ? .init(x: rect.midX, y: 0)
+                : .init(x: drawMargin + stepSize.width * CGFloat(index), y: 0)
         case .right, .leftRight:
-            return .init(x: rect.width, y: drawMargin + stepSize.height * CGFloat(index - offset))
+            return (entryNum == 1)
+                ? .init(x: rect.width, y: rect.midY)
+                : .init(x: rect.width, y: drawMargin + stepSize.height * CGFloat(index - offset))
         case .bottom, .topBottom:
-            return .init(x: drawMargin + stepSize.width * CGFloat(index - offset), y: rect.height)
+            return (entryNum == 1)
+                ? .init(x: rect.midX, y: rect.height)
+                : .init(x: drawMargin + stepSize.width * CGFloat(index - offset), y: rect.height)
         }
     }
 }

@@ -151,6 +151,26 @@ class TournamentBuilderTests: QuickSpec {
             expect(bracket == expectedBracket).to(beTrue())
         }
 
+        it("returns child builder for matchPath") {
+            let builder1 = TournamentBuilder(numberOfWinners: 2, winnerIndexes: [1, 2]).addEntry(3)
+            let builder2 = TournamentBuilder(numberOfLayers: 3).addEntry()
+            let builder = TournamentBuilder()
+                .addBracket { builder1 }
+                .addBracket { .init(numberOfLayers: 4) }
+                .addBracket {
+                    TournamentBuilder(numberOfLayers: 2)
+                        .addEntry()
+                        .addBracket { builder2 }
+                }
+
+            expect(builder.getChildBuilder(for: .init(layer: 5, item: 0))).to(be(builder))
+            expect(builder.getChildBuilder(for: .init(layer: 4, item: 0))).to(be(builder1))
+            expect(builder.getChildBuilder(for: .init(layer: 3, item: 4))).to(be(builder2))
+            expect(builder.getChildBuilder(for: .init(layer: 5, item: 1))).to(beNil())
+            expect(builder.getChildBuilder(for: .init(layer: 6, item: 0))).to(beNil())
+            expect(builder.getChildBuilder(for: .init(layer: 4, item: 20))).to(beNil())
+        }
+
         // Int extension ------------
 
         it("has divisors") {

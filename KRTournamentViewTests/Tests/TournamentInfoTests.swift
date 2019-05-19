@@ -260,6 +260,14 @@ class TournamentInfoTests: QuickSpec {
             (
                 .topBottom, .second, .init(width: 100, height: 200), 2, 3, .init(width: 10, height: 20), 10,
                 [nil, nil, .init(x: 10, y: 200), .init(x: 20, y: 200), .init(x: 30, y: 200)]
+            ),
+            (
+                .leftRight, .first, .init(width: 100, height: 200), 1, 2, .init(width: 10, height: 20), 10,
+                [.init(x: 0, y: 100)]
+            ),
+            (
+                .leftRight, .second, .init(width: 100, height: 200), 2, 1, .init(width: 10, height: 20), 10,
+                [nil, nil, .init(x: 100, y: 100)]
             )
         ]
 
