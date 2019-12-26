@@ -35,10 +35,11 @@ class BracketPathSetTests: QuickSpec {
                 var params = [(MatchPath, CGRect, [CGPoint])]()
                 let pathSet = bracket.getPath(with: info) { params.append(($0, $1, $2)) }
 
+                print("-----------------", $0)
                 expect(pathSet).to(equal(expectedPathSet))
                 expect(params == expectedParams).to(beTrue())
 
-                // For check
+//                // For check
 //                print("------------------------------------------")
 //                print(pathSet.path)
 //                print(pathSet.winnerPath)
@@ -1169,29 +1170,24 @@ class BracketPathSetTests: QuickSpec {
                 let path = UIBezierPath()
                 path.move(to: .init(x: 0, y: 175))
                 path.addLine(to: .init(x: 83.333333333333329, y: 175))
-                path.move(to: .init(x: 83.333333333333329, y: 25))
                 path.move(to: .init(x: 83.333333333333329, y: 100))
                 path.addLine(to: .init(x: 83.333333333333329, y: 175))
                 path.move(to: .init(x: 0, y: 475))
                 path.addLine(to: .init(x: 166.66666666666666, y: 475))
                 path.move(to: .init(x: 500, y: 250))
                 path.addLine(to: .init(x: 416.66666666666669, y: 250))
-                path.move(to: .init(x: 416.66666666666669, y: 137.5))
                 path.move(to: .init(x: 416.66666666666669, y: 193.75))
                 path.addLine(to: .init(x: 416.66666666666669, y: 250))
                 path.move(to: .init(x: 500, y: 362.5))
                 path.addLine(to: .init(x: 333.33333333333337, y: 362.5))
-                path.move(to: .init(x: 166.66666666666666, y: 100))
                 path.move(to: .init(x: 166.66666666666666, y: 165.625))
                 path.addLine(to: .init(x: 166.66666666666666, y: 325))
                 path.move(to: .init(x: 166.66666666666666, y: 334.375))
                 path.addLine(to: .init(x: 166.66666666666666, y: 475))
                 path.move(to: .init(x: 166.66666666666666, y: 334.375))
                 path.addLine(to: .init(x: 194.44444444444446, y: 334.375))
-                path.move(to: .init(x: 194.44444444444446, y: 165.625))
                 path.move(to: .init(x: 194.44444444444446, y: 250))
                 path.addLine(to: .init(x: 194.44444444444446, y: 334.375))
-                path.move(to: .init(x: 333.33333333333337, y: 25))
                 path.move(to: .init(x: 333.33333333333337, y: 117.8125))
                 path.addLine(to: .init(x: 333.33333333333337, y: 193.75))
                 path.move(to: .init(x: 333.33333333333337, y: 269.6875))
@@ -1203,8 +1199,12 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 305.55555555555554, y: 117.8125))
                 path.addLine(to: .init(x: 305.55555555555554, y: 250))
                 path.move(to: .init(x: 305.55555555555554, y: 475))
-                path.move(to: .init(x: 245, y: 250))
-                path.addLine(to: .init(x: 255, y: 250))
+                do {
+                    let path2 = UIBezierPath()
+                    path2.move(to: .init(x: 245, y: 250))
+                    path2.addLine(to: .init(x: 255, y: 250))
+                    path.append(path2)
+                }
                 return path
         }(),
             winnerPath: {
@@ -1285,7 +1285,6 @@ class BracketPathSetTests: QuickSpec {
                 path.addLine(to: .init(x: 166.66666666666666, y: 421.875))
                 path.move(to: .init(x: 0, y: 453.125))
                 path.addLine(to: .init(x: 166.66666666666666, y: 453.125))
-                path.move(to: .init(x: 166.66666666666666, y: 15.625))
                 path.move(to: .init(x: 166.66666666666666, y: 62.5))
                 path.addLine(to: .init(x: 166.66666666666666, y: 109.375))
                 path.move(to: .init(x: 166.66666666666666, y: 140.625))
@@ -1299,9 +1298,12 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 166.66666666666666, y: 390.625))
                 path.addLine(to: .init(x: 166.66666666666666, y: 437.5))
                 path.move(to: .init(x: 166.66666666666666, y: 484.375))
-                path.move(to: .init(x: 333.33333333333331, y: 62.5))
-                path.move(to: .init(x: 333.33333333333331, y: 250))
-                path.addLine(to: .init(x: 333.33333333333331, y: 437.5))
+                do {
+                    let path2 = UIBezierPath()
+                    path2.move(to: .init(x: 333.33333333333331, y: 250))
+                    path2.addLine(to: .init(x: 333.33333333333331, y: 437.5))
+                    path.append(path2)
+                }
                 return path
         }(),
             winnerPath: {
@@ -1565,26 +1567,35 @@ class BracketPathSetTests: QuickSpec {
                 path.addLine(to: .init(x: 41.666666666666664, y: 25))
                 path.move(to: .init(x: 41.666666666666664, y: 25))
                 path.addLine(to: .init(x: 41.666666666666664, y: 70))
-                path.move(to: .init(x: 41.666666666666664, y: 115))
                 path.move(to: .init(x: 0, y: 205))
                 path.addLine(to: .init(x: 83.333333333333329, y: 205))
-                path.move(to: .init(x: 83.333333333333329, y: 70))
                 path.move(to: .init(x: 83.333333333333329, y: 137.5))
                 path.addLine(to: .init(x: 83.333333333333329, y: 205))
                 path.move(to: .init(x: 125, y: 137.5))
                 path.addLine(to: .init(x: 125, y: 216.25))
                 path.move(to: .init(x: 125, y: 295))
-                path.move(to: .init(x: 166.66666666666666, y: 216.25))
-                path.addLine(to: .init(x: 166.66666666666666, y: 300.625))
+                do {
+                    let path2 = UIBezierPath()
+                    path2.move(to: .init(x: 166.66666666666666, y: 216.25))
+                    path2.addLine(to: .init(x: 166.66666666666666, y: 300.625))
+                    path.append(path2)
+                }
                 path.move(to: .init(x: 166.66666666666666, y: 385))
-                path.move(to: .init(x: 500, y: 400))
-                path.addLine(to: .init(x: 458.33333333333331, y: 400))
+                do {
+                    let path2 = UIBezierPath()
+                    path2.move(to: .init(x: 500, y: 400))
+                    path2.addLine(to: .init(x: 458.33333333333331, y: 400))
+                    path.append(path2)
+                }
                 path.move(to: .init(x: 458.33333333333331, y: 400))
                 path.addLine(to: .init(x: 458.33333333333331, y: 437.5))
                 path.move(to: .init(x: 458.33333333333331, y: 475))
-                path.move(to: .init(x: 500, y: 250))
-                path.addLine(to: .init(x: 375, y: 250))
-                path.move(to: .init(x: 416.66666666666669, y: 325))
+                do {
+                    let path2 = UIBezierPath()
+                    path2.move(to: .init(x: 500, y: 250))
+                    path2.addLine(to: .init(x: 375, y: 250))
+                    path.append(path2)
+                }
                 path.move(to: .init(x: 416.66666666666669, y: 381.25))
                 path.addLine(to: .init(x: 416.66666666666663, y: 437.5))
                 path.move(to: .init(x: 500, y: 175))
@@ -1592,26 +1603,41 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 375, y: 250))
                 path.addLine(to: .init(x: 375, y: 315.625))
                 path.move(to: .init(x: 375, y: 381.25))
-                path.move(to: .init(x: 500, y: 25))
-                path.addLine(to: .init(x: 291.66666666666669, y: 25))
+                do {
+                    let path2 = UIBezierPath()
+                    path2.move(to: .init(x: 500, y: 25))
+                    path2.addLine(to: .init(x: 291.66666666666669, y: 25))
+                    path.append(path2)
+                }
                 path.move(to: .init(x: 333.33333333333337, y: 175))
                 path.addLine(to: .init(x: 333.33333333333337, y: 245.3125))
                 path.move(to: .init(x: 333.33333333333331, y: 315.625))
-                path.move(to: .init(x: 208.33333333333331, y: 300.625))
-                path.addLine(to: .init(x: 208.33333333333331, y: 387.8125))
+                do {
+                    let path2 = UIBezierPath()
+                    path2.move(to: .init(x: 208.33333333333331, y: 300.625))
+                    path2.addLine(to: .init(x: 208.33333333333331, y: 387.8125))
+                    path.append(path2)
+                }
                 path.move(to: .init(x: 208.33333333333331, y: 475))
-                path.move(to: .init(x: 291.66666666666669, y: 25))
-                path.addLine(to: .init(x: 291.66666666666669, y: 85.5859375))
+                do {
+                    let path2 = UIBezierPath()
+                    path2.move(to: .init(x: 291.66666666666669, y: 25))
+                    path2.addLine(to: .init(x: 291.66666666666669, y: 85.5859375))
+                    path.append(path2)
+                }
                 path.move(to: .init(x: 291.66666666666669, y: 100))
                 path.addLine(to: .init(x: 291.66666666666669, y: 184.7265625))
-                path.move(to: .init(x: 291.66666666666669, y: 245.3125))
                 path.move(to: .init(x: 291.66666666666669, y: 85.5859375))
                 path.addLine(to: .init(x: 277.77777777777783, y: 85.5859375))
                 path.move(to: .init(x: 277.77777777777783, y: 85.5859375))
                 path.addLine(to: .init(x: 277.77777777777783, y: 135.15625))
                 path.move(to: .init(x: 277.77777777777783, y: 184.7265625))
-                path.move(to: .init(x: 245.83333333333334, y: 261.484375))
-                path.addLine(to: .init(x: 254.16666666666669, y: 261.484375))
+                do {
+                    let path2 = UIBezierPath()
+                    path2.move(to: .init(x: 245.83333333333334, y: 261.484375))
+                    path2.addLine(to: .init(x: 254.16666666666669, y: 261.484375))
+                    path.append(path2)
+                }
                 return path
         }(),
             winnerPath: {
@@ -1699,8 +1725,12 @@ class BracketPathSetTests: QuickSpec {
                 path.move(to: .init(x: 125, y: 250))
                 path.addLine(to: .init(x: 125, y: 362.5))
                 path.move(to: .init(x: 125, y: 475))
-                path.move(to: .init(x: 0, y: 25))
-                path.addLine(to: .init(x: 375, y: 25))
+                do {
+                    let path2 = UIBezierPath()
+                    path2.move(to: .init(x: 0, y: 25))
+                    path2.addLine(to: .init(x: 375, y: 25))
+                    path.append(path2)
+                }
                 path.move(to: .init(x: 375, y: 25))
                 path.addLine(to: .init(x: 375, y: 193.75))
                 path.move(to: .init(x: 375, y: 362.5))

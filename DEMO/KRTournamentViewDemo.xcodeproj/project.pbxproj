@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -140,7 +140,7 @@
 				};
 			};
 			buildConfigurationList = 6BF4AEC71FD579E1005EDCE0 /* Build configuration list for PBXProject "KRTournamentViewDemo" */;
-			compatibilityVersion = "Xcode 10.0";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -177,16 +177,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KRTournamentViewDemo/Pods-KRTournamentViewDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/KRTournamentView/KRTournamentView.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-KRTournamentViewDemo/Pods-KRTournamentViewDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRTournamentView.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-KRTournamentViewDemo/Pods-KRTournamentViewDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

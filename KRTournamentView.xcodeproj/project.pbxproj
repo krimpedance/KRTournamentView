@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -330,7 +330,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = Krimpedance;
 				TargetAttributes = {
 					6BF4AE641FD57413005EDCE0 = {
@@ -345,7 +345,7 @@
 				};
 			};
 			buildConfigurationList = 6BF4AE5F1FD57413005EDCE0 /* Build configuration list for PBXProject "KRTournamentView" */;
-			compatibilityVersion = "Xcode 10.0";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -604,6 +604,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.krimpedance.KRTournamentView;
 				PRODUCT_NAME = KRTournamentView;
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -634,6 +635,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.krimpedance.KRTournamentView;
 				PRODUCT_NAME = KRTournamentView;
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
