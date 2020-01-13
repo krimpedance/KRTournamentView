@@ -37,7 +37,7 @@ var winnerLineWidth: CGFloat?       // 勝者の線の幅(初期値はnil). nil�
 [デリゲート](./HowToUse.md#KRTournamentViewDelegate) を実装することで，エントリーのサイズを変更できます．
 
 |80 x 30|200 x 80|
-|:--:|:--:|:--:|:--:|
+|:--:|:--:|
 |<img src="https://raw.githubusercontent.com/krimpedance/Resources/master/KRTournamentView/entrySize_small.png" height="300" />|<img src="https://raw.githubusercontent.com/krimpedance/Resources/master/KRTournamentView/entrySize_large.png" height="300" />|
 
 # 画面の回転による挙動の変更

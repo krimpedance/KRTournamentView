@@ -37,7 +37,7 @@ var winnerLineWidth: CGFloat?     // Winner's line width (default is nil). In th
 By implementing [Delegate](./HowToUse.md#krtournamentviewdelegate), you can change the size of the entry.
 
 |80 x 30|200 x 80|
-|:--:|:--:|:--:|:--:|
+|:--:|:--:|
 |<img src="https://raw.githubusercontent.com/krimpedance/Resources/master/KRTournamentView/entrySize_small.png" height="300" />|<img src="https://raw.githubusercontent.com/krimpedance/Resources/master/KRTournamentView/entrySize_large.png" height="300" />|
 
 # Behavior by rotating the screen
