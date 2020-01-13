@@ -362,6 +362,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1.0;
 				DEVELOPMENT_TEAM = C9S69ME8A5;
 				INFOPLIST_FILE = KRTournamentViewDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -381,6 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1.0;
 				DEVELOPMENT_TEAM = C9S69ME8A5;
 				INFOPLIST_FILE = KRTournamentViewDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

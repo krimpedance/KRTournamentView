@@ -46,7 +46,7 @@ public class TournamentBuilder: Equatable {
             "numberOfWinners must be divisor of numberOfEntries: \(numberOfEntries) -> \(numberOfEntries.divisors)"
         )
 
-        func innerInit(layer: Int, num: Int) -> TournamentBuilder {
+        func _init(layer: Int, num: Int) -> TournamentBuilder {
             let winnerIndexes = handler?(.init(layer: layer, item: num)) ?? []
             let children: [BuildType] = {
                 switch layer {
@@ -55,13 +55,13 @@ public class TournamentBuilder: Equatable {
                 default:
                     let numberOfChildren = numberOfEntries / numberOfWinners
                     let offset = num * numberOfChildren
-                    return (0..<numberOfChildren).map { .bracket(innerInit(layer: layer - 1, num: offset + $0)) }
+                    return (0..<numberOfChildren).map { .bracket(_init(layer: layer - 1, num: offset + $0)) }
                 }
             }()
             return TournamentBuilder(children: children, numberOfWinners: numberOfWinners, winnerIndexes: winnerIndexes)
         }
 
-        let builder = innerInit(layer: numberOfLayers, num: 0)
+        let builder = _init(layer: numberOfLayers, num: 0)
         self.numberOfWinners = builder.numberOfWinners
         self.winnerIndexes = builder.winnerIndexes
         self.children = builder.children
@@ -161,7 +161,7 @@ public extension TournamentBuilder {
     /// Build from currnt state.
     ///
     /// - Parameter format: If true, call `.format()` method after build `Bracket`.
-    /// - Returns: this instance.
+    /// - Returns: Bracket instance.
     func build(format: Bool = false) -> Bracket {
         let structures: [TournamentStructure] = children.map {
             switch $0 {

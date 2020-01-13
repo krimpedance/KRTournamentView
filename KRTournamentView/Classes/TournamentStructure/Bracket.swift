@@ -12,7 +12,7 @@ public struct Bracket: TournamentStructure, CustomStringConvertible {
     /// `MatchPath`
     public let matchPath: MatchPath!
 
-    /// Child structures. In other words, entries of the bracket.
+    /// Child structures.
     public let children: [TournamentStructure]
 
     /// Number of winners as structure.
@@ -114,7 +114,7 @@ extension Bracket {
 public extension Bracket {
     /// Validates values, set Bracket.matchPath and Entry.index to all structures.
     mutating func format() {
-        self = formatted()
+        self = formatted(force: true)
     }
 
     /// Validates values, and returns bracket set Bracket.matchPath and Entry.index to all structures.
