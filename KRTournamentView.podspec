@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "KRTournamentView"
-  s.version      = "1.1.0"
+  s.version      = "2.0.0"
   s.summary      = "A flexible tournament bracket."
   s.description  = "KRTournamentView is a flexible tournament bracket that can respond to the various structure on iOS."
   s.homepage     = "https://github.com/krimpedance/KRTournamentView"

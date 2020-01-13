@@ -55,11 +55,12 @@ See [here](./Documentation/En).
 
 ## Release Note
 
++ 2.0.0 :
+  - Update for Swift 5.
+  - Multi entries and multi winners.
+
 + 1.1.0 :
   - Compatible with Swift 4.2.
-
-+ 1.0.2 :
-  - Fixed bug of layout.
 
 
 ## Contributing to this project
